@@ -1,0 +1,10 @@
+.islands1{
+    -fx-background-image: url('../images/Islands6.png');
+    -fx-background-size: 100% 100%;
+    -fx-content-display: none;
+}
+.islands2{
+    -fx-background-image: url('../images/Islands10.png');
+    -fx-background-size: 100% 100%;
+    -fx-content-display: none;
+}

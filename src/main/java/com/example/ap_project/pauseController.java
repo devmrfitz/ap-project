@@ -10,9 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class menuPageController {
+public class pauseController {
 
     private Stage stage;
     private Scene scene;
@@ -25,26 +26,28 @@ public class menuPageController {
     private URL location;
 
     @FXML
-    void exitGame(ActionEvent event) {
-        System.out.println("exit clicked");
-        Stage stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
-        stage.close();
+    void getMenu(ActionEvent event) throws IOException {
+        System.out.println("Menu Clicked");
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menuPage.fxml")));
+        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void gameStart(ActionEvent event) throws IOException {
-        System.out.println("play clicked");
+    void resume(MouseEvent event) throws IOException {
+        System.out.println("Resume Clicked");
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game.fxml")));
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     @FXML
-    void loadGame(ActionEvent event) {
-        System.out.println("load clicked");
+    void saveGame(ActionEvent event) {
+
     }
 
     @FXML
