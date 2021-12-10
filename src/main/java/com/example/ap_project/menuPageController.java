@@ -14,6 +14,11 @@ public class menuPageController {
     private URL location;
 
     @FXML
+    void exitGame(ActionEvent event) {
+
+    }
+
+    @FXML
     void gameStart(ActionEvent event) {
 
     }

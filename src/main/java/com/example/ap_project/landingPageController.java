@@ -32,10 +32,6 @@ public class landingPageController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-//        Scene scene = new Scene(fxmlLoader.load());
-//        Stage stage = new Stage();
-//        stage.setScene(scene);
-//        stage.show();
     }
 
     @FXML
