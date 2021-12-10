@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.stage.Stage;
 
 public class menuPageController {
@@ -17,8 +18,8 @@ public class menuPageController {
     @FXML
     void exitGame(ActionEvent event) {
         System.out.println("exit clicked");
-//        Stage stage = (Stage) exitButton.getScene().getWindow();
-//        stage.close();
+        Stage stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+        stage.close();
     }
 
     @FXML
