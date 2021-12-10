@@ -8,15 +8,12 @@ import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class game extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(game.class.getResource("landingPage.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setScene(scene);
-//        stage.show();
-        Parent root = FXMLLoader.load(getClass().getResource("landingPage.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("landingPage.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
