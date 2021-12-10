@@ -14,6 +14,10 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class landingPageController {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     @FXML
     private ResourceBundle resources;
 
@@ -23,8 +27,11 @@ public class landingPageController {
     @FXML
     void getMenuPage(ActionEvent event) throws IOException {
         System.out.println("you Clicked Menu button");
-        FXMLLoader fxmlLoader = new FXMLLoader(game.class.getResource("menuPage.fxml"));
-        Stage.getWindows().get(0).getScene();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menuPage.fxml")));
+        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 //        Scene scene = new Scene(fxmlLoader.load());
 //        Stage stage = new Stage();
 //        stage.setScene(scene);
