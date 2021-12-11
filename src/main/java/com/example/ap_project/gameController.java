@@ -39,6 +39,9 @@ public class gameController {
     private ImageView orc;
 
     @FXML
+    private ImageView boss;
+
+    @FXML
     void move(KeyEvent event) {
         System.out.println("moved");
         System.out.println(event.getSource());
@@ -68,14 +71,15 @@ public class gameController {
 
     @FXML
     void initialize() throws InterruptedException {
-        translateRectangle(hero);
-        Thread.sleep(1000);
-        translateRectangle(orc);
+        translateRectangle(hero, 0);
+        translateRectangle(orc, 0.5);
+        translateRectangle(boss, 1);
+
     }
 
 
     //Translate a rectangle JAVAFx
-    public void translateRectangle(ImageView rectangle) {
+    public void translateRectangle(ImageView rectangle, double delay) {
         final Timeline timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.setAutoReverse(true);
@@ -83,6 +87,7 @@ public class gameController {
                 Interpolator.EASE_OUT);
         final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
         timeline.getKeyFrames().add(kf);
+        timeline.setDelay(Duration.seconds(delay));
         timeline.play();
     }
 
