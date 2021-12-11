@@ -1,6 +1,9 @@
 package com.example.ap_project;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -11,11 +14,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Region;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -41,6 +43,15 @@ public class gameController {
         System.out.println("moved");
         System.out.println(event.getSource());
 
+    }
+
+    @FXML
+    void open(MouseEvent event) throws FileNotFoundException {
+//        System.out.println(event.getSource().getClass());
+        InputStream stream = new FileInputStream("src/main/resources/com/example/ap_project/images/chestOpen.png");
+        Image image = new Image(stream);
+        ImageView imageView = (ImageView) event.getSource();
+        imageView.setImage(image);
     }
 
     @FXML
