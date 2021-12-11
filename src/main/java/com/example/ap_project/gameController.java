@@ -5,13 +5,13 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
@@ -31,7 +31,7 @@ public class gameController {
     private URL location;
 
     @FXML
-    private Region hero;
+    private ImageView hero;
 
     @FXML
     void move(KeyEvent event) {
@@ -57,15 +57,15 @@ public class gameController {
 
 
     //Translate a rectangle JAVAFx
-    public void translateRectangle(Region rectangle, double x, double y, int duration) {
-        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(duration), rectangle);
-        translateTransition.setByX(x);
-        translateTransition.setByY(y);
-        translateTransition.setCycleCount(18);
-        translateTransition.setRate(3);
-        translateTransition.setDelay(Duration.seconds(0));
-        translateTransition.setAutoReverse(true);
-        translateTransition.play();
+    public void translateRectangle(ImageView rectangle, double x, double y, int duration) {
+        final Timeline timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.setAutoReverse(true);
+        final KeyValue kv = new KeyValue(rectangle.yProperty(), -100,
+                Interpolator.EASE_OUT);
+        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.play();
     }
 
     //setRotate
