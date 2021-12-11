@@ -41,18 +41,18 @@ public class gameController {
     @FXML
     void pause(MouseEvent event) throws IOException {
         System.out.println("Pause");
-//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pausePage.fxml")));
-//        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
-        translateRectangle(hero, 0, -100, 2);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pausePage.fxml")));
+        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
 
     }
 
     @FXML
     void initialize() {
-
+        translateRectangle(hero, 0, -100, 2);
     }
 
 
