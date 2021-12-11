@@ -1,63 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.scene.Group?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.shape.Rectangle?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<AnchorPane maxHeight="480.0" maxWidth="900.0" minHeight="480.0" minWidth="900.0" onKeyPressed="#move" prefHeight="480.0" prefWidth="900.0" styleClass="gradientBackground" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.gameController">
-   <children>
-      <Region layoutX="696.0" layoutY="15.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@styles/tree.css" />
-      <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@styles/tree.css" />
-      <Region layoutX="58.0" layoutY="301.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@styles/islands1.css" />
-      <Region layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
-      <Group layoutX="12.0" layoutY="12.0" onMouseClicked="#pause">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
-         </children>
-      </Group>
-      <ImageView fx:id="hero" fitHeight="55.0" fitWidth="59.0" layoutX="192.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/panda.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="orc" fitHeight="55.0" fitWidth="59.0" layoutX="607.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/red_orc.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="55.0" fitWidth="85.0" layoutX="751.0" layoutY="193.0" onMouseClicked="#openChest" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/chestClosed.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="421.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/Coin.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="381.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/Coin.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="343.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/Coin.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="226.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/cloud_5.png" />
-         </image>
-      </ImageView>
-   </children>
+<AnchorPane maxHeight="480.0" maxWidth="900.0" minHeight="480.0" minWidth="900.0" onKeyPressed="#move" onMouseClicked="#moveForward" prefHeight="480.0" prefWidth="900.0" styleClass="gradientBackground" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.gameController">
    <stylesheets>
       <URL value="@styles/hero.css" />
       <URL value="@styles/gamePage.css" />
    </stylesheets>
+   <Region layoutX="696.0" layoutY="15.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@styles/tree.css" />
+   <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@styles/tree.css" />
+   <Region layoutX="58.0" layoutY="301.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@styles/islands1.css" />
+   <Region layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
+   <Group layoutX="12.0" layoutY="12.0" onMouseClicked="#pause">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
+   </Group>
+   <ImageView fx:id="hero" fitHeight="55.0" fitWidth="59.0" layoutX="192.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images/panda.png" />
+   </ImageView>
+   <ImageView fx:id="orc" fitHeight="55.0" fitWidth="59.0" layoutX="607.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images/red_orc.png" />
+   </ImageView>
+   <ImageView fitHeight="55.0" fitWidth="85.0" layoutX="751.0" layoutY="193.0" onMouseClicked="#openChest" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images/chestClosed.png" />
+   </ImageView>
+   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="421.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images/Coin.png" />
+   </ImageView>
+   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="381.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images/Coin.png" />
+   </ImageView>
+   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="343.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images/Coin.png" />
+   </ImageView>
+   <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="226.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images/cloud_5.png" />
+   </ImageView>
 </AnchorPane>

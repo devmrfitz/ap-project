@@ -86,6 +86,20 @@ public class gameController {
         timeline.play();
     }
 
+    @FXML
+    void moveForward(MouseEvent event) throws FileNotFoundException {
+        System.out.println("moved");
+//        final Timeline timeline = new Timeline();
+//        timeline.setCycleCount(1);
+//        timeline.setAutoReverse(false);
+//        final KeyValue kv = new KeyValue(hero.xProperty(), 70,
+//                Interpolator.EASE_OUT);
+//        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+//        timeline.getKeyFrames().add(kf);
+//        timeline.play();
+        hero.setLayoutX(hero.getLayoutX() + 70);
+
+    }
     //setRotate
 //    private
 
