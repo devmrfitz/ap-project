@@ -54,8 +54,9 @@ public class gameController {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws InterruptedException {
         translateRectangle(hero, 0, -100, 2);
+        Thread.sleep(1000);
         translateRectangle(orc, 0, -120, 2);
     }
 
