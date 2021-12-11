@@ -55,7 +55,7 @@ public class gameController {
 //        }
 //        translateRectangle(hero, 0, -70, 2);
 //        Thread.sleep(2000);
-        translateRectangle(hero, 0, 70, 2);
+
 
 
 //        for (int y=0;y<100;y++) {
@@ -67,7 +67,9 @@ public class gameController {
 
     @FXML
     void initialize() {
-
+        hero.setLayoutX(365-141.00003051757812);
+        hero.setLayoutY(301-23.4000244140625);
+        translateRectangle(hero, 0, 70, 2);
     }
 
 
@@ -75,8 +77,9 @@ public class gameController {
     public void translateRectangle(Region rectangle, double x, double y, double duration) {
         PathTransition pathTransition = new PathTransition();
         Path path = new Path();
-        path.getElements().add (new MoveTo(0f, 50f));
-        path.getElements().add (new CubicCurveTo(40f, 10f, 390f, 240f, 1904, 50f));
+        path.getElements().add (new MoveTo(0f, 0f));
+        path.getElements().add (new CubicCurveTo(-50, -100, 72.60000610351562,
+                -344.20001220703125, 347, -92.19999694824219));
 
         pathTransition.setDuration(Duration.millis(10000));
         pathTransition.setNode(rectangle);
