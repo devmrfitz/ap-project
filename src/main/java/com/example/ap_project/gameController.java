@@ -57,14 +57,14 @@ public class gameController {
 
     @FXML
     void initialize() throws InterruptedException {
-        translateRectangle(hero, 0, -100, 2);
+        translateRectangle(hero);
         Thread.sleep(1000);
-        translateRectangle(orc, 0, -120, 2);
+        translateRectangle(orc);
     }
 
 
     //Translate a rectangle JAVAFx
-    public void translateRectangle(ImageView rectangle, double x, double y, int duration) {
+    public void translateRectangle(ImageView rectangle) {
         final Timeline timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.setAutoReverse(true);
