@@ -49,6 +49,7 @@ public class pauseController {
     @FXML
     void resume(MouseEvent event) throws IOException {
         System.out.println("Resume Clicked");
+        farewell();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game.fxml")));
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
         scene = new Scene(root);
@@ -69,16 +70,50 @@ public class pauseController {
     public void welcome() {
         final Timeline timeline = new Timeline();
         timeline.setCycleCount(1);
-        timeline.setAutoReverse(true);
-        final KeyValue kw = new KeyValue(pane.prefWidthProperty(), 501,
-                Interpolator.EASE_BOTH);
-        final KeyValue kh = new KeyValue(pane.prefHeightProperty(), 326,
-                Interpolator.EASE_BOTH);
-        final KeyFrame kf = new KeyFrame(Duration.millis(700), kw);
-        final KeyFrame kf2 = new KeyFrame(Duration.millis(700), kh);
+        timeline.setAutoReverse(false);
+
+        final KeyFrame kf = new KeyFrame(Duration.millis(700), new KeyValue(pane.prefWidthProperty(), 501,
+                Interpolator.EASE_BOTH));
+        final KeyFrame kf2 = new KeyFrame(Duration.millis(700), new KeyValue(pane.prefHeightProperty(), 326,
+                Interpolator.EASE_BOTH));
+
+        final KeyFrame kf3 = new KeyFrame(Duration.millis(700), new KeyValue(pane.layoutXProperty(), 189,
+                Interpolator.EASE_BOTH));
+        final KeyFrame kf4 = new KeyFrame(Duration.millis(700), new KeyValue(pane.layoutYProperty(), 77,
+                Interpolator.EASE_BOTH));
+
+
 
         timeline.getKeyFrames().add(kf);
         timeline.getKeyFrames().add(kf2);
+        timeline.getKeyFrames().add(kf3);
+        timeline.getKeyFrames().add(kf4);
         timeline.play();
     }
+
+    public void farewell() {
+        final Timeline timeline = new Timeline();
+        timeline.setCycleCount(1);
+        timeline.setAutoReverse(false);
+
+        final KeyFrame kf = new KeyFrame(Duration.millis(700), new KeyValue(pane.prefWidthProperty(), 0,
+                Interpolator.EASE_BOTH));
+        final KeyFrame kf2 = new KeyFrame(Duration.millis(700), new KeyValue(pane.prefHeightProperty(), 0,
+                Interpolator.EASE_BOTH));
+
+        final KeyFrame kf3 = new KeyFrame(Duration.millis(700), new KeyValue(pane.layoutXProperty(), 450,
+                Interpolator.EASE_BOTH));
+        final KeyFrame kf4 = new KeyFrame(Duration.millis(700), new KeyValue(pane.layoutYProperty(), 240,
+                Interpolator.EASE_BOTH));
+
+
+
+        timeline.getKeyFrames().add(kf);
+        timeline.getKeyFrames().add(kf2);
+        timeline.getKeyFrames().add(kf3);
+        timeline.getKeyFrames().add(kf4);
+        timeline.play();
+    }
+
+
 }
