@@ -10,7 +10,7 @@
       <Region layoutX="696.0" layoutY="15.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@styles/tree.css" />
       <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@styles/tree.css" />
       <Region layoutX="58.0" layoutY="301.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@styles/islands1.css" />
-      <Region layoutX="196.0" layoutY="244.0" prefHeight="55.0" prefWidth="59.0" styleClass="heroSkin" stylesheets="@styles/hero.css" />
+      <Region fx:id="hero" layoutX="196.0" layoutY="244.0" prefHeight="55.0" prefWidth="59.0" styleClass="heroSkin" stylesheets="@styles/hero.css" />
       <Region layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
       <Group layoutX="12.0" layoutY="12.0" onMouseClicked="#pause">
          <children>
