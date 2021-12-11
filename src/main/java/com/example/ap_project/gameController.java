@@ -78,8 +78,8 @@ public class gameController {
         PathTransition pathTransition = new PathTransition();
         Path path = new Path();
         path.getElements().add (new MoveTo(0f, 0f));
-        path.getElements().add (new CubicCurveTo(-50, -100, 72.60000610351562,
-                -344.20001220703125, 347, -92.19999694824219));
+        path.getElements().add (new CubicCurveTo( 72.60000610351562,
+                -344.20001220703125, -50, -100, 347, -92.19999694824219));
 
         pathTransition.setDuration(Duration.millis(10000));
         pathTransition.setNode(rectangle);
