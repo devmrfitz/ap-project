@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -34,6 +35,12 @@ public class gameController {
 
     @FXML
     private ImageView hero;
+
+    @FXML
+    private Rectangle platform1;
+
+    @FXML
+    private Rectangle platform2;
 
     @FXML
     private ImageView orc;
@@ -74,6 +81,8 @@ public class gameController {
         translateRectangle(hero, 0);
         translateRectangle(orc, 0.5);
         translateRectangle(boss, 1);
+        fall(platform1, 0);
+        fall(platform2, 0.5);
 
     }
 
@@ -86,6 +95,18 @@ public class gameController {
         final KeyValue kv = new KeyValue(rectangle.yProperty(), -100,
                 Interpolator.EASE_OUT);
         final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setDelay(Duration.seconds(delay));
+        timeline.play();
+    }
+
+    public void fall(Rectangle rectangle, double delay) {
+        final Timeline timeline = new Timeline();
+        timeline.setCycleCount(1);
+        timeline.setAutoReverse(false);
+        final KeyValue kv = new KeyValue(rectangle.yProperty(), 1000,
+                Interpolator.EASE_BOTH);
+        final KeyFrame kf = new KeyFrame(Duration.millis(4700), kv);
         timeline.getKeyFrames().add(kf);
         timeline.setDelay(Duration.seconds(delay));
         timeline.play();
@@ -113,8 +134,6 @@ public class gameController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
-
     }
 
 }
