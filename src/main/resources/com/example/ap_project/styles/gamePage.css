@@ -1,0 +1,8 @@
+.gradientBackground {
+    -fx-background-color: linear-gradient(to bottom, #0a66ee, #009df0, #00c0cc, #a4d9c0, #eef0e8);
+}
+
+.cloud5{
+    -fx-background-image: url('../images/cloud_5.png');
+    -fx-background-size: 100% 100%;
+}

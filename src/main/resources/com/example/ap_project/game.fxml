@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="480.0" maxWidth="900.0" minHeight="480.0" minWidth="900.0" onKeyPressed="#move" prefHeight="480.0" prefWidth="900.0" style="-fx-background-color: cyan;" stylesheets="@styles/hero.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.gameController">
+<AnchorPane maxHeight="480.0" maxWidth="900.0" minHeight="480.0" minWidth="900.0" onKeyPressed="#move" prefHeight="480.0" prefWidth="900.0" styleClass="gradientBackground" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.gameController">
    <children>
       <Region layoutX="696.0" layoutY="15.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@styles/tree.css" />
       <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@styles/tree.css" />
@@ -49,5 +50,14 @@
             <Image url="@images/Coin.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="226.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/cloud_5.png" />
+         </image>
+      </ImageView>
    </children>
+   <stylesheets>
+      <URL value="@styles/hero.css" />
+      <URL value="@styles/gamePage.css" />
+   </stylesheets>
 </AnchorPane>
