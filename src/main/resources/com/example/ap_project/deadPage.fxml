@@ -26,7 +26,7 @@
                </effect>
             </Pane>
             <Button layoutX="512.0" layoutY="388.0" mnemonicParsing="false" onAction="#getMenu" text="Respwan" />
-            <Label layoutX="350.0" layoutY="180.0" prefHeight="60.0" prefWidth="161.0" text="Game Over">
+            <Label layoutX="350.0" layoutY="180.0" prefHeight="60.0" prefWidth="161.0" text="Game Over" textFill="#e72c2c">
                <font>
                   <Font size="31.0" />
                </font>
