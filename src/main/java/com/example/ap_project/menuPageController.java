@@ -58,7 +58,7 @@ public class menuPageController {
             System.out.println(file.getAbsolutePath());
         }
         catch (Exception e){
-            e.printStackTrace();
+            System.out.println("error");
         }
 
     }
