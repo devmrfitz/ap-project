@@ -25,7 +25,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
    </Group>
-   <ImageView fitHeight="71.0" fitWidth="28.0" layoutX="269.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true" rotate="60.0">
+   <ImageView fx:id="sword" fitHeight="71.0" fitWidth="28.0" layoutX="247.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@images/Sword.png" />
       </image>
@@ -57,7 +57,7 @@
       </image>
    </ImageView>
    <Button layoutX="815.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#game_over" text="End Game" />
-   <Rectangle fx:id="platform1" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="337.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="78.0">
+   <Rectangle fx:id="platform1" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="398.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
       <fill>
          <LinearGradient endX="1.0" endY="1.0">
             <stops>
@@ -80,7 +80,7 @@
          </LinearGradient>
       </fill>
    </Rectangle>
-   <Rectangle fx:id="platform2" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="422.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="78.0">
+   <Rectangle fx:id="platform2" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="465.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
       <fill>
          <LinearGradient endX="1.0" endY="1.0">
             <stops>

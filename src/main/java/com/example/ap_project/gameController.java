@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -49,10 +50,12 @@ public class gameController {
     private ImageView boss;
 
     @FXML
+    private ImageView sword;
+
+    @FXML
     void move(KeyEvent event) {
         System.out.println("moved");
         System.out.println(event.getSource());
-
     }
 
     @FXML
@@ -72,8 +75,6 @@ public class gameController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
-
     }
 
     @FXML
@@ -83,6 +84,7 @@ public class gameController {
         translateRectangle(boss, 1);
         fall(platform1, 0);
         fall(platform2, 0.5);
+        translateRectangle(sword,0);
 
     }
 
@@ -124,7 +126,21 @@ public class gameController {
 //        timeline.getKeyFrames().add(kf);
 //        timeline.play();
         hero.setLayoutX(hero.getLayoutX() + 70);
+        sword.setLayoutX(sword.getLayoutX() + 70);
+        hit(sword, 0);
+    }
 
+    public void hit(ImageView rectangle, double delay) {
+        final Timeline timeline = new Timeline();
+        timeline.setCycleCount(2);
+        timeline.setAutoReverse(true);
+        final KeyValue kv = new KeyValue(rectangle.rotateProperty(), 90,
+                Interpolator.EASE_BOTH);
+        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setDelay(Duration.seconds(delay));
+        timeline.setAutoReverse(true);
+        timeline.play();
     }
 
     @FXML
