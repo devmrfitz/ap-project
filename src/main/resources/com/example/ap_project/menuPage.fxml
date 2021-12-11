@@ -31,6 +31,6 @@
       <Region layoutX="57.0" layoutY="300.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@styles/islands1.css" />
       <Region layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
       <Region layoutX="196.0" layoutY="244.0" prefHeight="55.0" prefWidth="59.0" styleClass="heroSkin" stylesheets="@styles/hero.css" />
-      <Region layoutX="226.0" layoutY="14.0" maxHeight="1.7976931348623157E308" prefHeight="98.0" prefWidth="228.0" styleClass="cloud5" />
+      <Region layoutX="226.0" layoutY="14.0" maxHeight="1.7976931348623157E308" prefHeight="98.0" prefWidth="228.0" styleClass="cloud5" stylesheets="@styles/menuPage.css" />
    </children>
 </AnchorPane>
