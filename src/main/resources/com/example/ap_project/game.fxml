@@ -22,6 +22,11 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
    </Group>
+   <ImageView fitHeight="110.0" fitWidth="23.0" layoutX="273.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true" rotate="60.0">
+      <image>
+         <Image url="@images/Sword.png" />
+      </image>
+   </ImageView>
    <ImageView fx:id="hero" fitHeight="55.0" fitWidth="59.0" layoutX="192.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@images/panda.png" />
    </ImageView>
