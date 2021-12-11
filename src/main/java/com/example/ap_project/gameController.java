@@ -46,7 +46,7 @@ public class gameController {
     }
 
     @FXML
-    void open(MouseEvent event) throws FileNotFoundException {
+    void openChest(MouseEvent event) throws FileNotFoundException {
 //        System.out.println(event.getSource().getClass());
         InputStream stream = new FileInputStream("src/main/resources/com/example/ap_project/images/chestOpen.png");
         Image image = new Image(stream);
