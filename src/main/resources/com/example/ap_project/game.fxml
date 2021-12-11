@@ -19,9 +19,14 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
          </children>
       </Group>
-      <ImageView fx:id="hero" fitHeight="55.0" fitWidth="59.0" layoutX="197.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true" styleClass="heroSkin">
+      <ImageView fx:id="hero" fitHeight="55.0" fitWidth="59.0" layoutX="197.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/panda.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="orc" fitHeight="55.0" fitWidth="59.0" layoutX="637.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/red_ork.png" />
          </image>
       </ImageView>
    </children>

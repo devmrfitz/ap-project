@@ -34,6 +34,9 @@ public class gameController {
     private ImageView hero;
 
     @FXML
+    private ImageView orc;
+
+    @FXML
     void move(KeyEvent event) {
 
     }
@@ -53,6 +56,7 @@ public class gameController {
     @FXML
     void initialize() {
         translateRectangle(hero, 0, -100, 2);
+        translateRectangle(orc, 0, -120, 2);
     }
 
 
