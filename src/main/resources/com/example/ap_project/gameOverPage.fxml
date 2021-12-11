@@ -8,32 +8,23 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="480.0" maxWidth="900.0" minHeight="480.0" minWidth="899.0" prefHeight="480.0" prefWidth="900.0"
-            style="-fx-background-color: cyan;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.ap_project.gameOverPageController">
-   <Region layoutX="696.0" layoutY="15.0" opacity="0.48" prefHeight="229.0" prefWidth="135.0" styleClass="tree1"
-           stylesheets="@styles/tree.css"/>
-   <Region layoutX="33.0" layoutY="78.0" opacity="0.48" prefHeight="229.0" prefWidth="135.0" styleClass="tree2"
-           stylesheets="@styles/tree.css"/>
-   <Region layoutX="58.0" layoutY="301.0" opacity="0.48" prefHeight="144.0" prefWidth="244.0" styleClass="islands1"
-           stylesheets="@styles/islands1.css"/>
-   <Region layoutX="517.0" layoutY="237.0" opacity="0.48" prefHeight="189.0" prefWidth="330.0" styleClass="islands2"
-           stylesheets="@styles/islands1.css"/>
-   <AnchorPane maxHeight="480.0" maxWidth="900.0" minHeight="480.0" minWidth="900.0" prefHeight="480.0"
-               prefWidth="900.0">
-      <Pane fx:id="pane" layoutX="450.0" layoutY="240.0" prefHeight="0.0" prefWidth="0.0"
-            style="-fx-background-color: violet;">
+<AnchorPane maxHeight="480.0" maxWidth="900.0" minHeight="480.0" minWidth="899.0" prefHeight="480.0" prefWidth="900.0" style="-fx-background-color: cyan;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.gameOverPageController">
+   <Region layoutX="696.0" layoutY="15.0" opacity="0.48" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@styles/tree.css" />
+   <Region layoutX="33.0" layoutY="78.0" opacity="0.48" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@styles/tree.css" />
+   <Region layoutX="58.0" layoutY="301.0" opacity="0.48" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@styles/islands1.css" />
+   <Region layoutX="517.0" layoutY="237.0" opacity="0.48" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
+   <AnchorPane maxHeight="480.0" maxWidth="900.0" minHeight="480.0" minWidth="900.0" prefHeight="480.0" prefWidth="900.0">
+      <Pane fx:id="pane" layoutX="450.0" layoutY="240.0" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: violet;">
          <effect>
-            <DropShadow/>
+            <DropShadow />
          </effect>
-         <Button layoutX="269.0" layoutY="149.0" mnemonicParsing="false" onAction="#saveGame" text="Restart"/>
-         <Button layoutX="144.0" layoutY="149.0" mnemonicParsing="false" onAction="#getMenu"
-                 text="Return to Menu"/>
+         <Button layoutX="50.0" layoutY="149.0" mnemonicParsing="false" onAction="#getMenu" text="Respwan" />
+         <Button layoutX="269.0" layoutY="149.0" mnemonicParsing="false" onAction="#saveGame" text="Restart" />
+         <Button layoutX="144.0" layoutY="149.0" mnemonicParsing="false" onAction="#getMenu" text="Return to Menu" />
       </Pane>
-      <Button layoutX="512.0" layoutY="388.0" mnemonicParsing="false" onAction="#getMenu" text="Respwan"/>
-      <Label layoutX="350.0" layoutY="180.0" prefHeight="60.0" prefWidth="161.0" text="Game Over">
+      <Label layoutX="350.0" layoutY="153.0" prefHeight="60.0" prefWidth="161.0" text="Game Over">
          <font>
-            <Font size="31.0"/>
+            <Font size="31.0" />
          </font>
       </Label>
    </AnchorPane>
