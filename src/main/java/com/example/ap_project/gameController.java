@@ -38,6 +38,8 @@ public class gameController {
 
     @FXML
     void move(KeyEvent event) {
+        System.out.println("moved");
+        System.out.println(event.getSource());
 
     }
 
