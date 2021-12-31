@@ -90,11 +90,7 @@ public class gameController {
         fall(platform2, 0.5);
         translateRectangle(sword,0);
 
-        Boss bossHandler = new Boss(boss, island2);
 
-        Thread bossThread = new Thread(bossHandler);
-
-        bossThread.start();
 
 
     }
@@ -108,13 +104,24 @@ public class gameController {
         final KeyValue up_key_value = new KeyValue(rectangle.yProperty(), -100,
                 Interpolator.EASE_OUT);
         final KeyFrame up_keyframe = new KeyFrame(Duration.millis(700), up_key_value);
-        final KeyValue down_key_value = new KeyValue(rectangle.yProperty(), 0,
+        final KeyValue down_key_value = new KeyValue(rectangle.yProperty(), 1000,
                 Interpolator.EASE_IN);
-        final KeyFrame down_keyframe = new KeyFrame(Duration.millis(700), down_key_value);
+        final KeyFrame down_keyframe = new KeyFrame(Duration.millis(7000), down_key_value);
+
+
 
         timeline.getKeyFrames().add(up_keyframe);
+        timeline.getKeyFrames().add(down_keyframe);
         timeline.setDelay(Duration.seconds(delay));
         timeline.play();
+
+        if (rectangle.equals(boss)) {
+            Boss bossHandler = new Boss(boss, island2, timeline);
+
+            Thread bossThread = new Thread(bossHandler);
+
+            bossThread.start();
+        }
     }
 
     // Check collision between hero and platform
