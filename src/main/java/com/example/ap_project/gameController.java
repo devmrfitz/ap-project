@@ -143,7 +143,7 @@ public class gameController {
     void moveForward(MouseEvent event) throws FileNotFoundException {
         // Check if hero has collided
         System.out.println("moveForward");
-        if (hero.getBoundsInParent().intersects(island1.getBoundsInParent()) || hero.getBoundsInParent().intersects(platform2.getBoundsInParent())) {
+        if (hero.getBoundsInParent().intersects(island1.getBoundsInParent()) || hero.getBoundsInParent().intersects(platform2.getBoundsInParent()))
             System.out.println("collision");
 //        final Timeline timeline = new Timeline();
 //        timeline.setCycleCount(1);
@@ -158,7 +158,20 @@ public class gameController {
         hit(sword, 0);
     }
 
+    public void hit(ImageView rectangle, double delay) {
+        final Timeline timeline = new Timeline();
+        timeline.setCycleCount(2);
+        timeline.setAutoReverse(true);
+        final KeyValue kv = new KeyValue(rectangle.rotateProperty(), 90,
+                Interpolator.EASE_BOTH);
+        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setDelay(Duration.seconds(delay));
+        timeline.setAutoReverse(true);
+        timeline.play();
     }
+
+
     @FXML
     void game_over(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("gameOverPage.fxml")));
