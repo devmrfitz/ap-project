@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
@@ -48,6 +49,9 @@ public class gameController {
 
     @FXML
     private ImageView boss;
+
+    @FXML
+    private Region island1, island2;
 
     @FXML
     private ImageView sword;
@@ -86,21 +90,42 @@ public class gameController {
         fall(platform2, 0.5);
         translateRectangle(sword,0);
 
+        Boss bossHandler = new Boss(boss, island2);
+
+        Thread bossThread = new Thread(bossHandler);
+
+        bossThread.start();
+
+
     }
 
 
     //Translate a rectangle JAVAFx
     public void translateRectangle(ImageView rectangle, double delay) {
         final Timeline timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.setAutoReverse(true);
-        final KeyValue kv = new KeyValue(rectangle.yProperty(), -100,
+        timeline.setCycleCount(1);
+        timeline.setAutoReverse(false);
+        final KeyValue up_key_value = new KeyValue(rectangle.yProperty(), -100,
                 Interpolator.EASE_OUT);
-        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
-        timeline.getKeyFrames().add(kf);
+        final KeyFrame up_keyframe = new KeyFrame(Duration.millis(700), up_key_value);
+        final KeyValue down_key_value = new KeyValue(rectangle.yProperty(), 0,
+                Interpolator.EASE_IN);
+        final KeyFrame down_keyframe = new KeyFrame(Duration.millis(700), down_key_value);
+
+        timeline.getKeyFrames().add(up_keyframe);
         timeline.setDelay(Duration.seconds(delay));
         timeline.play();
     }
+
+    // Check collision between hero and platform
+    public boolean checkCollision(ImageView hero, Rectangle platform) {
+        if (hero.getBoundsInParent().intersects(platform.getBoundsInParent())) {
+            return true;
+        }
+        return false;
+    }
+
+
 
     public void fall(Rectangle rectangle, double delay) {
         final Timeline timeline = new Timeline();
@@ -116,7 +141,10 @@ public class gameController {
 
     @FXML
     void moveForward(MouseEvent event) throws FileNotFoundException {
-        System.out.println("moved");
+        // Check if hero has collided
+        System.out.println("moveForward");
+        if (hero.getBoundsInParent().intersects(island1.getBoundsInParent()) || hero.getBoundsInParent().intersects(platform2.getBoundsInParent())) {
+            System.out.println("collision");
 //        final Timeline timeline = new Timeline();
 //        timeline.setCycleCount(1);
 //        timeline.setAutoReverse(false);
@@ -125,24 +153,12 @@ public class gameController {
 //        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
 //        timeline.getKeyFrames().add(kf);
 //        timeline.play();
-        hero.setLayoutX(hero.getLayoutX() + 70);
+//            hero.setLayoutX(hero.getLayoutX() + 70);
         sword.setLayoutX(sword.getLayoutX() + 70);
         hit(sword, 0);
     }
 
-    public void hit(ImageView rectangle, double delay) {
-        final Timeline timeline = new Timeline();
-        timeline.setCycleCount(2);
-        timeline.setAutoReverse(true);
-        final KeyValue kv = new KeyValue(rectangle.rotateProperty(), 90,
-                Interpolator.EASE_BOTH);
-        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setDelay(Duration.seconds(delay));
-        timeline.setAutoReverse(true);
-        timeline.play();
     }
-
     @FXML
     void game_over(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("gameOverPage.fxml")));

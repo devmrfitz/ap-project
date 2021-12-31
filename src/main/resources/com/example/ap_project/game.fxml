@@ -19,8 +19,8 @@
    </stylesheets>
    <Region layoutX="696.0" layoutY="15.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@styles/tree.css" />
    <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@styles/tree.css" />
-   <Region layoutX="58.0" layoutY="301.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@styles/islands1.css" />
-   <Region layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
+   <Region fx:id="island1" layoutX="58.0" layoutY="301.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@styles/islands1.css" />
+   <Region fx:id="island2" layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
    <Group layoutX="12.0" layoutY="12.0" onMouseClicked="#pause">
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
@@ -30,7 +30,7 @@
          <Image url="@images/Sword.png" />
       </image>
    </ImageView>
-   <ImageView fx:id="hero" fitHeight="55.0" fitWidth="59.0" layoutX="192.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="hero" fitHeight="55.0" fitWidth="59.0" layoutX="168.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@images/panda.png" />
    </ImageView>
    <ImageView fx:id="orc" fitHeight="55.0" fitWidth="59.0" layoutX="574.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
