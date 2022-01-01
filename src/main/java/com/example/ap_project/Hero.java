@@ -2,7 +2,7 @@ package com.example.ap_project;
 
 import java.util.ArrayList;
 
-public class hero implements positionable,serializable {
+public class Hero implements positionable,serializable {
     private ArrayList<weapon> activeWeapons;
     private int distanceTravelled;
     private int coinsCollected;
