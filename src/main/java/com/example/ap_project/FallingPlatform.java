@@ -1,7 +1,7 @@
 package com.example.ap_project;
 
-public class fallingPlatform {
-    public fallingPlatform(){
+public class FallingPlatform {
+    public FallingPlatform(){
 
     }
 

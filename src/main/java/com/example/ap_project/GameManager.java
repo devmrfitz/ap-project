@@ -2,13 +2,13 @@ package com.example.ap_project;
 
 import java.util.ArrayList;
 
-public class gameManager {
+public class GameManager {
     private int distanceCovered;
-    private ArrayList<gameObjects> gameObjectsOnScreen;
+    private ArrayList<GameObjects> gameObjectsOnScreen;
     private int gravity;
     private int highScore;
 
-    public gameManager(){
+    public GameManager(){
 
     }
 

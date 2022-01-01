@@ -1,9 +1,9 @@
 package com.example.ap_project;
 
-public class coinChest {
+public class CoinChest {
     private int coinChest;
 
-    public coinChest(){
+    public CoinChest(){
 
     }
 

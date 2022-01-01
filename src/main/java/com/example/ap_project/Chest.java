@@ -1,9 +1,9 @@
 package com.example.ap_project;
 
-public class chest {
+public class Chest {
     private boolean isOpen;
 
-    public chest(){
+    public Chest(){
 
     }
 
