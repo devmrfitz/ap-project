@@ -120,14 +120,6 @@ public class GameController {
         timeline.getKeyFrames().add(down_keyframe);
         timeline.setDelay(Duration.seconds(delay));
         timeline.play();
-
-        if (rectangle.equals(boss)) {
-            Boss bossHandler = new Boss(boss, island2, timeline);
-
-            Thread bossThread = new Thread(bossHandler);
-
-//            bossThread.start();
-        }
     }
 
     // Check collision between hero and platform

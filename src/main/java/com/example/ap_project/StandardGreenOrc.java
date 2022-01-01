@@ -1,7 +1,9 @@
 package com.example.ap_project;
 
-public class StandardGreenOrc extends Orc {
-    public StandardGreenOrc(){
+import javafx.scene.image.ImageView;
 
+public class StandardGreenOrc extends Orc {
+    public StandardGreenOrc(ImageView _node){
+        super(_node);
     }
 }

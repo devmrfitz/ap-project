@@ -36,9 +36,6 @@ public class Hero implements Positionable, Serializable, Jumpable {
         final KeyValue down_key_value = new KeyValue(node.layoutYProperty(), 1000,
                 Interpolator.EASE_IN);
         final KeyFrame down_keyframe = new KeyFrame(Duration.millis(7000), down_key_value);
-
-
-
         jumpTimeline.getKeyFrames().add(up_keyframe);
         jumpTimeline.getKeyFrames().add(down_keyframe);
         jumpTimeline.play();

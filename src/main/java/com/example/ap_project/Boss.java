@@ -11,11 +11,8 @@ public class Boss extends Orc implements Runnable {
     private Region bossRegion;
     private Timeline bossTimeline;
 
-    public Boss(ImageView boss, Region bossRegion, Timeline bossTimeline) {
-        this.boss = boss;
-
-        this.bossRegion = bossRegion;
-        this.bossTimeline = bossTimeline;
+    public Boss(ImageView _node){
+        super(_node);
     }
 
     @Override
