@@ -1,6 +1,6 @@
 package com.example.ap_project;
 
-public class CoinChest {
+public class CoinChest extends Chest{
     private int coinChest;
 
     public CoinChest(){

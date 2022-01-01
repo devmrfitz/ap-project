@@ -1,6 +1,6 @@
 package com.example.ap_project;
 
-public class WeaponChest {
+public class WeaponChest extends Chest{
     private com.example.ap_project.Weapon Weapon;
     public WeaponChest(){
 

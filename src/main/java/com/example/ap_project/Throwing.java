@@ -1,6 +1,6 @@
 package com.example.ap_project;
 
-public class Throwing {
+public class Throwing extends Weapon{
     public Throwing(){
 
     }

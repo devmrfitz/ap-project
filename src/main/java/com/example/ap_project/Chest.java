@@ -1,6 +1,6 @@
 package com.example.ap_project;
 
-public class Chest {
+public class Chest extends GameObjects{
     private boolean isOpen;
 
     public Chest(){

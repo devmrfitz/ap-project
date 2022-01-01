@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.util.Duration;
 
-public class Boss implements Runnable {
+public class Boss extends Orc implements Runnable {
     private ImageView boss;
     private Region bossRegion;
     private Timeline bossTimeline;

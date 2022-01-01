@@ -1,6 +1,6 @@
 package com.example.ap_project;
 
-public class Sword {
+public class Sword extends Weapon{
     public Sword(){
 
     }
