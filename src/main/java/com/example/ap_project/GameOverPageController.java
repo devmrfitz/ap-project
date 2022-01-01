@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class gameOverPageController {
+public class GameOverPageController {
     private Stage stage;
 
     @FXML

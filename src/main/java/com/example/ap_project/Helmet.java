@@ -2,9 +2,9 @@ package com.example.ap_project;
 
 import java.util.ArrayList;
 
-public class helmet {
+public class Helmet {
     private ArrayList<weapon> weaponOptions;
-    public helmet(){
+    public Helmet(){
 
     }
 

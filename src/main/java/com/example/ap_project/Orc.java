@@ -1,8 +1,8 @@
 package com.example.ap_project;
 
-public class orc {
+public class Orc {
 
-    public orc(){
+    public Orc(){
 
     }
 
