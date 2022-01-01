@@ -95,10 +95,6 @@ public class GameController {
         fall(platform1, 0);
         fall(platform2, 0.5);
         translateRectangle(sword,0);
-
-
-
-
     }
 
 
@@ -192,5 +188,4 @@ public class GameController {
         stage.setScene(scene);
         stage.show();
     }
-
 }

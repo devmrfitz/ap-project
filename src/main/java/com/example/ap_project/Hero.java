@@ -4,6 +4,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
@@ -18,6 +19,13 @@ public class Hero implements Positionable, Serializable, Jumpable {
     private Node node;
     private Timeline jumpTimeline;
     private int coinsCollected;
+
+    @FXML
+    private ImageView hero;
+
+    @FXML
+    private ImageView sword;
+
 
     public Hero(Node _node) {
         node = _node;
@@ -72,7 +80,31 @@ public class Hero implements Positionable, Serializable, Jumpable {
     }
 
     public void moveForward(){
+        System.out.println("moveForward hero");
+        final Timeline timeline = new Timeline();
+        timeline.setCycleCount(1);
+        timeline.setAutoReverse(false);
+        final KeyValue kv = new KeyValue(hero.xProperty(), 70,
+                Interpolator.EASE_OUT);
+        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.play();
+        hero.setLayoutX(hero.getLayoutX() + 70);
+        sword.setLayoutX(sword.getLayoutX() + 70);
+        hit(sword, 0);
+    }
 
+    public void hit(ImageView rectangle, double delay) {
+        final Timeline timeline = new Timeline();
+        timeline.setCycleCount(2);
+        timeline.setAutoReverse(true);
+        final KeyValue kv = new KeyValue(rectangle.rotateProperty(), 90,
+                Interpolator.EASE_BOTH);
+        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setDelay(Duration.seconds(delay));
+        timeline.setAutoReverse(true);
+        timeline.play();
     }
 
     public ArrayList<Weapon> listWeapons(){
