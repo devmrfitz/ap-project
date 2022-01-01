@@ -22,7 +22,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -46,9 +45,6 @@ public class GameController {
     private Group hero;
 
     @FXML
-    private ImageView chest;
-
-    @FXML
     private Rectangle platform1;
 
     @FXML
@@ -62,9 +58,6 @@ public class GameController {
 
     @FXML
     private Region island1, island2;
-
-    @FXML
-    private AnchorPane anchorPane;
 
     @FXML
     private ImageView sword;
@@ -81,10 +74,10 @@ public class GameController {
     @FXML
     void openChest(MouseEvent event) throws FileNotFoundException {
         ImageView imageView = (ImageView) event.getSource();
-        Chest coins = new CoinChest(5);
+        Chest coins = new CoinChest(5, imageView);
         coins.open(event);
         Weapon temp_weapon = new Weapon();
-        Chest weapon = new WeaponChest(temp_weapon);
+        Chest weapon = new WeaponChest(temp_weapon,imageView);
         weapon.open(event);
     }
 
@@ -103,6 +96,10 @@ public class GameController {
 
     @FXML
     void initialize() throws InterruptedException {
+
+
+
+
         Hero hero_obj = new Hero(this.hero);
         fall(platform1, 0);
         fall(platform2, 0.5);
@@ -124,9 +121,7 @@ public class GameController {
         screenScroller.addNode(boss);
 //        screenScroller.start();
 
-        Chest coins = new CoinChest(5);
 
-//        anchorPane.getChildren().add(coins.getNode());
         // create gravity
     }
 
