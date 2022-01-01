@@ -1,6 +1,6 @@
 package com.example.ap_project;
 
-public class GameObjects implements positionable,serializable {
+public class GameObjects implements Positionable, Serializable {
 
     public GameObjects(){
 

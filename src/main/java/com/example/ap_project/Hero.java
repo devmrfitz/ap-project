@@ -2,8 +2,8 @@ package com.example.ap_project;
 
 import java.util.ArrayList;
 
-public class Hero implements positionable,serializable {
-    private ArrayList<weapon> activeWeapons;
+public class Hero implements Positionable, Serializable {
+    private ArrayList<Weapon> activeWeapons;
     private int distanceTravelled;
     private int coinsCollected;
 
@@ -31,7 +31,7 @@ public class Hero implements positionable,serializable {
 
     }
 
-    private ArrayList<weapon> listWeapons(){
+    private ArrayList<Weapon> listWeapons(){
         return activeWeapons;
     }
 

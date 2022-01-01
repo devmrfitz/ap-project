@@ -1,9 +1,9 @@
 package com.example.ap_project;
 
-public class weapon {
+public class Weapon {
     private int level;
 
-    public weapon(){
+    public Weapon(){
 
     }
 

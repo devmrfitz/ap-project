@@ -1,7 +1,7 @@
 package com.example.ap_project;
 
-public class throwing {
-    public throwing(){
+public class Sword {
+    public Sword(){
 
     }
 
@@ -13,7 +13,7 @@ public class throwing {
 
     }
 
-    private void unEquip(){
+    private void uEquip(){
 
     }
 }

@@ -3,12 +3,12 @@ package com.example.ap_project;
 import java.util.ArrayList;
 
 public class Helmet {
-    private ArrayList<weapon> weaponOptions;
+    private ArrayList<Weapon> weaponOptions;
     public Helmet(){
 
     }
 
-    private void activateWeapon(weapon Weapon){
+    private void activateWeapon(Weapon Weapon){
 
     }
 
