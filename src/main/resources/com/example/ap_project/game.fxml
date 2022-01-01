@@ -16,7 +16,7 @@
 <Scene fx:id="scene" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.GameController">
     <AnchorPane maxWidth="900.0" minWidth="900.0" prefHeight="200" prefWidth="200">
       <children>
-         <AnchorPane maxHeight="480.0" minHeight="480.0" onKeyPressed="#move" onMouseClicked="#moveForward" prefHeight="480.0" styleClass="gradientBackground">
+         <AnchorPane fx:id="anchorPane" maxHeight="480.0" minHeight="480.0" onKeyPressed="#move" onMouseClicked="#moveForward" prefHeight="480.0" styleClass="gradientBackground">
             <stylesheets>
                <URL value="@styles/hero.css" />
                <URL value="@styles/gamePage.css" />
