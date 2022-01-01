@@ -20,18 +20,10 @@ public class Hero implements Positionable, Serializable, Jumpable {
     private Timeline jumpTimeline;
     private int coinsCollected;
 
-    @FXML
-    private ImageView hero;
-
-    @FXML
-    private ImageView sword;
-
 
     public Hero(Node _node) {
         node = _node;
-
         startJumping();
-
     }
 
     private void startJumping(){
@@ -84,27 +76,27 @@ public class Hero implements Positionable, Serializable, Jumpable {
         final Timeline timeline = new Timeline();
         timeline.setCycleCount(1);
         timeline.setAutoReverse(false);
-        final KeyValue kv = new KeyValue(hero.xProperty(), 70,
+        final KeyValue kv = new KeyValue(((ImageView) node).xProperty(), 70,
                 Interpolator.EASE_OUT);
         final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
         timeline.getKeyFrames().add(kf);
         timeline.play();
-        hero.setLayoutX(hero.getLayoutX() + 70);
-        sword.setLayoutX(sword.getLayoutX() + 70);
-        hit(sword, 0);
+        ((ImageView) node).setLayoutX(((ImageView) node).getLayoutX() + 70);
+//        sword.setLayoutX(sword.getLayoutX() + 70);
+//        hit(sword, 0);
     }
 
     public void hit(ImageView rectangle, double delay) {
-        final Timeline timeline = new Timeline();
-        timeline.setCycleCount(2);
-        timeline.setAutoReverse(true);
-        final KeyValue kv = new KeyValue(rectangle.rotateProperty(), 90,
-                Interpolator.EASE_BOTH);
-        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setDelay(Duration.seconds(delay));
-        timeline.setAutoReverse(true);
-        timeline.play();
+//        final Timeline timeline = new Timeline();
+//        timeline.setCycleCount(2);
+//        timeline.setAutoReverse(true);
+//        final KeyValue kv = new KeyValue(rectangle.rotateProperty(), 90,
+//                Interpolator.EASE_BOTH);
+//        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+//        timeline.getKeyFrames().add(kf);
+//        timeline.setDelay(Duration.seconds(delay));
+//        timeline.setAutoReverse(true);
+//        timeline.play();
     }
 
     public ArrayList<Weapon> listWeapons(){
