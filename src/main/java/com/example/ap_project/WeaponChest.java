@@ -1,20 +1,19 @@
 package com.example.ap_project;
 
 public class WeaponChest extends Chest{
-    private com.example.ap_project.Weapon Weapon;
     public WeaponChest(){
 
     }
 
-    private void CoinChest(com.example.ap_project.Weapon Weapon){
+    public void CoinChest(Weapon weapon){
 
     }
 
-    private void spawn(){
+    public void spawn(){
 
     }
 
-    private void interact(){
+    public void interact(){
 
     }
 }

@@ -5,15 +5,15 @@ public class Throwing extends Weapon{
 
     }
 
-    private void attack(){
+    public void attack(){
 
     }
 
-    private void equip(){
+    public void equip(){
 
     }
 
-    private void unEquip(){
+    public void unEquip(){
 
     }
 }

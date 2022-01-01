@@ -5,15 +5,15 @@ public class Sword extends Weapon{
 
     }
 
-    private void attack(){
+    public void attack(){
 
     }
 
-    private void equip(){
+    public void equip(){
 
     }
 
-    private void uEquip(){
+    public void uEquip(){
 
     }
 }

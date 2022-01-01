@@ -4,26 +4,26 @@ public class Weapon {
     private int level;
 
     public Weapon(){
+        level = 1;
+    }
+
+    public void equip(){
 
     }
 
-    private void equip(){
+    public void unEquip(){
 
     }
 
-    private void unEquip(){
+    public void attack(){
 
     }
 
-    private void attack(){
-
-    }
-
-    private void setLevel(int level){
+    public void setLevel(int level){
         this.level = level;
     }
 
-    private int getLevel(){
+    public int getLevel(){
         return level;
     }
 }
