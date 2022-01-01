@@ -168,7 +168,7 @@ public class GameController {
         final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
         timeline.getKeyFrames().add(kf);
         timeline.play();
-        hero.setLayoutX(hero.getLayoutX() + 120);
+//        hero.setLayoutX(hero.getLayoutX() + 120);
         hit(sword, 0);
     }
 

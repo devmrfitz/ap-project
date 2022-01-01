@@ -127,7 +127,7 @@
                      </LinearGradient>
                   </fill>
                </Rectangle>
-               <Region fx:id="island21" layoutX="969.0" layoutY="301.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
+               <Region fx:id="island3" layoutX="969.0" layoutY="301.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
                <Rectangle fx:id="deathZone" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="430.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="2000.0" />
             </children>
          </AnchorPane>
