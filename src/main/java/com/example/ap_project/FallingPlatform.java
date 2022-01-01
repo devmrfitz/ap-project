@@ -5,7 +5,7 @@ public class FallingPlatform {
 
     }
 
-    private void interact(){
+    public void interact(){
 
     }
 

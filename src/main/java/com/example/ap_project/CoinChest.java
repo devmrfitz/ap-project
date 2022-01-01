@@ -1,13 +1,13 @@
 package com.example.ap_project;
 
 public class CoinChest extends Chest{
-    private int coinChest;
+    private int coinCount;
 
-    public CoinChest(){
+    public CoinChest(int coins){
 
     }
 
-    private void spawn(){
+    public void spawn(){
 
     }
 
@@ -15,7 +15,7 @@ public class CoinChest extends Chest{
 
     }
 
-    private void interact(){
+    public void interact(){
 
     }
 }

@@ -11,11 +11,11 @@ public class Chest extends GameObjects{
 
     }
 
-    private void spawn(){
+    public void spawn(){
 
     }
 
-    private void deSpawn(){
+    public void deSpawn(){
 
     }
 }

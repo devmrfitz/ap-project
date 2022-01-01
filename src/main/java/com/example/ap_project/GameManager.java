@@ -12,43 +12,43 @@ public class GameManager {
 
     }
 
-    private void newGame(){
+    public void newGame(){
 
     }
 
-    private void loadGame(){
+    public void loadGame(){
 
     }
 
-    private void restartGame(){
+    public void restartGame(){
 
     }
 
-    private void saveGame(){
+    public void saveGame(){
 
     }
 
-    private void deleteGame(){
+    public void deleteGame(){
 
     }
 
-    private void parseGame(){
+    public void parseGame(){
 
     }
 
-    private void exitGame(){
+    public void exitGame(){
 
     }
 
-    private void resurrectGame(){
+    public void resurrectGame(){
 
     }
 
-    private void increaseDistanceCovered(int dist){
+    public void increaseDistanceCovered(int dist){
         System.out.println(dist);
     }
 
-    private void setHighScore(int score){
+    public void setHighScore(int score){
         System.out.println(score);
     }
 }

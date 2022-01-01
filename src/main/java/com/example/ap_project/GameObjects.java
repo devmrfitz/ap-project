@@ -1,6 +1,7 @@
 package com.example.ap_project;
 
 public class GameObjects implements Positionable, Serializable {
+//    private position
 
     public GameObjects(){
 
@@ -16,11 +17,11 @@ public class GameObjects implements Positionable, Serializable {
 
     }
 
-    private void setPosition(int a){
+    public void setPosition(int a){
 
     }
 
-    private void interact(){
+    public void interact(){
 
     }
 }
