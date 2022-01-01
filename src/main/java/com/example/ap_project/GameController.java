@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -82,7 +83,13 @@ public class GameController {
 
     @FXML
     void initialize() throws InterruptedException {
-        translateRectangle(hero, 0);
+        Hero hero = new Hero(this.hero);
+        ArrayList<Node> islands = new ArrayList<>();
+        islands.add(island1);
+        islands.add(island2);
+        JumpHandler jumpHandler = new JumpHandler(hero, islands);
+        Thread jumpThread = new Thread(jumpHandler);
+        jumpThread.start();
         translateRectangle(orc, 0.5);
         translateRectangle(boss, 1);
         fall(platform1, 0);
@@ -119,7 +126,7 @@ public class GameController {
 
             Thread bossThread = new Thread(bossHandler);
 
-            bossThread.start();
+//            bossThread.start();
         }
     }
 
@@ -149,17 +156,16 @@ public class GameController {
     void moveForward(MouseEvent event) throws FileNotFoundException {
         // Check if hero has collided
         System.out.println("moveForward");
-        if (hero.getBoundsInParent().intersects(island1.getBoundsInParent()) || hero.getBoundsInParent().intersects(platform2.getBoundsInParent()))
-            System.out.println("collision");
-//        final Timeline timeline = new Timeline();
-//        timeline.setCycleCount(1);
-//        timeline.setAutoReverse(false);
-//        final KeyValue kv = new KeyValue(hero.xProperty(), 70,
-//                Interpolator.EASE_OUT);
-//        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
-//        timeline.getKeyFrames().add(kf);
-//        timeline.play();
-//            hero.setLayoutX(hero.getLayoutX() + 70);
+
+        final Timeline timeline = new Timeline();
+        timeline.setCycleCount(1);
+        timeline.setAutoReverse(false);
+        final KeyValue kv = new KeyValue(hero.xProperty(), 70,
+                Interpolator.EASE_OUT);
+        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.play();
+            hero.setLayoutX(hero.getLayoutX() + 70);
         sword.setLayoutX(sword.getLayoutX() + 70);
         hit(sword, 0);
     }

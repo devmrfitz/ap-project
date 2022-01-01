@@ -1,6 +1,7 @@
 package com.example.ap_project;
 
 import javafx.animation.Timeline;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.util.Duration;
@@ -48,5 +49,10 @@ public class Boss extends Orc implements Runnable, Jumpable {
     @Override
     public void jump() {
 
+    }
+
+    @Override
+    public Node getNode() {
+        return null;
     }
 }

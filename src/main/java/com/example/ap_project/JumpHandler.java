@@ -17,13 +17,13 @@ public class JumpHandler implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             // iterate through all nodes and check if they are in the same position as the jumpable
             for (Node node : nodes) {
-                if (Utility.intersects((Node)jumpable, node))
+                if (Utility.intersects(jumpable.getNode(), node))
                     jumpable.jump();
             }
 

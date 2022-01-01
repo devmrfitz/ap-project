@@ -30,7 +30,7 @@ public class Hero implements Positionable, Serializable, Jumpable {
         jumpTimeline = new Timeline();
         jumpTimeline.setCycleCount(1);
         jumpTimeline.setAutoReverse(false);
-        final KeyValue up_key_value = new KeyValue(((ImageView)node).yProperty(), -100,
+        final KeyValue up_key_value = new KeyValue(((ImageView)node).yProperty(), ((ImageView) node).getY()-100,
                 Interpolator.EASE_OUT);
         final KeyFrame up_keyframe = new KeyFrame(Duration.millis(700), up_key_value);
         final KeyValue down_key_value = new KeyValue(((ImageView)node).yProperty(), 1000,
@@ -46,10 +46,13 @@ public class Hero implements Positionable, Serializable, Jumpable {
 
 
     public void jump(){
-        if (jumpTimeline.getCurrentTime().greaterThanOrEqualTo(Duration.millis(700))) {
-            jumpTimeline.setDelay(Duration.millis(0));
-            jumpTimeline.playFromStart();
-        }
+        jumpTimeline.stop();
+        startJumping();
+    }
+
+    @Override
+    public Node getNode() {
+        return this.node;
     }
 
     public void die(){
