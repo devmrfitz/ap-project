@@ -95,14 +95,10 @@ public class GameController {
         islands.add(island2);
         JumpGravityFallHandler jumpGravityHandler = new JumpGravityFallHandler(hero, islands);
         jumpGravityHandler.start();
-        fall(platform1, 0);
-        fall(platform2, 0.5);
+        fall(platform1,0.25);
+        fall(platform2,0.5);
 
         // create gravity
-
-
-
-
     }
 
 
@@ -144,16 +140,9 @@ public class GameController {
 
 
 
-    public void fall(Rectangle rectangle, double delay) {
-        final Timeline timeline = new Timeline();
-        timeline.setCycleCount(1);
-        timeline.setAutoReverse(false);
-        final KeyValue kv = new KeyValue(rectangle.yProperty(), 1000,
-                Interpolator.EASE_BOTH);
-        final KeyFrame kf = new KeyFrame(Duration.millis(4700), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setDelay(Duration.seconds(delay));
-        timeline.play();
+    public void fall(Rectangle rectangle,double delay) {
+        FallingPlatform temp = new FallingPlatform(rectangle,delay);
+        temp.interact();
     }
 
     @FXML
