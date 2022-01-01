@@ -3,14 +3,14 @@ package com.example.ap_project;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Calendar;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -39,7 +39,21 @@ public class MenuPageController {
     void gameStart(ActionEvent event) throws IOException {
         System.out.println("play clicked");
         scene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game.fxml")));
+        Camera camera = new ParallelCamera();
+        //Move back a little to get a good view of the sphere
+        camera.translateXProperty().set(-500);
+
+        //Set the clipping planes
+        camera.setNearClip(1);
+        camera.setFarClip(1000);
+        scene.setCamera(camera);
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+        stage.addEventHandler(KeyEvent.KEY_PRESSED, eve -> {
+            switch (eve.getCode()) {
+                case W -> camera.translateXProperty().set(camera.getTranslateX() + 100);
+                case S -> camera.translateXProperty().set(camera.getTranslateX() - 100);
+            }
+        });
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setMaxWidth(900);

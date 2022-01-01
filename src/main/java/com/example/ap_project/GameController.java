@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import com.example.ap_project.animation_timers.JumpGravityFallHandler;
+import com.example.ap_project.animation_timers.ScreenScroller;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +29,10 @@ import javafx.util.Duration;
 
 public class GameController {
     private Stage stage;
+
+    @FXML
     private Scene scene;
+
     private Parent root;
 
     @FXML
@@ -80,23 +84,43 @@ public class GameController {
     @FXML
     void pause(MouseEvent event) throws IOException {
         System.out.println("Pause");
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pausePage.fxml")));
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
-        scene = new Scene(root);
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pausePage.fxml")));
+
+        Scene scene = new Scene(root);
+
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
     void initialize() throws InterruptedException {
-        Hero hero = new Hero(this.hero);
+
+
+
+
+        Hero hero_obj = new Hero(this.hero);
+        fall(platform1, 0);
+        fall(platform2, 0.5);
+
+
         ArrayList<Node> islands = new ArrayList<>();
         islands.add(island1);
         islands.add(island2);
-        JumpGravityFallHandler jumpGravityHandler = new JumpGravityFallHandler(hero, islands);
+        JumpGravityFallHandler jumpGravityHandler = new JumpGravityFallHandler(hero_obj, islands);
         jumpGravityHandler.start();
-        fall(platform1,0.25);
-        fall(platform2,0.5);
+
+        ScreenScroller screenScroller = new ScreenScroller(new ArrayList<>(), scene);
+        screenScroller.addNode(island1);
+        screenScroller.addNode(island2);
+        screenScroller.addNode(platform1);
+        screenScroller.addNode(platform2);
+        screenScroller.addNode(hero);
+        screenScroller.addNode(orc);
+        screenScroller.addNode(boss);
+//        screenScroller.start();
+
 
         // create gravity
     }
@@ -140,7 +164,20 @@ public class GameController {
     @FXML
     void moveForward(MouseEvent event) throws FileNotFoundException {
         // Check if hero has collided
-        System.out.println("moveForward");
+        System.out.println("movingForward");
+
+        // TranslateTransition her
+//        TranslateTransition translateTransition = new TranslateTransition();
+//        translateTransition.setDuration(Duration.millis(700));
+//        translateTransition.setNode(hero);
+//        translateTransition.setToX(hero.getTranslateX() + 120);
+//        translateTransition.play();
+
+
+        //
+
+//        hero.setTranslateX(hero.getTranslateX() + 120);
+
 
         final Timeline timeline = new Timeline();
         timeline.setCycleCount(1);
@@ -151,7 +188,7 @@ public class GameController {
         timeline.getKeyFrames().add(kf);
         timeline.play();
 //        hero.setLayoutX(hero.getLayoutX() + 120);
-        hit(sword, 0);
+//        hit(sword, 0);
     }
 
     public void hit(ImageView rectangle, double delay) {

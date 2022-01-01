@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Scene xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.GameController">
+<Scene fx:id="scene" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.GameController">
     <AnchorPane maxWidth="900.0" minWidth="900.0" prefHeight="200" prefWidth="200">
       <children>
          <AnchorPane maxHeight="480.0" minHeight="480.0" onKeyPressed="#move" onMouseClicked="#moveForward" prefHeight="480.0" styleClass="gradientBackground">
@@ -39,7 +39,7 @@
                            <Image url="@images/panda.png" />
                         </image>
                      </ImageView>
-                     <ImageView fx:id="sword" fitHeight="71.0" fitWidth="28.0" layoutX="60.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="sword" fitHeight="71.0" fitWidth="28.0" layoutX="50.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                            <Image url="@images/Sword.png" />
                         </image>
@@ -129,6 +129,7 @@
                </Rectangle>
                <Region fx:id="island3" layoutX="969.0" layoutY="301.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
                <Rectangle fx:id="deathZone" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="430.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="2000.0" />
+               <Region fx:id="island4" layoutX="1390.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
             </children>
          </AnchorPane>
       </children></AnchorPane>
