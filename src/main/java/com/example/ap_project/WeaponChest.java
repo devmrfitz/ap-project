@@ -1,7 +1,10 @@
 package com.example.ap_project;
 
+import javafx.scene.image.ImageView;
+
 public class WeaponChest extends Chest{
-    public WeaponChest(){
+    public WeaponChest(ImageView _node){
+        super(_node);
 
     }
 
