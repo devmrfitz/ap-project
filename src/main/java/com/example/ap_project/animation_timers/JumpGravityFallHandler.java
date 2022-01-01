@@ -21,8 +21,10 @@ public class JumpGravityFallHandler extends AnimationTimer {
     @Override
     public void handle(long now) {
         for (Node node : nodes) {
-            if (Utility.intersects(jumpable.getNode(), node))
+            if (Utility.intersects(jumpable.getNode(), node) && jumpable.getNode().getLayoutY() < node.getLayoutY()) {
+                System.out.println("intersects with " + node);
                 jumpable.jump();
+            }
         }
     }
 }

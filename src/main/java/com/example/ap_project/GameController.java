@@ -163,12 +163,12 @@ public class GameController {
         final Timeline timeline = new Timeline();
         timeline.setCycleCount(1);
         timeline.setAutoReverse(false);
-        final KeyValue kv = new KeyValue(hero.layoutXProperty(), 70,
+        final KeyValue kv = new KeyValue(hero.layoutXProperty(), hero.getLayoutX() + 120,
                 Interpolator.EASE_OUT);
         final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
         timeline.getKeyFrames().add(kf);
         timeline.play();
-        hero.setLayoutX(hero.getLayoutX() - 70);
+        hero.setLayoutX(hero.getLayoutX() + 120);
         hit(sword, 0);
     }
 

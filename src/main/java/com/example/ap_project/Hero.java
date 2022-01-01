@@ -46,6 +46,7 @@ public class Hero implements Positionable, Serializable, Jumpable {
 
 
     public void jump(){
+//        System.out.println("Hero Jumping");
         jumpTimeline.stop();
         startJumping();
     }
@@ -76,22 +77,22 @@ public class Hero implements Positionable, Serializable, Jumpable {
 
     }
 
-    public void moveForward(){
-        System.out.println("moveForward hero");
-        final Timeline timeline = new Timeline();
-        timeline.setCycleCount(1);
-        timeline.setAutoReverse(false);
-        final KeyValue kv = new KeyValue(((ImageView) node).xProperty(), 70,
-                Interpolator.EASE_OUT);
-        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.play();
-        ((ImageView) node).setLayoutX(((ImageView) node).getLayoutX() + 70);
+//    public void moveForward(){
+//        System.out.println("moveForward hero");
+//        final Timeline timeline = new Timeline();
+//        timeline.setCycleCount(1);
+//        timeline.setAutoReverse(false);
+//        final KeyValue kv = new KeyValue(((ImageView) node).xProperty(), 70,
+//                Interpolator.EASE_OUT);
+//        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+//        timeline.getKeyFrames().add(kf);
+//        timeline.play();
+//        ((ImageView) node).setLayoutX(((ImageView) node).getLayoutX() + 70);
 //        sword.setLayoutX(sword.getLayoutX() + 70);
 //        hit(sword, 0);
-    }
+//    }
 
-    public void hit(ImageView rectangle, double delay) {
+//    public void hit(ImageView rectangle, double delay) {
 //        final Timeline timeline = new Timeline();
 //        timeline.setCycleCount(2);
 //        timeline.setAutoReverse(true);
@@ -102,7 +103,7 @@ public class Hero implements Positionable, Serializable, Jumpable {
 //        timeline.setDelay(Duration.seconds(delay));
 //        timeline.setAutoReverse(true);
 //        timeline.play();
-    }
+//    }
 
     public ArrayList<Weapon> listWeapons(){
         return activeWeapons;
