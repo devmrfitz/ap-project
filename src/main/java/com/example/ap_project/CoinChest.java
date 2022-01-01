@@ -8,8 +8,8 @@ import java.io.FileNotFoundException;
 public class CoinChest extends Chest{
     private final int coinCount;
 
-    public CoinChest(int coins, ImageView _node){
-        super(_node);
+    public CoinChest(int coins){
+        super();
         coinCount = coins;
     }
 
@@ -24,4 +24,5 @@ public class CoinChest extends Chest{
     public void interact(){
 
     }
+
 }

@@ -14,8 +14,8 @@ public class Chest extends GameObjects{
 
     private boolean isOpen;
 
-    public Chest(ImageView _node){
-        imageView = _node;
+    public Chest(){
+        imageView = new ImageView();
     }
 
     protected void open(MouseEvent event) throws FileNotFoundException {
@@ -23,6 +23,10 @@ public class Chest extends GameObjects{
         Image image = new Image(stream);
         ImageView imageView = (ImageView) event.getSource();
         imageView.setImage(image);
+    }
+
+    public ImageView getNode() {
+        return imageView;
     }
 
     public void spawn(){
