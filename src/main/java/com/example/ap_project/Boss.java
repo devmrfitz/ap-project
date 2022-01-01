@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.util.Duration;
 
-public class Boss extends Orc implements Runnable {
+public class Boss extends Orc implements Runnable, Jumpable {
     private ImageView boss;
     private Region bossRegion;
     private Timeline bossTimeline;
@@ -29,8 +29,10 @@ public class Boss extends Orc implements Runnable {
             System.out.println("Boss is moving");
             System.out.println(Utility.intersects(boss, bossRegion));
             if (Utility.intersects(boss, bossRegion)) {
-                if (bossTimeline.getCurrentTime().greaterThanOrEqualTo(Duration.millis(700)))
-                bossTimeline.playFromStart();
+                if (bossTimeline.getCurrentTime().greaterThanOrEqualTo(Duration.millis(700))) {
+                    bossTimeline.setDelay(Duration.millis(0));
+                    bossTimeline.playFromStart();
+                }
             }
 //            System.out.println(boss.getBoundsInLocal().intersects(bossRegion.getBoundsInLocal()));
 //            boss.setX(boss.getX() + 2);
@@ -43,4 +45,8 @@ public class Boss extends Orc implements Runnable {
     }
 
 
+    @Override
+    public void jump() {
+
+    }
 }
