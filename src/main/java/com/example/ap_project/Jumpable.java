@@ -5,5 +5,7 @@ import javafx.scene.Node;
 public interface Jumpable {
     void jump();
 
+    void deathByFall();
+
     Node getNode();
 }

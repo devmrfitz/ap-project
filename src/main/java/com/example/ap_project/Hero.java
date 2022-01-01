@@ -4,9 +4,9 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.scene.Group;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import javafx.util.Pair;
@@ -16,12 +16,12 @@ import java.util.ArrayList;
 public class Hero implements Positionable, Serializable, Jumpable {
     private ArrayList<Weapon> activeWeapons;
     private int distanceTravelled;
-    private Node node;
+    private final Group node;
     private Timeline jumpTimeline;
     private int coinsCollected;
 
 
-    public Hero(Node _node) {
+    public Hero(Group _node) {
         node = _node;
         startJumping();
     }
@@ -30,10 +30,10 @@ public class Hero implements Positionable, Serializable, Jumpable {
         jumpTimeline = new Timeline();
         jumpTimeline.setCycleCount(1);
         jumpTimeline.setAutoReverse(false);
-        final KeyValue up_key_value = new KeyValue(((ImageView)node).yProperty(), ((ImageView) node).getY()-100,
+        final KeyValue up_key_value = new KeyValue(node.layoutYProperty(), node.getLayoutY()-100,
                 Interpolator.EASE_OUT);
         final KeyFrame up_keyframe = new KeyFrame(Duration.millis(700), up_key_value);
-        final KeyValue down_key_value = new KeyValue(((ImageView)node).yProperty(), 1000,
+        final KeyValue down_key_value = new KeyValue(node.layoutYProperty(), 1000,
                 Interpolator.EASE_IN);
         final KeyFrame down_keyframe = new KeyFrame(Duration.millis(7000), down_key_value);
 
@@ -48,6 +48,11 @@ public class Hero implements Positionable, Serializable, Jumpable {
     public void jump(){
         jumpTimeline.stop();
         startJumping();
+    }
+
+    @Override
+    public void deathByFall() {
+
     }
 
     @Override

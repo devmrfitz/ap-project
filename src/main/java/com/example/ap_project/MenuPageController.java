@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class MenuPageController {
 
@@ -37,10 +38,12 @@ public class MenuPageController {
     @FXML
     void gameStart(ActionEvent event) throws IOException {
         System.out.println("play clicked");
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game.fxml")));
+        scene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game.fxml")));
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
-        scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setMaxWidth(900);
+        stage.setMaxHeight(480);
         stage.show();
 
     }

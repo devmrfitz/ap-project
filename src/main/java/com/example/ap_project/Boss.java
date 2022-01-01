@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.util.Duration;
 
-public class Boss extends Orc implements Runnable, Jumpable {
+public class Boss extends Orc implements Runnable {
     private ImageView boss;
     private Region bossRegion;
     private Timeline bossTimeline;
@@ -45,14 +45,4 @@ public class Boss extends Orc implements Runnable, Jumpable {
         boss.setY(boss.getY() + 2);
     }
 
-
-    @Override
-    public void jump() {
-
-    }
-
-    @Override
-    public Node getNode() {
-        return null;
-    }
 }

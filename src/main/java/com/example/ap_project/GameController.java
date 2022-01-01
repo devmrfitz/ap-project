@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import com.example.ap_project.animation_timers.JumpGravityFallHandler;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -36,7 +38,7 @@ public class GameController {
     private URL location;
 
     @FXML
-    private ImageView hero;
+    private Group hero;
 
     @FXML
     private Rectangle platform1;
@@ -55,6 +57,9 @@ public class GameController {
 
     @FXML
     private ImageView sword;
+
+    @FXML
+    private Rectangle deathZone;
 
     @FXML
     void move(KeyEvent event) {
@@ -87,14 +92,16 @@ public class GameController {
         ArrayList<Node> islands = new ArrayList<>();
         islands.add(island1);
         islands.add(island2);
-        JumpHandler jumpHandler = new JumpHandler(hero, islands);
-        Thread jumpThread = new Thread(jumpHandler);
-        jumpThread.start();
-        translateRectangle(orc, 0.5);
-        translateRectangle(boss, 1);
+        JumpGravityFallHandler jumpGravityHandler = new JumpGravityFallHandler(hero, islands);
+        jumpGravityHandler.start();
         fall(platform1, 0);
         fall(platform2, 0.5);
-        translateRectangle(sword,0);
+
+        // create gravity
+
+
+
+
     }
 
 
@@ -156,13 +163,12 @@ public class GameController {
         final Timeline timeline = new Timeline();
         timeline.setCycleCount(1);
         timeline.setAutoReverse(false);
-        final KeyValue kv = new KeyValue(hero.xProperty(), 70,
+        final KeyValue kv = new KeyValue(hero.layoutXProperty(), 70,
                 Interpolator.EASE_OUT);
         final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
         timeline.getKeyFrames().add(kf);
         timeline.play();
-            hero.setLayoutX(hero.getLayoutX() + 70);
-        sword.setLayoutX(sword.getLayoutX() + 70);
+        hero.setLayoutX(hero.getLayoutX() - 70);
         hit(sword, 0);
     }
 
