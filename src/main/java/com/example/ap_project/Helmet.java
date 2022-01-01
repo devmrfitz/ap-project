@@ -8,15 +8,15 @@ public class Helmet {
 
     }
 
-    private void activateWeapon(Weapon Weapon){
+    public void activateWeapon(Weapon weapon){
 
     }
 
-    private void equip(){
+    public void equip(){
 
     }
 
-    private void unEquip(){
+    public void unEquip(){
 
     }
 

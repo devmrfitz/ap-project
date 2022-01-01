@@ -1,6 +1,9 @@
 package com.example.ap_project;
 
 public class Orc {
+    private String color;
+    private int hitPoints;
+    private int size;
 
     public Orc(){
 
@@ -10,23 +13,23 @@ public class Orc {
 
     }
 
-    private void interact(){
+    public void interact(){
 
     }
 
-    private void spawn(){
+    public void spawn(){
 
     }
 
-    private void deSpawn(){
+    public void deSpawn(){
 
     }
 
-    private void push(){
+    public void push(){
 
     }
 
-    private void decreaseHitpoints(int decrement){
+    public void decreaseHitPoints(int decrement){
 
     }
 }

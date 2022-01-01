@@ -7,35 +7,35 @@ public class Hero implements Positionable, Serializable {
     private int distanceTravelled;
     private int coinsCollected;
 
-    private void jump(){
+    public void jump(){
 
     }
 
-    private void die(){
+    public void die(){
 
     }
 
-    private void resurrect(){
+    public void resurrect(){
 
     }
 
-    private void addWeapon(){
+    public void addWeapon(){
 
     }
 
-    private void equipWeapon(){
+    public void equipWeapon(){
 
     }
 
-    private void moveForward(){
+    public void moveForward(){
 
     }
 
-    private ArrayList<Weapon> listWeapons(){
+    public ArrayList<Weapon> listWeapons(){
         return activeWeapons;
     }
 
-    private void addCoins(int coins){
+    public void addCoins(int coins){
 
     }
 
