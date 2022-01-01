@@ -1,5 +1,7 @@
 package com.example.ap_project;
 
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 
 public class Hero implements Positionable, Serializable {
@@ -40,12 +42,12 @@ public class Hero implements Positionable, Serializable {
     }
 
     @Override
-    public void getPosition() {
-
+    public Pair<Double, Double> getPosition() {
+        return null;
     }
 
     @Override
-    public void setPosition() {
+    public void setPosition(Pair<Double, Double> position) {
 
     }
 }

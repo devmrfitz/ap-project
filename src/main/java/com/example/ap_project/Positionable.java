@@ -1,6 +1,7 @@
 package com.example.ap_project;
+import javafx.util.Pair;
 
 public interface Positionable {
-    void getPosition();
-    void setPosition();
+    public Pair<Double,Double> getPosition();
+    public void setPosition(Pair<Double,Double> position);
 }
