@@ -4,4 +4,8 @@ import javafx.scene.Node;
 
 public interface NodeComposer {
     Node getNode();
+
+    default boolean exists() {
+        return true;
+    }
 }

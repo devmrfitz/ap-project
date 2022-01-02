@@ -13,6 +13,7 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
 
 <Scene fx:id="scene" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.fxml.GameController">
     <AnchorPane maxHeight="-Infinity" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="900.0" styleClass="gradientBackground" stylesheets="@../styles/gamePage.css">
@@ -46,9 +47,9 @@
                </ImageView>
             </children>
          </AnchorPane>
-         <AnchorPane fx:id="mainAnchorPane" maxHeight="480.0" maxWidth="900.0" minHeight="480.0" onKeyPressed="#move" onMouseClicked="#moveForward" prefHeight="480.0">
+         <AnchorPane fx:id="mainAnchorPane" maxHeight="480.0" maxWidth="900.0" minHeight="480.0" onMouseClicked="#moveForward" prefHeight="480.0">
             <children>
-               <Region layoutX="696.0" layoutY="15.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@../styles/tree.css" />
+               <Region layoutX="696.0" layoutY="-10.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@../styles/tree.css" />
                <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@../styles/tree.css" />
                <Region fx:id="island1" layoutX="58.0" layoutY="301.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@../styles/islands1.css" />
                <Pane fx:id="hero" layoutX="165.0" layoutY="245.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="60.0">
@@ -61,7 +62,7 @@
                      <ImageView fx:id="weapon" fitHeight="60.0" fitWidth="17.0" layoutX="3.0" preserveRatio="true" rotate="29.1" />
                   </children>
                </Pane>
-               <Region fx:id="island2" layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
+               <Region fx:id="island2" layoutX="517.0" layoutY="212.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="421.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../images/Coin.png" />
@@ -147,18 +148,38 @@
                </Group>
             </children>
          </AnchorPane>
-         <AnchorPane fx:id="staticAnchorPane2" layoutY="395.0" prefHeight="86.0" prefWidth="200.0">
+         <AnchorPane fx:id="weaponAnchorPane" layoutY="395.0" prefHeight="71.0" prefWidth="200.0">
             <children>
-               <ImageView fx:id="weaponSlot1" fitHeight="150.0" fitWidth="80.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                  <image>
-                     <Image url="@../images/frame.png" />
-                  </image>
-               </ImageView>
-               <ImageView fx:id="weaponSlot2" fitHeight="150.0" fitWidth="80.0" layoutX="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                  <image>
-                     <Image url="@../images/frame.png" />
-                  </image>
-               </ImageView>
+               <Pane visible="false">
+                  <children>
+                     <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="30.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" rotate="45.0">
+                        <image>
+                           <Image url="@../images/Sword1.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fx:id="weaponSlot1" fitHeight="150.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/frame.png" />
+                        </image>
+                     </ImageView>
+                     <Text layoutX="56.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                  </children>
+               </Pane>
+               <Pane layoutX="120.0" visible="false">
+                  <children>
+                     <ImageView fx:id="weaponSlot2" fitHeight="150.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/frame.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="21.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" rotate="45.0">
+                        <image>
+                           <Image url="@../images/ThrowingKnives1.png" />
+                        </image>
+                     </ImageView>
+                     <Text layoutX="60.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                  </children>
+               </Pane>
             </children>
          </AnchorPane>
       </children></AnchorPane>

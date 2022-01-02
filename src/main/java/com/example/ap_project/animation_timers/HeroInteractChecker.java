@@ -20,8 +20,10 @@ public class HeroInteractChecker extends AnimationTimer {
     @Override
     public void handle(long now) {
         for (Interactable interactable : interactables) {
-            int interaction = Utility.intersectDirection(hero.getNode(), interactable.getNode());
-            interact(interactable, interaction);
+            if (interactable.exists()) {
+                int interaction = Utility.intersectDirection(hero.getNode(), interactable.getNode());
+                interact(interactable, interaction);
+            }
         }
     }
 

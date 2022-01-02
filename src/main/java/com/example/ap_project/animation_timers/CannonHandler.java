@@ -20,7 +20,8 @@ public class CannonHandler extends AnimationTimer {
 
     @Override
     public void handle(long now) {
-        if (Utility.intersects(imageView, hero.getNode()))
+        int interaction = Utility.intersectDirection(imageView, hero.getNode());
+        if (interaction != -1 && Utility.checkIthBit(interaction, 1) && Utility.checkIthBit(interaction, 3))
             hero.die();
     }
 }

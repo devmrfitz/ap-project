@@ -27,13 +27,15 @@ public class ThrowingWeaponHandler extends AnimationTimer {
     @Override
     public void handle(long now) {
         for (Orc orc : orcs) {
-            if (Utility.intersects(imageView, orc.getNode())) {
-                orc.decreaseHitPoints(weapon.getDamage());
-                imageView.setVisible(false);
-                imageView.setLayoutY(10000);
-                this.stop();
-                if (imageView.getParent() != null)
-                    ((AnchorPane)imageView.getParent()).getChildren().remove(imageView);
+            if (orc.exists()) {
+                if (Utility.intersects(imageView, orc.getNode())) {
+                    orc.decreaseHitPoints(weapon.getDamage());
+                    //                imageView.setVisible(false);
+                    imageView.setLayoutX(-10);
+                    this.stop();
+                    if (imageView.getParent() != null)
+                        ((AnchorPane) imageView.getParent()).getChildren().remove(imageView);
+                }
             }
         }
     }

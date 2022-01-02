@@ -7,7 +7,9 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import javafx.util.Pair;
@@ -21,14 +23,25 @@ public class Hero implements Positionable, Jumpable {
     private Timeline jumpTimeline;
     private int coinsCollected;
     private Weapon currentWeapon;
+    private final AnchorPane weaponPane;
 
 
-    public Hero(Pane _node) {
+    public Hero(Pane _node, AnchorPane weaponPane) {
         activeWeapons = new ArrayList<>();
         activeWeapons.add(null);
         activeWeapons.add(null);
         node = _node;
+        this.weaponPane = weaponPane;
+        coinsCollected = 0;
+        registerWeaponPaneHandlers();
         startJumping();
+    }
+
+    private void registerWeaponPaneHandlers() {
+        for (int i = 0; i < weaponPane.getChildren().size(); i++) {
+            final int index = i;
+            weaponPane.getChildren().get(i).setOnMouseClicked(event -> equipWeapon(index));
+        }
     }
 
     private void startJumping(){
@@ -53,7 +66,6 @@ public class Hero implements Positionable, Jumpable {
 
 
     public void jump(){
-//        System.out.println("Hero Jumping");
         jumpTimeline.stop();
         startJumping();
     }
@@ -88,15 +100,24 @@ public class Hero implements Positionable, Jumpable {
     public void addWeapon(Weapon weapon){
         if (activeWeapons.get(weapon.getType()) == null) {
             activeWeapons.set(weapon.getType(), weapon.clone());
+            weaponPane.getChildren().get(weapon.getType()).setVisible(true);
         }
-        else
+        else {
             activeWeapons.set(weapon.getType(), activeWeapons.get(weapon.getType()).getUpgradedVersion());
+        }
+        ((Text)((Pane)weaponPane.getChildren().get(weapon.getType())).getChildren().get(2)).setText(String.valueOf(
+                activeWeapons.get(weapon.getType()).getLevel()));
         equipWeapon(weapon.getType());
     }
 
     public void equipWeapon(int type){
-        currentWeapon = activeWeapons.get(type);
-        ((ImageView)node.getChildren().get(1)).setImage(currentWeapon.getImage());
+        if (activeWeapons.get(type) != null) {
+            System.out.println("Equipping weapon: " + activeWeapons.get(type).getType());
+            currentWeapon = activeWeapons.get(type);
+            weaponPane.getChildren().get(type).setOpacity(1);
+            weaponPane.getChildren().get(1 - type).setOpacity(0.5);
+            ((ImageView) node.getChildren().get(1)).setImage(currentWeapon.getImage());
+        }
     }
 
     public void moveForward() {
@@ -114,25 +135,12 @@ public class Hero implements Positionable, Jumpable {
         }
     }
 
-//    public void hit(ImageView rectangle, double delay) {
-//        final Timeline timeline = new Timeline();
-//        timeline.setCycleCount(2);
-//        timeline.setAutoReverse(true);
-//        final KeyValue kv = new KeyValue(rectangle.rotateProperty(), 90,
-//                Interpolator.EASE_BOTH);
-//        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
-//        timeline.getKeyFrames().add(kf);
-//        timeline.setDelay(Duration.seconds(delay));
-//        timeline.setAutoReverse(true);
-//        timeline.play();
-//    }
-
     public ArrayList<Weapon> listWeapons(){
         return activeWeapons;
     }
 
     public void addCoins(int coins){
-
+        coinsCollected += coins;
     }
 
     @Override

@@ -8,9 +8,19 @@ import java.io.Serializable;
 abstract public class GameObject implements Positionable, Interactable, Serializable {
     private Pair<Integer,Integer> position;
     private final Node node;
+    private boolean exists;
 
     public GameObject(Node node){
         this.node = node;
+        this.exists = true;
+    }
+
+    public boolean exists() {
+        return exists;
+    }
+
+    public void setExists(boolean exists) {
+        this.exists = exists;
     }
 
     public Node getNode() {

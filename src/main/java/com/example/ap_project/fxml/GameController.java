@@ -66,6 +66,9 @@ public class GameController {
     @FXML
     private ImageView cannonShooter;
 
+    @FXML
+    private AnchorPane weaponAnchorPane;
+
     private ArrayList<Interactable> interactables;
 
     private ArrayList<Island> islands;
@@ -77,20 +80,6 @@ public class GameController {
     private ArrayList<Chest> chests;
 
     private Hero hero_obj;
-
-    @FXML
-    void move(KeyEvent event) {
-        System.out.println("moved");
-        System.out.println(event.getSource());
-    }
-
-    @FXML
-    void openChest(MouseEvent event) {
-        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
-
-        ImageView imageView = (ImageView) event.getSource();
-//        weapon.open();
-    }
 
     @FXML
     void pause(MouseEvent event) throws IOException {
@@ -109,6 +98,8 @@ public class GameController {
 
     @FXML
     void initialize() throws IllegalArgumentException {
+        hero_obj = new Hero(this.hero, weaponAnchorPane);
+
         loadIslands();
         loadFallingPlatforms();
         interactables = new ArrayList<>();
@@ -118,7 +109,6 @@ public class GameController {
         Random rand = new Random();
         for (Island island : islands) {
             int num = rand.nextInt(5);
-//            num=4;
             switch (num) {
                 case 0 -> {
                     Orc orc = Factory.createOrc("red", island);
@@ -148,6 +138,14 @@ public class GameController {
             }
         }
 
+        Chest chest = Factory.createChest("weapon", islands.get(0));
+        chests.add(chest);
+        mainAnchorPane.getChildren().add(chest.getNode());
+
+        chest = Factory.createChest("weapon", islands.get(0));
+        chests.add(chest);
+        mainAnchorPane.getChildren().add(chest.getNode());
+
         for (Orc orc : orcs) {
             (new OrcJumpGravityHandler(orc, islands)).start();
         }
@@ -167,7 +165,7 @@ public class GameController {
         interactables.addAll(orcs);
         interactables.addAll(chests);
 
-        hero_obj = new Hero(this.hero);
+
         CannonHandler.setHero(hero_obj);
 
 
@@ -201,19 +199,6 @@ public class GameController {
 
     public static void setStage(Stage _stage) {
         stage = _stage;
-    }
-
-    public void hit(ImageView rectangle, double delay) {
-        final Timeline timeline = new Timeline();
-        timeline.setCycleCount(2);
-        timeline.setAutoReverse(true);
-        final KeyValue kv = new KeyValue(rectangle.rotateProperty(), 90,
-                Interpolator.EASE_BOTH);
-        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setDelay(Duration.seconds(delay));
-        timeline.setAutoReverse(true);
-        timeline.play();
     }
 
 
