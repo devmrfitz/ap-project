@@ -1,6 +1,5 @@
 package com.example.ap_project;
 
-import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -9,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class Chest extends GameObjects{
+public class Chest extends GameObject {
     private final ImageView imageView;
 
     private boolean isOpen;

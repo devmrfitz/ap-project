@@ -118,6 +118,8 @@ public class GameController {
         JumpGravityHandler jumpGravityHandler = new JumpGravityHandler(hero_obj, islands);
         jumpGravityHandler.start();
 
+        FallingPlatform fallingPlatform = new FallingPlatform(platform1);
+
         (new ScreenScroller(mainAnchorPane, 0.5)).start();
         (new ScreenScroller(cloudAnchorPane, 0.2)).start();
         (new JumpableFallChecker(hero_obj, deathZone)).start();
@@ -129,8 +131,8 @@ public class GameController {
 
 
     public void fall(Rectangle rectangle,double delay) {
-        FallingPlatform temp = new FallingPlatform(rectangle,delay);
-        temp.interact();
+
+//        temp.interact();
     }
 
     @FXML

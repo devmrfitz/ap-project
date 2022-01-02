@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class GameManager {
     private int distanceCovered;
-    private ArrayList<GameObjects> gameObjectsOnScreen;
+    private ArrayList<GameObject> gameObjectsOnScreen;
     private int gravity;
     private int highScore;
 

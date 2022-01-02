@@ -51,6 +51,7 @@ public class Hero implements Positionable, Serializable, Jumpable {
     @Override
     public void deathByFall() {
         System.out.println("Hero died by falling");
+        node.setVisible(false);
         GameController.game_over();
     }
 

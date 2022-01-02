@@ -1,16 +1,18 @@
 package com.example.ap_project;
 
+import javafx.scene.Node;
 import javafx.util.Pair;
 
-public class GameObjects implements Positionable, Serializable {
+abstract public class GameObject implements Positionable, Serializable, Interactable {
     private Pair<Integer,Integer> position;
+    private final Node node;
 
-    public GameObjects(){
-
+    public GameObject(Node node){
+        this.node = node;
     }
 
-    public void interact(){
-
+    public Node getNode() {
+        return node;
     }
 
     @Override
