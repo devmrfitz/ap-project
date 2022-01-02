@@ -38,9 +38,13 @@ public class MenuPageController {
     @FXML
     void gameStart(ActionEvent event) throws IOException {
         System.out.println("play clicked");
-        scene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game.fxml")));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Objects.requireNonNull(getClass().getResource("game.fxml")));
+        scene = loader.load();
         //Move back a little to get a good view of the sphere
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+        GameController.setStage(stage);
+//        ((GameController)(loader.getController())).setStage(stage);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setMaxWidth(900);

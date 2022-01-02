@@ -7,12 +7,12 @@ import javafx.scene.Node;
 
 import java.util.ArrayList;
 
-public class JumpGravityHandler extends AnimationTimer {
+public class OrcJumpGravityHandler extends AnimationTimer {
 
     private final Jumpable jumpable;
     private final ArrayList<Node> nodes;
 
-    public JumpGravityHandler(Jumpable jumpable, ArrayList<Node> nodes) {
+    public OrcJumpGravityHandler(Jumpable jumpable, ArrayList<Node> nodes) {
         this.jumpable = jumpable;
         this.nodes = nodes;
     }

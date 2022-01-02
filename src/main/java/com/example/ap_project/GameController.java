@@ -73,6 +73,8 @@ public class GameController {
 
     private ArrayList<Interactable> interactables;
 
+    private Hero hero_obj;
+
     @FXML
     void move(KeyEvent event) {
         System.out.println("moved");
@@ -115,16 +117,8 @@ public class GameController {
         interactables.add(new Island(island3));
         interactables.add(new Island(island4));
 
-        Hero hero_obj = new Hero(this.hero);
-        fall(platform1, 0);
-        fall(platform2, 0.5);
+        hero_obj = new Hero(this.hero);
 
-
-//        ArrayList<Node> islands = new ArrayList<>();
-//        islands.add(island1);
-//        islands.add(island2);
-//        JumpGravityHandler jumpGravityHandler = new JumpGravityHandler(hero_obj, islands);
-//        jumpGravityHandler.start();
 
         FallingPlatform fallingPlatform1 = new FallingPlatform(platform1), fallingPlatform2 = new FallingPlatform(platform2);
         interactables.add(fallingPlatform1);
@@ -140,26 +134,13 @@ public class GameController {
     }
 
 
-
-    public void fall(Rectangle rectangle,double delay) {
-
-//        temp.interact();
-    }
-
     @FXML
     void moveForward(MouseEvent event) throws FileNotFoundException {
+        hero_obj.moveForward();
+    }
 
-        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
-
-        final Timeline timeline = new Timeline();
-        timeline.setCycleCount(1);
-        timeline.setAutoReverse(false);
-        final KeyValue kv = new KeyValue(hero.layoutXProperty(), hero.getLayoutX() + 120,
-                Interpolator.EASE_OUT);
-        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.play();
-//        hit(sword, 0);
+    public static void setStage(Stage _stage) {
+        stage = _stage;
     }
 
     public void hit(ImageView rectangle, double delay) {
@@ -178,8 +159,6 @@ public class GameController {
 
     @FXML
     public void game_over_handler(MouseEvent event) {
-        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
-
         game_over();
     }
 
@@ -191,6 +170,7 @@ public class GameController {
             e.printStackTrace();
         }
 
+        assert root != null;
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

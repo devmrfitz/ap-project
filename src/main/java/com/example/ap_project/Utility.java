@@ -47,9 +47,6 @@ public final class Utility {
         if (intersects(heroNode, s2)) {
             Bounds bounds = s2.getBoundsInParent();
             Bounds heroBounds = heroNode.getBoundsInParent();
-            //print max and min
-            System.out.println("min: " + bounds.getMinY() + " max: " + bounds.getMaxY());
-            System.out.println("min: " + heroBounds.getMinY() + " max: " + heroBounds.getMaxY());
             if (bounds.getMaxY() <= heroBounds.getMinY() + 5) {
                 return 1;
             } else if (bounds.getMinY() + 5 >= heroBounds.getMaxY()) {
