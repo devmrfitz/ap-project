@@ -4,12 +4,10 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public abstract class Orc extends GameObject implements Jumpable{
-    private String color;
     private int hitPoints;
     private int size;
     private Timeline jumpTimeline;
@@ -17,27 +15,22 @@ public abstract class Orc extends GameObject implements Jumpable{
     public Orc(ImageView _node){
         super(_node);
         startJumping();
+        hitPoints = 50;
     }
 
-
-    private void die(){
-
-    }
-
-    public void spawn(){
-
+    public void setHitPoints(int _hitPoints){
+        hitPoints = _hitPoints;
     }
 
     public void deSpawn(){
         getNode().setVisible(false);
     }
 
-    public void push(){
-
-    }
-
     public void decreaseHitPoints(int decrement){
-
+        hitPoints -= decrement;
+        if (hitPoints <= 0){
+            deSpawn();
+        }
     }
 
 
@@ -56,8 +49,12 @@ public abstract class Orc extends GameObject implements Jumpable{
         }
         else{
             // along X axis
-            if(Utility.checkIthBit(interaction, 1))
+            if(Utility.checkIthBit(interaction, 1)) {
+                if (hero.getCurrentWeapon() != null && hero.getCurrentWeapon().getType() == 0) {
+                    decreaseHitPoints(hero.getCurrentWeapon().getDamage());
+                }
                 moveForward();
+            }
         }
     }
 

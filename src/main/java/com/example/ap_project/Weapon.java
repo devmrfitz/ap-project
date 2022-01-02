@@ -3,7 +3,7 @@ package com.example.ap_project;
 import javafx.scene.image.Image;
 
 public abstract class Weapon implements Cloneable{
-    private int level;
+    private final int level;
 
     public Weapon(int level){
         this.level = level;
@@ -17,13 +17,8 @@ public abstract class Weapon implements Cloneable{
 
     }
 
-    public void attack(){
+    public abstract void attack(Hero hero);
 
-    }
-
-    public void setLevel(int level){
-        this.level = level;
-    }
 
     public int getLevel(){
         return level;
@@ -46,4 +41,8 @@ public abstract class Weapon implements Cloneable{
     public abstract Weapon getUpgradedVersion();
 
     public abstract Image getImage();
+
+    public int getDamage(){
+        return level*20;
+    }
 }

@@ -16,6 +16,11 @@ public class ThrowingStars extends Weapon implements Comparable<Weapon>{
         super(level);
     }
 
+    @Override
+    public void attack(Hero hero) {
+
+    }
+
     private static final Map<String, ThrowingStars> instances =
             new HashMap<>();
 
@@ -26,18 +31,6 @@ public class ThrowingStars extends Weapon implements Comparable<Weapon>{
             instances.put(key, new ThrowingStars(level));
         }
         return instances.get(key);
-    }
-
-    public void attack(){
-
-    }
-
-    public void equip(){
-
-    }
-
-    public void uEquip(){
-
     }
 
     public boolean equals(Object obj){

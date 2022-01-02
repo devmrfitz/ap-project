@@ -1,6 +1,14 @@
 package com.example.ap_project;
 
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.scene.Group;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +25,7 @@ public class Sword extends Weapon implements Comparable<Weapon>{
     }
 
     private static final Map<String, Sword> instances =
-            new HashMap<String, Sword>();
+            new HashMap<>();
 
     public static Sword getInstance(int level) {
 
@@ -26,18 +34,6 @@ public class Sword extends Weapon implements Comparable<Weapon>{
             instances.put(key, new Sword(level));
         }
         return instances.get(key);
-    }
-
-    public void attack(){
-
-    }
-
-    public void equip(){
-
-    }
-
-    public void uEquip(){
-
     }
 
     public boolean equals(Object obj){
@@ -79,5 +75,22 @@ public class Sword extends Weapon implements Comparable<Weapon>{
 
     public Image getImage(){
         return images[getLevel()];
+    }
+
+    public void attack(Hero hero) {
+        hit((ImageView) ((Pane)hero.getNode()).getChildren().get(1));
+    }
+
+    private void hit(ImageView rectangle) {
+        final Timeline timeline = new Timeline();
+        timeline.setCycleCount(1);
+        timeline.setAutoReverse(true);
+        final KeyValue kv = new KeyValue(rectangle.rotateProperty(), rectangle.rotateProperty().get()+90,
+                Interpolator.EASE_BOTH);
+        final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setDelay(Duration.seconds(0));
+        timeline.setAutoReverse(true);
+        timeline.play();
     }
 }

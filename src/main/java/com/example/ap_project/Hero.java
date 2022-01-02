@@ -47,6 +47,10 @@ public class Hero implements Positionable, Serializable, Jumpable {
         jumpTimeline.play();
     }
 
+    public Weapon getCurrentWeapon(){
+        return currentWeapon;
+    }
+
 
     public void jump(){
 //        System.out.println("Hero Jumping");
@@ -104,6 +108,10 @@ public class Hero implements Positionable, Serializable, Jumpable {
         final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
         timeline.getKeyFrames().add(kf);
         timeline.play();
+
+        if (getCurrentWeapon() != null) {
+            getCurrentWeapon().attack(this);
+        }
     }
 
 //    public void hit(ImageView rectangle, double delay) {
