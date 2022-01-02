@@ -1,19 +1,17 @@
-package com.example.ap_project;
+package com.example.ap_project.fxml;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Calendar;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 public class MenuPageController {
 

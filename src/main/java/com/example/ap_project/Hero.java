@@ -1,18 +1,16 @@
 package com.example.ap_project;
 
+import com.example.ap_project.fxml.GameController;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 import javafx.util.Pair;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Hero implements Positionable, Serializable, Jumpable {

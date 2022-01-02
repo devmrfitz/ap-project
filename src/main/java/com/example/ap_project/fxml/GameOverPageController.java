@@ -1,4 +1,4 @@
-package com.example.ap_project;
+package com.example.ap_project.fxml;
 
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;

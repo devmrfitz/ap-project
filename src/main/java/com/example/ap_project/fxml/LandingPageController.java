@@ -1,4 +1,4 @@
-package com.example.ap_project;
+package com.example.ap_project.fxml;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;

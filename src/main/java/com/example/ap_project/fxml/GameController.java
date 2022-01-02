@@ -1,4 +1,4 @@
-package com.example.ap_project;
+package com.example.ap_project.fxml;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import com.example.ap_project.*;
 import com.example.ap_project.animation_timers.HeroInteractChecker;
 import com.example.ap_project.animation_timers.JumpableFallChecker;
 import com.example.ap_project.animation_timers.OrcJumpGravityHandler;

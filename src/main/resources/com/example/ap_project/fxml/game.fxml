@@ -14,76 +14,76 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Scene fx:id="scene" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.GameController">
-    <AnchorPane maxHeight="-Infinity" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="900.0" styleClass="gradientBackground" stylesheets="@styles/gamePage.css">
+<Scene fx:id="scene" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.fxml.GameController">
+    <AnchorPane maxHeight="-Infinity" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="900.0" styleClass="gradientBackground" stylesheets="@../styles/gamePage.css">
       <children>
          <AnchorPane fx:id="cloudAnchorPane" prefHeight="200.0" prefWidth="200.0">
             <children>
                <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="1500.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/cloud_5.png" />
+                     <Image url="@../images/cloud_5.png" />
                   </image>
                </ImageView>
                <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="1250.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/cloud_5.png" />
+                     <Image url="@../images/cloud_5.png" />
                   </image>
                </ImageView>
                <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="870.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/cloud_5.png" />
+                     <Image url="@../images/cloud_5.png" />
                   </image>
                </ImageView>
                <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="600.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/cloud_5.png" />
+                     <Image url="@../images/cloud_5.png" />
                   </image>
                </ImageView>
                <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="200.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/cloud_5.png" />
+                     <Image url="@../images/cloud_5.png" />
                   </image>
                </ImageView>
             </children>
          </AnchorPane>
          <AnchorPane fx:id="mainAnchorPane" maxHeight="480.0" maxWidth="900.0" minHeight="480.0" onKeyPressed="#move" onMouseClicked="#moveForward" prefHeight="480.0">
             <children>
-               <Region layoutX="696.0" layoutY="15.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@styles/tree.css" />
-               <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@styles/tree.css" />
-               <Region fx:id="island1" layoutX="58.0" layoutY="301.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@styles/islands1.css" />
+               <Region layoutX="696.0" layoutY="15.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@../styles/tree.css" />
+               <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@../styles/tree.css" />
+               <Region fx:id="island1" layoutX="58.0" layoutY="301.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@../styles/islands1.css" />
                <Pane fx:id="hero" layoutX="165.0" layoutY="245.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="60.0">
                   <children>
                      <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true">
                         <image>
-                           <Image url="@images/panda.png" />
+                           <Image url="@../images/panda.png" />
                         </image>
                      </ImageView>
                      <ImageView fx:id="sword" fitHeight="60.0" fitWidth="17.0" layoutX="3.0" preserveRatio="true" rotate="29.1">
                         <image>
-                           <Image url="@images/Sword.png" />
+                           <Image url="@../images/Sword.png" />
                         </image>
                      </ImageView>
                   </children>
                </Pane>
-               <Region fx:id="island2" layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
+               <Region fx:id="island2" layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="421.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/Coin.png" />
+                     <Image url="@../images/Coin.png" />
                   </image>
                </ImageView>
                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="381.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/Coin.png" />
+                     <Image url="@../images/Coin.png" />
                   </image>
                </ImageView>
                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="343.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/Coin.png" />
+                     <Image url="@../images/Coin.png" />
                   </image>
                </ImageView>
                <ImageView fx:id="boss" fitHeight="107.0" fitWidth="93.0" layoutX="1578.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@images/red_orc.png" />
+                     <Image url="@../images/red_orc.png" />
                   </image>
                </ImageView>
                <Rectangle fx:id="platform1" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="369.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
@@ -132,9 +132,9 @@
                      </LinearGradient>
                   </fill>
                </Rectangle>
-               <Region fx:id="island3" layoutX="969.0" layoutY="301.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
+               <Region fx:id="island3" layoutX="969.0" layoutY="301.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
                <Rectangle fx:id="deathZone" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="480.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="2000.0" />
-               <Region fx:id="island4" layoutX="1390.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
+               <Region fx:id="island4" layoutX="1390.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
             </children>
          </AnchorPane>
          <AnchorPane fx:id="staticAnchorPane" minHeight="-Infinity" prefHeight="87.0" prefWidth="890.0">
