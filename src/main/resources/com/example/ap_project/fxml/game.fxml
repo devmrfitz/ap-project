@@ -13,6 +13,7 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <Scene fx:id="scene" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.fxml.GameController">
@@ -146,6 +147,26 @@
                      <Cursor fx:constant="HAND" />
                   </cursor>
                </Group>
+               <Text layoutX="51.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Distance:">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Text>
+               <Text layoutX="227.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coins:">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Text>
+               <Text fx:id="distanceTextBox" layoutX="139.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-1">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Text>
+               <Text fx:id="coinsTextBox" layoutX="287.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-1">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Text>
             </children>
          </AnchorPane>
          <AnchorPane fx:id="weaponAnchorPane" layoutY="395.0" prefHeight="71.0" prefWidth="200.0">

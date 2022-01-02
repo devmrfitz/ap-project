@@ -11,7 +11,6 @@ import java.util.ResourceBundle;
 import com.example.ap_project.*;
 import com.example.ap_project.animation_timers.*;
 import javafx.animation.*;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -23,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -74,6 +74,9 @@ public class GameController {
 
     @FXML
     private AnchorPane weaponAnchorPane;
+
+    @FXML
+    private Text distanceTextBox, coinsTextBox;
 
     private ArrayList<Interactable> interactables;
 
@@ -178,6 +181,7 @@ public class GameController {
         (new ScreenScroller(cloudAnchorPane, 0.2, id)).start();
         (new JumpableFallChecker(hero_obj, deathZone, id)).start();
         (new HeroInteractChecker(hero_obj, interactables, id)).start();
+        (new DistanceCoinsUpdater(distanceTextBox, coinsTextBox, hero_obj)).start();
 
 
     }

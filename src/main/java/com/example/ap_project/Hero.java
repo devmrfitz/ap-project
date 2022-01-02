@@ -33,6 +33,7 @@ public class Hero implements Positionable, Jumpable {
         node = _node;
         this.weaponPane = weaponPane;
         coinsCollected = 0;
+        distanceTravelled = 0;
         registerWeaponPaneHandlers();
         startJumping();
     }
@@ -130,6 +131,7 @@ public class Hero implements Positionable, Jumpable {
         final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
         timeline.getKeyFrames().add(kf);
         timeline.play();
+        distanceTravelled += 120;
 
         if (getCurrentWeapon() != null) {
             getCurrentWeapon().attack(this);
@@ -152,5 +154,13 @@ public class Hero implements Positionable, Jumpable {
     @Override
     public void setPosition(Pair<Double, Double> position) {
 
+    }
+
+    public int getCoins() {
+        return coinsCollected;
+    }
+
+    public double getDistance() {
+        return distanceTravelled;
     }
 }
