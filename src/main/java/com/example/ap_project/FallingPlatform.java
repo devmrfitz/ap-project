@@ -27,7 +27,7 @@ public class FallingPlatform extends Obstacle implements Bouncer {
     }
 
     @Override
-    public void interact(int interaction) {
+    public void interact(int interaction, Hero hero) {
         if (interaction == 1) {
             fall();
         }

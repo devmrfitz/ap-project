@@ -1,5 +1,21 @@
 package com.example.ap_project;
 
-public class Island implements Bouncer{
+import javafx.scene.Node;
 
+public class Island implements Bouncer, Interactable{
+    private Node node;
+
+    public Island(Node node){
+        this.node = node;
+    }
+
+    @Override
+    public Node getNode() {
+        return this.node;
+    }
+
+    @Override
+    public void interact(int interaction, Hero hero) {
+
+    }
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import com.example.ap_project.animation_timers.HeroInteractChecker;
 import com.example.ap_project.animation_timers.JumpableFallChecker;
 import com.example.ap_project.animation_timers.JumpGravityHandler;
 import com.example.ap_project.animation_timers.ScreenScroller;
@@ -57,7 +58,7 @@ public class GameController {
     private ImageView boss;
 
     @FXML
-    private Region island1, island2;
+    private Region island1, island2, island3, island4;
 
     @FXML
     private ImageView sword;
@@ -70,6 +71,8 @@ public class GameController {
 
     @FXML
     private AnchorPane cloudAnchorPane;
+
+    private ArrayList<Island> islands;
 
     @FXML
     void move(KeyEvent event) {
@@ -107,6 +110,12 @@ public class GameController {
     @FXML
     void initialize() {
 
+        islands = new ArrayList<>();
+        islands.add(new Island(island1));
+        islands.add(new Island(island2));
+        islands.add(new Island(island3));
+        islands.add(new Island(island4));
+
         Hero hero_obj = new Hero(this.hero);
         fall(platform1, 0);
         fall(platform2, 0.5);
@@ -123,6 +132,7 @@ public class GameController {
         (new ScreenScroller(mainAnchorPane, 0.5)).start();
         (new ScreenScroller(cloudAnchorPane, 0.2)).start();
         (new JumpableFallChecker(hero_obj, deathZone)).start();
+//        (new HeroInteractChecker(hero_obj, islands)).start();
 
 
         // create gravity

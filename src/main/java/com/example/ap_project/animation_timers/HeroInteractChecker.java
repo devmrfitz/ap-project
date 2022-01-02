@@ -1,5 +1,6 @@
 package com.example.ap_project.animation_timers;
 
+import com.example.ap_project.Bouncer;
 import com.example.ap_project.Hero;
 import com.example.ap_project.Interactable;
 import com.example.ap_project.Utility;
@@ -26,6 +27,8 @@ public class HeroInteractChecker extends AnimationTimer {
 
     public void interact(Interactable interactable, int interaction) {
         if (interaction != -1)
-            interactable.interact(interaction);
+            interactable.interact(interaction, hero);
+        if (interactable instanceof Bouncer)
+            hero.jump();
     }
 }
