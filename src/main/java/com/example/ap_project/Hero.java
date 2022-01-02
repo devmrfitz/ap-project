@@ -1,5 +1,6 @@
 package com.example.ap_project;
 
+import com.example.ap_project.animation_timers.PositionSaver;
 import com.example.ap_project.fxml.GameController;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -24,6 +25,7 @@ public class Hero implements Positionable, Jumpable {
     private int coinsCollected;
     private Weapon currentWeapon;
     private transient final AnchorPane weaponPane;
+    private Pair<Double, Double> position;
 
 
     public Hero(Pane _node, AnchorPane weaponPane) {
@@ -34,6 +36,7 @@ public class Hero implements Positionable, Jumpable {
         this.weaponPane = weaponPane;
         coinsCollected = 0;
         distanceTravelled = 0;
+        (new PositionSaver(this)).start();
         registerWeaponPaneHandlers();
         startJumping();
     }
@@ -148,13 +151,21 @@ public class Hero implements Positionable, Jumpable {
 
     @Override
     public Pair<Double, Double> getPosition() {
-        return null;
+        return position;
     }
 
     @Override
     public void setPosition(Pair<Double, Double> position) {
-
+        this.position = position;
     }
+
+    @Override
+    public void savePosition() {
+        Pair<Double, Double> p = new Pair<>(node.getLayoutX(), node.getLayoutY());
+        setPosition(p);
+    }
+
+
 
     public int getCoins() {
         return coinsCollected;
