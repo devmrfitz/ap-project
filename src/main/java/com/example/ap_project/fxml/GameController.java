@@ -127,7 +127,7 @@ public class GameController {
 
         Random rand = new Random();
         for (Island island : islands) {
-            int num = rand.nextInt(2);
+            int num = rand.nextInt(4);
             switch (num) {
                 case 0 -> {
                     Orc orc = Factory.createOrc("red", island);
