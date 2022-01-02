@@ -23,7 +23,7 @@ public class Coin extends GameObject {
             Bounds bounds = island.getNode().getBoundsInParent();
             double islandWidth = (((Region) island.getNode()).getPrefWidth());
             double x = (2 * bounds.getMaxX() + width) / 2 + (random.nextInt(3) - 1) * 20;
-            double y = bounds.getMinY() + (random.nextInt(3) ) * 20;
+            double y = bounds.getMinY() + (random.nextInt(3) ) * -20;
 
             ImageView img = new ImageView(image);
             img.setFitHeight(height);
