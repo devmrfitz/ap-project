@@ -2,7 +2,9 @@ package com.example.ap_project;
 
 import javafx.scene.image.Image;
 
-public abstract class Weapon implements Cloneable{
+import java.io.Serializable;
+
+public abstract class Weapon implements Cloneable, Serializable {
     private final int level;
 
     public Weapon(int level){

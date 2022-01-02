@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
-public abstract class Orc extends GameObject implements Jumpable{
+public abstract class Orc extends GameObject implements Jumpable, Interactable{
     private int hitPoints;
     private transient Timeline jumpTimeline;
 

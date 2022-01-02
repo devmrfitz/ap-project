@@ -247,7 +247,7 @@ public class GameController {
                     new FileInputStream(file.getAbsoluteFile()))) {
                 System.out.println(file.getPath());
                 Object a = in.readObject();
-                System.out.println("test" + a);
+                System.out.println("test" + ((ArrayList<Interactable>)a).get(0).getNode());
             }
         }
         catch (Exception e){

@@ -10,10 +10,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Sword extends Weapon implements Comparable<Weapon>{
+public class Sword extends Weapon implements Comparable<Weapon>, Serializable {
     private static transient final Image image1 = new Image("file:src/main/resources/com/example/ap_project/images/Sword1.png");
     private static transient final Image image2 = new Image("file:src/main/resources/com/example/ap_project/images/Sword2.png");
     private static transient final Image image3 = new Image("file:src/main/resources/com/example/ap_project/images/Sword3.png");
