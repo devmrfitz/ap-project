@@ -27,9 +27,6 @@ public class ScreenScroller extends AnimationTimer {
 
     @Override
     public void handle(long now) {
-//        scroll(-0.5);
-        System.out.println("cameraX: " + scene.getCamera().getTranslateX());
-//        scene.getCamera().setTranslateX(scene.getCamera().getTranslateX() + 5);
-//        scene.getCamera().translateXProperty().set(50);
+        scroll(-0.5);
     }
 }

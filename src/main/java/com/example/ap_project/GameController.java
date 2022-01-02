@@ -14,16 +14,15 @@ import com.example.ap_project.animation_timers.ScreenScroller;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -66,6 +65,9 @@ public class GameController {
     private Rectangle deathZone;
 
     @FXML
+    private AnchorPane anchorPane;
+
+    @FXML
     void move(KeyEvent event) {
         System.out.println("moved");
         System.out.println(event.getSource());
@@ -97,9 +99,6 @@ public class GameController {
     @FXML
     void initialize() throws InterruptedException {
 
-
-
-
         Hero hero_obj = new Hero(this.hero);
         fall(platform1, 0);
         fall(platform2, 0.5);
@@ -112,39 +111,21 @@ public class GameController {
         jumpGravityHandler.start();
 
         ScreenScroller screenScroller = new ScreenScroller(new ArrayList<>(), scene);
-        screenScroller.addNode(island1);
-        screenScroller.addNode(island2);
-        screenScroller.addNode(platform1);
-        screenScroller.addNode(platform2);
-        screenScroller.addNode(hero);
-        screenScroller.addNode(orc);
-        screenScroller.addNode(boss);
-//        screenScroller.start();
+//        screenScroller.addNode(island1);
+//        screenScroller.addNode(island2);
+//        screenScroller.addNode(platform1);
+//        screenScroller.addNode(platform2);
+//        screenScroller.addNode(hero);
+//        screenScroller.addNode(orc);
+//        screenScroller.addNode(boss);
+        screenScroller.addNode(anchorPane);
+        screenScroller.start();
 
 
         // create gravity
     }
 
 
-    //Translate a rectangle JAVAFx
-    public void translateRectangle(ImageView rectangle, double delay) {
-        final Timeline timeline = new Timeline();
-        timeline.setCycleCount(1);
-        timeline.setAutoReverse(false);
-        final KeyValue up_key_value = new KeyValue(rectangle.yProperty(), -100,
-                Interpolator.EASE_OUT);
-        final KeyFrame up_keyframe = new KeyFrame(Duration.millis(700), up_key_value);
-        final KeyValue down_key_value = new KeyValue(rectangle.yProperty(), 1000,
-                Interpolator.EASE_IN);
-        final KeyFrame down_keyframe = new KeyFrame(Duration.millis(7000), down_key_value);
-
-
-
-        timeline.getKeyFrames().add(up_keyframe);
-        timeline.getKeyFrames().add(down_keyframe);
-        timeline.setDelay(Duration.seconds(delay));
-        timeline.play();
-    }
 
     // Check collision between hero and platform
     public boolean checkCollision(ImageView hero, Rectangle platform) {

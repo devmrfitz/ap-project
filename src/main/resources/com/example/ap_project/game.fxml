@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
@@ -14,24 +14,14 @@
 <?import javafx.scene.shape.Rectangle?>
 
 <Scene fx:id="scene" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.GameController">
-    <AnchorPane maxWidth="900.0" minWidth="900.0" prefHeight="200" prefWidth="200">
+    <AnchorPane maxWidth="900.0" minWidth="900.0" prefHeight="200" prefWidth="200" styleClass="gradientBackground" stylesheets="@styles/gamePage.css">
       <children>
-         <AnchorPane fx:id="anchorPane" maxHeight="480.0" minHeight="480.0" onKeyPressed="#move" onMouseClicked="#moveForward" prefHeight="480.0" styleClass="gradientBackground">
-            <stylesheets>
-               <URL value="@styles/hero.css" />
-               <URL value="@styles/gamePage.css" />
-            </stylesheets>
+         <AnchorPane fx:id="anchorPane" maxHeight="480.0" minHeight="480.0" onKeyPressed="#move" onMouseClicked="#moveForward" prefHeight="480.0">
             <children>
                <Region layoutX="696.0" layoutY="15.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@styles/tree.css" />
                <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@styles/tree.css" />
                <Region fx:id="island1" layoutX="58.0" layoutY="301.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@styles/islands1.css" />
                <Region fx:id="island2" layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
-               <Group layoutX="12.0" layoutY="12.0" onMouseClicked="#pause">
-                  <children>
-                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
-                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
-                  </children>
-               </Group>
                <Group fx:id="hero" layoutX="165.0" layoutY="245.0">
                   <children>
                      <ImageView fitHeight="55.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
@@ -75,8 +65,7 @@
                      <Image url="@images/red_orc.png" />
                   </image>
                </ImageView>
-               <Button layoutX="815.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#game_over" text="End Game" />
-               <Rectangle fx:id="platform1" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="398.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
+               <Rectangle fx:id="platform1" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="369.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
                   <fill>
                      <LinearGradient endX="1.0" endY="1.0">
                         <stops>
@@ -99,7 +88,7 @@
                      </LinearGradient>
                   </fill>
                </Rectangle>
-               <Rectangle fx:id="platform2" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="465.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
+               <Rectangle fx:id="platform2" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="436.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
                   <fill>
                      <LinearGradient endX="1.0" endY="1.0">
                         <stops>
@@ -125,7 +114,17 @@
                <Region fx:id="island3" layoutX="969.0" layoutY="301.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
                <Rectangle fx:id="deathZone" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="430.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="2000.0" />
                <Region fx:id="island4" layoutX="1390.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
+               <Button layoutX="812.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#game_over" text="End Game" />
             </children>
          </AnchorPane>
+         <Group layoutX="9.0" layoutY="9.0" onMouseClicked="#pause">
+            <children>
+               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
+               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
+            </children>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Group>
       </children></AnchorPane>
 </Scene>
