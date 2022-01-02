@@ -23,9 +23,9 @@ import javafx.util.Duration;
 
 public class PauseController {
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    private transient Stage stage;
+    private transient Scene scene;
+    private transient Parent root;
 
     @FXML
     private ResourceBundle resources;
@@ -60,7 +60,7 @@ public class PauseController {
     @FXML
     void saveGame(ActionEvent event) throws IOException {
         GameController gameController_obj = GameController.getInstance();
-        gameController_obj.saveGame(gameController_obj.getInteractables());
+        gameController_obj.saveGame(gameController_obj);
     }
 
     @FXML

@@ -15,13 +15,14 @@ import javafx.util.Duration;
 
 import javafx.util.Pair;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Hero implements Positionable, Jumpable {
+public class Hero implements Positionable, Jumpable, Serializable {
     private final ArrayList<Weapon> activeWeapons;
     private int distanceTravelled;
     private transient Pane node;
-    private Timeline jumpTimeline;
+    private transient Timeline jumpTimeline;
     private int coinsCollected;
     private Weapon currentWeapon;
     private transient final AnchorPane weaponPane;

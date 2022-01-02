@@ -15,15 +15,15 @@ import javafx.stage.Stage;
 
 public class MenuPageController {
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    private transient Stage stage;
+    private transient Scene scene;
+    private transient Parent root;
 
     @FXML
-    private ResourceBundle resources;
+    private transient ResourceBundle resources;
 
     @FXML
-    private URL location;
+    private transient URL location;
 
     @FXML
     void exitGame(ActionEvent event) {

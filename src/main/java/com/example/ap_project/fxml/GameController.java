@@ -28,8 +28,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
-public class GameController {
-    private static Stage stage;
+public class GameController implements Serializable {
+    private transient static Stage stage;
     private FileChooser fileChooser;
 
     private static GameController gameController;
@@ -37,7 +37,7 @@ public class GameController {
     private int id;
 
     @FXML
-    private Scene scene;
+    private transient Scene scene;
 
     @FXML
     private ResourceBundle resources;
@@ -226,7 +226,7 @@ public class GameController {
         stage = _stage;
     }
 
-    public void serialize(ArrayList<Interactable> a) throws IOException {
+    public void serialize(GameController a) throws IOException {
         String myObj = String.valueOf(LocalTime.now());
         try (ObjectOutputStream out = new ObjectOutputStream(
                 new FileOutputStream("out" + myObj.split("\\.")[1] + ".txt"))) {
@@ -235,7 +235,7 @@ public class GameController {
         }
     }
 
-    public void saveGame(ArrayList<Interactable> a) throws IOException {
+    public void saveGame(GameController a) throws IOException {
         serialize(a);
     }
 
@@ -251,7 +251,7 @@ public class GameController {
                     new FileInputStream(file.getAbsoluteFile()))) {
                 System.out.println(file.getPath());
                 Object a = in.readObject();
-                System.out.println("test" + ((ArrayList<Interactable>)a).get(0).getNode());
+                System.out.println("test" + a);
             }
         }
         catch (Exception e){

@@ -20,16 +20,16 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class GameOverPageController {
-    private Stage stage;
+    private transient Stage stage;
 
     @FXML
-    private ResourceBundle resources;
+    private transient ResourceBundle resources;
 
     @FXML
-    private URL location;
+    private transient URL location;
 
     @FXML
-    private Pane pane;
+    private transient Pane pane;
 
     @FXML
     void getMenu(ActionEvent event) throws IOException {
