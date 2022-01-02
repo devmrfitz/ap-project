@@ -14,9 +14,38 @@
 <?import javafx.scene.shape.Rectangle?>
 
 <Scene fx:id="scene" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.GameController">
-    <AnchorPane maxWidth="900.0" minWidth="900.0" prefHeight="200" prefWidth="200" styleClass="gradientBackground" stylesheets="@styles/gamePage.css">
+    <AnchorPane maxHeight="-Infinity" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="900.0" styleClass="gradientBackground" stylesheets="@styles/gamePage.css">
       <children>
-         <AnchorPane fx:id="anchorPane" maxHeight="480.0" minHeight="480.0" onKeyPressed="#move" onMouseClicked="#moveForward" prefHeight="480.0">
+         <AnchorPane fx:id="cloudAnchorPane" prefHeight="200.0" prefWidth="200.0">
+            <children>
+               <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="1500.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@images/cloud_5.png" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="1250.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@images/cloud_5.png" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="870.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@images/cloud_5.png" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="600.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@images/cloud_5.png" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="200.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@images/cloud_5.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </AnchorPane>
+         <AnchorPane fx:id="mainAnchorPane" maxHeight="480.0" maxWidth="900.0" minHeight="480.0" onKeyPressed="#move" onMouseClicked="#moveForward" prefHeight="480.0">
             <children>
                <Region layoutX="696.0" layoutY="15.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@styles/tree.css" />
                <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@styles/tree.css" />
@@ -53,11 +82,6 @@
                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="343.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@images/Coin.png" />
-                  </image>
-               </ImageView>
-               <ImageView fitHeight="101.0" fitWidth="221.0" layoutX="226.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@images/cloud_5.png" />
                   </image>
                </ImageView>
                <ImageView fx:id="boss" fitHeight="107.0" fitWidth="93.0" layoutX="746.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
@@ -114,17 +138,21 @@
                <Region fx:id="island3" layoutX="969.0" layoutY="301.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
                <Rectangle fx:id="deathZone" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="430.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="2000.0" />
                <Region fx:id="island4" layoutX="1390.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@styles/islands1.css" />
-               <Button layoutX="812.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#game_over" text="End Game" />
             </children>
          </AnchorPane>
-         <Group layoutX="9.0" layoutY="9.0" onMouseClicked="#pause">
+         <AnchorPane fx:id="staticAnchorPane" minHeight="-Infinity" prefHeight="87.0" prefWidth="890.0">
             <children>
-               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
-               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
+               <Button layoutX="812.4" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#game_over_handler" text="End Game" />
+               <Group layoutX="10.0" layoutY="10.0" onMouseClicked="#pause">
+                  <children>
+                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
+                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
+                  </children>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Group>
             </children>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Group>
+         </AnchorPane>
       </children></AnchorPane>
 </Scene>

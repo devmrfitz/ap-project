@@ -2,31 +2,22 @@ package com.example.ap_project.animation_timers;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.Node;
-import javafx.scene.Scene;
-
-import java.util.ArrayList;
 
 public class ScreenScroller extends AnimationTimer {
-    private final ArrayList<Node> nodes;
-    private final Scene scene;
+    private final Node node;
+    private final double speed;
 
-    public ScreenScroller(ArrayList<Node> nodes, Scene scene) {
-        this.nodes = nodes;
-        this.scene = scene;
+    public ScreenScroller(Node node, double speed) {
+        this.node = node;
+        this.speed = -1*speed;
     }
 
-    public void scroll(double offset) {
-        for (Node node : nodes) {
-            node.setTranslateX(node.getTranslateX() + offset);
-        }
-    }
-
-    public void addNode(Node node) {
-        nodes.add(node);
+    private void scroll(double offset) {
+        node.setTranslateX(node.getTranslateX() + offset);
     }
 
     @Override
     public void handle(long now) {
-        scroll(-0.5);
+        scroll(speed);
     }
 }

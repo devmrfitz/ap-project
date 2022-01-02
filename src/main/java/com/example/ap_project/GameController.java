@@ -1,38 +1,39 @@
 package com.example.ap_project;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import com.example.ap_project.animation_timers.JumpGravityFallHandler;
+import com.example.ap_project.animation_timers.JumpableFallChecker;
+import com.example.ap_project.animation_timers.JumpGravityHandler;
 import com.example.ap_project.animation_timers.ScreenScroller;
-import javafx.animation.*;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
-import javafx.scene.image.Image;
+import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class GameController {
-    private Stage stage;
+    private static Stage stage;
 
     @FXML
     private Scene scene;
-
-    private Parent root;
 
     @FXML
     private ResourceBundle resources;
@@ -65,7 +66,10 @@ public class GameController {
     private Rectangle deathZone;
 
     @FXML
-    private AnchorPane anchorPane;
+    private AnchorPane mainAnchorPane;
+
+    @FXML
+    private AnchorPane cloudAnchorPane;
 
     @FXML
     void move(KeyEvent event) {
@@ -75,6 +79,8 @@ public class GameController {
 
     @FXML
     void openChest(MouseEvent event) throws FileNotFoundException {
+        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+
         ImageView imageView = (ImageView) event.getSource();
         Chest coins = new CoinChest(5, imageView);
         coins.open(event);
@@ -85,6 +91,8 @@ public class GameController {
 
     @FXML
     void pause(MouseEvent event) throws IOException {
+        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+
         System.out.println("Pause");
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
 
@@ -97,7 +105,7 @@ public class GameController {
     }
 
     @FXML
-    void initialize() throws InterruptedException {
+    void initialize() {
 
         Hero hero_obj = new Hero(this.hero);
         fall(platform1, 0);
@@ -107,32 +115,15 @@ public class GameController {
         ArrayList<Node> islands = new ArrayList<>();
         islands.add(island1);
         islands.add(island2);
-        JumpGravityFallHandler jumpGravityHandler = new JumpGravityFallHandler(hero_obj, islands);
+        JumpGravityHandler jumpGravityHandler = new JumpGravityHandler(hero_obj, islands);
         jumpGravityHandler.start();
 
-        ScreenScroller screenScroller = new ScreenScroller(new ArrayList<>(), scene);
-//        screenScroller.addNode(island1);
-//        screenScroller.addNode(island2);
-//        screenScroller.addNode(platform1);
-//        screenScroller.addNode(platform2);
-//        screenScroller.addNode(hero);
-//        screenScroller.addNode(orc);
-//        screenScroller.addNode(boss);
-        screenScroller.addNode(anchorPane);
-        screenScroller.start();
+        (new ScreenScroller(mainAnchorPane, 0.5)).start();
+        (new ScreenScroller(cloudAnchorPane, 0.2)).start();
+        (new JumpableFallChecker(hero_obj, deathZone)).start();
 
 
         // create gravity
-    }
-
-
-
-    // Check collision between hero and platform
-    public boolean checkCollision(ImageView hero, Rectangle platform) {
-        if (hero.getBoundsInParent().intersects(platform.getBoundsInParent())) {
-            return true;
-        }
-        return false;
     }
 
 
@@ -144,21 +135,8 @@ public class GameController {
 
     @FXML
     void moveForward(MouseEvent event) throws FileNotFoundException {
-        // Check if hero has collided
-        System.out.println("movingForward");
 
-        // TranslateTransition her
-//        TranslateTransition translateTransition = new TranslateTransition();
-//        translateTransition.setDuration(Duration.millis(700));
-//        translateTransition.setNode(hero);
-//        translateTransition.setToX(hero.getTranslateX() + 120);
-//        translateTransition.play();
-
-
-        //
-
-//        hero.setTranslateX(hero.getTranslateX() + 120);
-
+        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
 
         final Timeline timeline = new Timeline();
         timeline.setCycleCount(1);
@@ -168,7 +146,6 @@ public class GameController {
         final KeyFrame kf = new KeyFrame(Duration.millis(700), kv);
         timeline.getKeyFrames().add(kf);
         timeline.play();
-//        hero.setLayoutX(hero.getLayoutX() + 120);
 //        hit(sword, 0);
     }
 
@@ -187,10 +164,21 @@ public class GameController {
 
 
     @FXML
-    void game_over(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("gameOverPage.fxml")));
+    public void game_over_handler(MouseEvent event) {
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
-        scene = new Scene(root);
+
+        game_over();
+    }
+
+    public static void game_over() {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(GameController.class.getResource("gameOverPage.fxml")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
