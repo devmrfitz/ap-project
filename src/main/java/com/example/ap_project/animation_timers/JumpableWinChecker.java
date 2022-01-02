@@ -16,8 +16,5 @@ public class JumpableWinChecker extends GameAnimationTimer {
 
     @Override
     public void work(long now) {
-        if (Utility.intersects(deathBox, jumpable.getNode())) {
-            GameController.getInstance().win();
-        }
     }
 }
