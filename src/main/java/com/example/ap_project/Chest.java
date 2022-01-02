@@ -8,13 +8,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public abstract class Chest extends GameObject {
+public abstract class Chest {
     private final ImageView imageView;
 
     private boolean isOpen;
 
     public Chest(ImageView _node){
-        super(_node);
+//        super(_node);
         imageView = _node;
     }
 

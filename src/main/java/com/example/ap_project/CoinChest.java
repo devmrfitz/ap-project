@@ -20,9 +20,4 @@ public class CoinChest extends Chest{
     protected void open(MouseEvent event) throws FileNotFoundException {
         super.open(event);
     }
-
-    @Override
-    public void interact(int interaction) {
-
-    }
 }
