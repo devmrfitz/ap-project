@@ -54,16 +54,10 @@ public class GameController {
     private Rectangle platform2;
 
     @FXML
-    private ImageView orc;
-
-    @FXML
-    private ImageView boss;
-
-    @FXML
     private Region island1, island2, island3, island4;
 
     @FXML
-    private ImageView sword;
+    private ImageView weapon;
 
     @FXML
     private Rectangle deathZone;
@@ -97,8 +91,6 @@ public class GameController {
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
 
         ImageView imageView = (ImageView) event.getSource();
-        Weapon temp_weapon = new Sword(1);
-        Chest weapon = new WeaponChest(temp_weapon,imageView);
 //        weapon.open();
     }
 
@@ -127,7 +119,8 @@ public class GameController {
 
         Random rand = new Random();
         for (Island island : islands) {
-            int num = rand.nextInt(4);
+            int num = rand.nextInt(5);
+            num=4;
             switch (num) {
                 case 0 -> {
                     Orc orc = Factory.createOrc("red", island);
@@ -149,7 +142,11 @@ public class GameController {
                     orcs.add(orc);
                     mainAnchorPane.getChildren().add(orc.getNode());
                 }
-
+                case 4 -> {
+                    Chest chest = Factory.createChest("weapon", island);
+                    chests.add(chest);
+                    mainAnchorPane.getChildren().add(chest.getNode());
+                }
             }
         }
 

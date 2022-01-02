@@ -58,7 +58,7 @@
                            <Image url="@../images/panda.png" />
                         </image>
                      </ImageView>
-                     <ImageView fx:id="sword" fitHeight="60.0" fitWidth="17.0" layoutX="3.0" preserveRatio="true" rotate="29.1">
+                     <ImageView fx:id="weapon" fitHeight="60.0" fitWidth="17.0" layoutX="3.0" preserveRatio="true" rotate="29.1">
                         <image>
                            <Image url="@../images/Sword.png" />
                         </image>

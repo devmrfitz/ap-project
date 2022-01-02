@@ -15,6 +15,7 @@ public abstract class Chest extends GameObject {
 
     public Chest(ImageView imageView){
         super(imageView);
+        this.isOpen = false;
     }
 
 
@@ -24,11 +25,11 @@ public abstract class Chest extends GameObject {
 //        imageView.setImage(image);
 //    }
 
-    public void spawn(){
-
+    public void setOpen() {
+        this.isOpen = true;
     }
 
-    public void deSpawn(){
-
+    public boolean isOpen() {
+        return isOpen;
     }
 }

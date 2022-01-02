@@ -1,6 +1,8 @@
 package com.example.ap_project;
 
-public class Weapon implements Cloneable{
+import javafx.scene.image.Image;
+
+public abstract class Weapon implements Cloneable{
     private int level;
 
     public Weapon(int level){
@@ -37,4 +39,11 @@ public class Weapon implements Cloneable{
             throw new AssertionError();
         }
     }
+
+
+    public abstract int getType();
+
+    public abstract Weapon getUpgradedVersion();
+
+    public abstract Image getImage();
 }

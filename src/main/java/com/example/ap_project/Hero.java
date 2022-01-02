@@ -6,6 +6,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -14,14 +15,18 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 
 public class Hero implements Positionable, Serializable, Jumpable {
-    private ArrayList<Weapon> activeWeapons;
+    private final ArrayList<Weapon> activeWeapons;
     private int distanceTravelled;
     private final Pane node;
     private Timeline jumpTimeline;
     private int coinsCollected;
+    private Weapon currentWeapon;
 
 
     public Hero(Pane _node) {
+        activeWeapons = new ArrayList<>();
+        activeWeapons.add(null);
+        activeWeapons.add(null);
         node = _node;
         startJumping();
     }
@@ -76,12 +81,18 @@ public class Hero implements Positionable, Serializable, Jumpable {
 
     }
 
-    public void addWeapon(){
-
+    public void addWeapon(Weapon weapon){
+        if (activeWeapons.get(weapon.getType()) == null) {
+            activeWeapons.set(weapon.getType(), weapon.clone());
+        }
+        else
+            activeWeapons.set(weapon.getType(), activeWeapons.get(weapon.getType()).getUpgradedVersion());
+        equipWeapon(weapon.getType());
     }
 
-    public void equipWeapon(){
-
+    public void equipWeapon(int type){
+        currentWeapon = activeWeapons.get(type);
+        ((ImageView)node.getChildren().get(1)).setImage(currentWeapon.getImage());
     }
 
     public void moveForward() {

@@ -36,7 +36,7 @@ public class Factory {
                 return CoinChest.getInstance(x, y);
             }
             case "weapon" -> {
-//                return StandardGreenOrc.getInstance(x, y);
+                return WeaponChest.getInstance(x, y);
             }
         }
         throw new IllegalArgumentException("No such type of orc");

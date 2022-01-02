@@ -5,25 +5,25 @@ import javafx.scene.image.Image;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Sword extends Weapon implements Comparable<Weapon>{
+public class ThrowingStars extends Weapon implements Comparable<Weapon>{
     private static final Image image1 = new Image("file:src/main/resources/com/example/ap_project/images/Sword1.png");
     private static final Image image2 = new Image("file:src/main/resources/com/example/ap_project/images/Sword2.png");
     private static final Image image3 = new Image("file:src/main/resources/com/example/ap_project/images/Sword3.png");
     private static final Image[] images = {null, image1, image2, image3};
-    private static final int weaponType = 0;
+    private static final int weaponType = 1;
 
-    private Sword(int level){
+    private ThrowingStars(int level){
         super(level);
     }
 
-    private static final Map<String, Sword> instances =
-            new HashMap<String, Sword>();
+    private static final Map<String, ThrowingStars> instances =
+            new HashMap<>();
 
-    public static Sword getInstance(int level) {
+    public static Weapon getInstance(int level) {
 
         String key = level+ "";
         if (!instances.containsKey(key)) {
-            instances.put(key, new Sword(level));
+            instances.put(key, new ThrowingStars(level));
         }
         return instances.get(key);
     }
@@ -42,7 +42,7 @@ public class Sword extends Weapon implements Comparable<Weapon>{
 
     public boolean equals(Object obj){
         if (obj instanceof Weapon){
-            Weapon a = new Sword(1);
+            Weapon a = new ThrowingStars(1);
             return a.equals(obj);
         }
         else{
@@ -72,7 +72,7 @@ public class Sword extends Weapon implements Comparable<Weapon>{
             return this;
         String key = (getLevel()+1)+ "";
         if (!instances.containsKey(key)) {
-            instances.put(key, new Sword(getLevel()+1));
+            instances.put(key, new ThrowingStars(getLevel()+1));
         }
         return instances.get(key);
     }

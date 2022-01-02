@@ -2,9 +2,7 @@ package com.example.ap_project;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
-import java.io.FileNotFoundException;
 import java.util.Random;
 
 public class CoinChest extends Chest{
@@ -31,18 +29,16 @@ public class CoinChest extends Chest{
         return new CoinChest(rand.nextInt(10)+1, img);
     }
 
-    public void spawn(){
- 
-    }
-
     protected void open() {
         ((ImageView)getNode()).setImage(openedImage);
     }
 
+    @Override
     public void interact(int interaction, Hero hero) {
-        if (interaction>0){ // this means its on the chest
+        if(!isOpen()) {
             hero.addCoins(coinCount);
             open();
+            setOpen();
         }
     }
 }
