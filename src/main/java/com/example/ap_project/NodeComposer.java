@@ -8,4 +8,8 @@ public interface NodeComposer {
     default boolean exists() {
         return true;
     }
+
+    void setNode(Node node);
+
+    void rehydrate(Node node);
 }

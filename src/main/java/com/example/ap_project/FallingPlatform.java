@@ -32,4 +32,9 @@ public class FallingPlatform extends Obstacle implements Bouncer {
             fall();
         }
     }
+
+    @Override
+    public void rehydrate(Node node) {
+
+    }
 }

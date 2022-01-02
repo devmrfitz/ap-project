@@ -17,7 +17,19 @@ public class Island implements Bouncer, Interactable, Serializable {
     }
 
     @Override
+    public void setNode(Node node) {
+
+    }
+
+    @Override
+    public void rehydrate(Node node) {
+
+    }
+
+    @Override
     public void interact(int interaction, Hero hero) {
 
     }
+
+
 }

@@ -4,6 +4,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -17,6 +18,7 @@ public abstract class Orc extends GameObject implements Jumpable, Interactable{
         startJumping();
         hitPoints = 50;
     }
+
 
     public void setHitPoints(int _hitPoints){
         hitPoints = _hitPoints;
@@ -99,5 +101,10 @@ public abstract class Orc extends GameObject implements Jumpable, Interactable{
     @Override
     public void deathByFall() {
         deSpawn();
+    }
+
+
+    public void superRehydrate() {
+        startJumping();
     }
 }

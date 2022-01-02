@@ -90,6 +90,8 @@ public class GameController {
 
     private Hero hero_obj;
 
+    private boolean isReady = false;
+
     @FXML
     void pause(MouseEvent event) throws IOException {
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
@@ -187,6 +189,8 @@ public class GameController {
         (new HeroInteractChecker(hero_obj, interactables, id)).start();
         (new DistanceCoinsUpdater(distanceTextBox, coinsTextBox, hero_obj)).start();
 
+        isReady = true;
+
 
     }
 
@@ -281,5 +285,9 @@ public class GameController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public boolean isReady() {
+        return isReady;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ap_project.animation_timers;
 
 import com.example.ap_project.Positionable;
+import com.example.ap_project.fxml.GameController;
 
 public class PositionSaver extends GameAnimationTimer{
 
@@ -12,6 +13,7 @@ public class PositionSaver extends GameAnimationTimer{
 
     @Override
     public void work(long now) {
-        positionable.savePosition();
+        if (GameController.getInstance().isReady())
+            positionable.savePosition();
     }
 }

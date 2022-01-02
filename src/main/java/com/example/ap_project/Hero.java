@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class Hero implements Positionable, Jumpable {
     private final ArrayList<Weapon> activeWeapons;
     private int distanceTravelled;
-    private final transient Pane node;
+    private transient Pane node;
     private Timeline jumpTimeline;
     private int coinsCollected;
     private Weapon currentWeapon;
@@ -84,6 +84,20 @@ public class Hero implements Positionable, Jumpable {
     @Override
     public Node getNode() {
         return this.node;
+    }
+
+    @Override
+    public void setNode(Node node) {
+        this.node = (Pane) node;
+    }
+
+    @Override
+    public void rehydrate(Node node) {
+        node.setLayoutX(position.getKey());
+        node.setLayoutY(position.getValue());
+        (new PositionSaver(this)).start();
+        registerWeaponPaneHandlers();
+        startJumping();
     }
 
     public void die(){
@@ -174,4 +188,5 @@ public class Hero implements Positionable, Jumpable {
     public double getDistance() {
         return distanceTravelled;
     }
+
 }

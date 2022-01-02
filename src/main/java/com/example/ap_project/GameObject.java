@@ -2,13 +2,14 @@ package com.example.ap_project;
 
 import com.example.ap_project.animation_timers.PositionSaver;
 import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Pair;
 
 import java.io.Serializable;
 
 abstract public class GameObject implements Positionable, Interactable, Serializable {
     private Pair<Double,Double> position;
-    private transient final Node node;
+    private transient Node node;
     private boolean exists;
 
     public GameObject(Node node){
@@ -44,4 +45,10 @@ abstract public class GameObject implements Positionable, Interactable, Serializ
         Pair<Double, Double> p = new Pair<>(node.getLayoutX(), node.getLayoutY());
         setPosition(p);
     }
+
+    @Override
+    public void setNode(Node _node) {
+        node = _node;
+    }
+
 }
