@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import com.example.ap_project.GameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,9 +29,8 @@ public class MenuPageController {
 
     @FXML
     void exitGame(ActionEvent event) {
-        System.out.println("exit clicked");
-        Stage stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
-        stage.close();
+        GameManager a = new GameManager();
+        a.exitGame(event);
     }
 
     @FXML
@@ -52,7 +52,9 @@ public class MenuPageController {
     }
 
     @FXML
-    void loadGame(ActionEvent event) {
+    void loadGame(ActionEvent event) throws IOException, ClassNotFoundException {
+        GameManager a = new GameManager();
+        a.loadGame();
         System.out.println("load clicked");
         fileChooser = new FileChooser();
         fileChooser.setTitle("Save Dialog");

@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import com.example.ap_project.GameManager;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -57,8 +58,9 @@ public class PauseController {
     }
 
     @FXML
-    void saveGame(ActionEvent event) {
-
+    void saveGame(ActionEvent event) throws IOException {
+        GameManager gameManager_obj = new GameManager();
+        gameManager_obj.saveGame();
     }
 
     @FXML

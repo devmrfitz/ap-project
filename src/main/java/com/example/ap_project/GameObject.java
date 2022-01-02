@@ -3,7 +3,9 @@ package com.example.ap_project;
 import javafx.scene.Node;
 import javafx.util.Pair;
 
-abstract public class GameObject implements Positionable, Serializable, Interactable {
+import java.io.Serializable;
+
+abstract public class GameObject implements Positionable, Interactable, Serializable {
     private Pair<Integer,Integer> position;
     private final Node node;
 

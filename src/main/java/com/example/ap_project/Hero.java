@@ -14,7 +14,7 @@ import javafx.util.Pair;
 
 import java.util.ArrayList;
 
-public class Hero implements Positionable, Serializable, Jumpable {
+public class Hero implements Positionable, Jumpable {
     private final ArrayList<Weapon> activeWeapons;
     private int distanceTravelled;
     private final Pane node;

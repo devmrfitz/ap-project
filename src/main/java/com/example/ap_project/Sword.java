@@ -20,7 +20,7 @@ public class Sword extends Weapon implements Comparable<Weapon>{
     private static final Image[] images = {null, image1, image2, image3};
     private static final int weaponType = 0;
 
-    private Sword(int level){
+    public Sword(int level){
         super(level);
     }
 
