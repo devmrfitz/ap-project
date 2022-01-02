@@ -1,8 +1,8 @@
 package com.example.ap_project.fxml;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
@@ -24,11 +24,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+
 public class GameController {
     private static Stage stage;
+    private FileChooser fileChooser;
 
     @FXML
     private Scene scene;
@@ -199,6 +202,43 @@ public class GameController {
 
     public static void setStage(Stage _stage) {
         stage = _stage;
+    }
+
+    public void serialize() throws IOException {
+        String myObj = String.valueOf(LocalTime.now());
+        try (ObjectOutputStream out = new ObjectOutputStream(
+                new FileOutputStream("out" + myObj.split("\\.")[1] + ".txt"))) {
+            out.writeObject(interactables);
+            System.out.println("Game saved");
+        }
+    }
+
+    public void saveGame() throws IOException {
+        serialize();
+    }
+
+    public void deserialize() throws IOException, ClassNotFoundException {
+        System.out.println("load clicked");
+        fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Dialog");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("text file","*.txt"));
+        try{
+            File file = fileChooser.showOpenDialog(stage);
+            //load file here
+            try (ObjectInputStream in = new ObjectInputStream(
+                    new FileInputStream(file.getPath()))) {
+                Object a = in.readObject();
+                System.out.println("test" + a);
+            }
+        }
+        catch (Exception e){
+            System.out.println("error");
+        }
+
+    }
+
+    public void loadGame() throws IOException, ClassNotFoundException {
+        deserialize();
     }
 
 

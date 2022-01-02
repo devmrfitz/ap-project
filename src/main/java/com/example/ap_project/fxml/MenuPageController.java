@@ -51,7 +51,7 @@ public class MenuPageController {
 
     @FXML
     void loadGame(ActionEvent event) throws IOException, ClassNotFoundException {
-        GameManager a = new GameManager();
+        GameController a = new GameController();
         a.loadGame();
     }
 
