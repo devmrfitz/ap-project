@@ -112,6 +112,10 @@ public class GameController implements Serializable {
         stage.show();
     }
 
+    public Hero getHero(){
+        return hero_obj;
+    }
+
     public static void setInstance(GameController gameController) {
         GameController.gameController = gameController;
     }

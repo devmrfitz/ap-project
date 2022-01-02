@@ -1,6 +1,7 @@
 package com.example.ap_project;
 
 import com.example.ap_project.animation_timers.PositionSaver;
+import com.example.ap_project.exceptions.InsufficientCoinsException;
 import com.example.ap_project.fxml.GameController;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -122,6 +123,12 @@ public class Hero extends Helmet implements Positionable, Jumpable, Serializable
         coinsCollected += coins;
     }
 
+    private void subtractCoins() throws InsufficientCoinsException {
+        if (coinsCollected<5)
+            throw new InsufficientCoinsException("oops");
+        coinsCollected -= 5;
+    }
+
     @Override
     public Pair<Double, Double> getPosition() {
         return position;
@@ -149,4 +156,7 @@ public class Hero extends Helmet implements Positionable, Jumpable, Serializable
         return distanceTravelled;
     }
 
+    public void revive() throws InsufficientCoinsException {
+        subtractCoins();
+    }
 }
