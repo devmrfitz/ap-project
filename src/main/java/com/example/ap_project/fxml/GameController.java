@@ -89,6 +89,7 @@ public class GameController implements Serializable {
     private double anchorPaneLayoutX;
 
     private boolean isReady = false;
+    private boolean autoSave = true;
 
     public void setAnchorPaneLayoutX(double anchorPaneLayoutX) {
         System.out.println("Setting AnchorPaneLayoutX to " + anchorPaneLayoutX);
@@ -182,6 +183,10 @@ public class GameController implements Serializable {
             timeline.setCycleCount(Animation.INDEFINITE); // loop forever
             timeline.play();
 
+            timeline = new Timeline(new KeyFrame(Duration.millis(2000), e -> autoSave()));
+            timeline.setCycleCount(Animation.INDEFINITE); // loop forever
+            timeline.play();
+
 
             ThrowingWeaponHandler.setOrcs(orcs);
 
@@ -207,6 +212,24 @@ public class GameController implements Serializable {
         isReady = true;
 
 
+    }
+
+
+    public void disableAutoSave() {
+        autoSave = false;
+    }
+
+    public void autoSave() {
+        if (autoSave) {
+            GameController a = GameController.getInstance();
+            try (ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream("out_temp.o"))) {
+                out.writeObject(a);
+                System.out.println("Game autosaved");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     void rehydrate() {

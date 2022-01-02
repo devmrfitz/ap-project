@@ -2,3 +2,4 @@
 /target/
 AP_Project.iml
 *.txt
+*.o
