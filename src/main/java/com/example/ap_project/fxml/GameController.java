@@ -109,78 +109,82 @@ public class GameController implements Serializable {
 
     @FXML
     void initialize() throws IllegalArgumentException {
-        this.gameController = this;
-        hero_obj = new Hero(this.hero, weaponAnchorPane);
+        if (hero_obj == null) {
+            this.gameController = this;
+            hero_obj = new Hero(this.hero, weaponAnchorPane);
 
-        loadIslands();
-        loadFallingPlatforms();
-        interactables = new ArrayList<>();
-        orcs = new ArrayList<>();
-        chests = new ArrayList<>();
+            loadIslands();
+            loadFallingPlatforms();
+            interactables = new ArrayList<>();
+            orcs = new ArrayList<>();
+            chests = new ArrayList<>();
 
-        Random rand = new Random();
+            Random rand = new Random();
 
-        id = rand.nextInt(1000);
-        for (Island island : islands) {
-            Coin coin = Coin.insert(island);
-            if (coin != null) {
-                interactables.add(coin);
+            id = rand.nextInt(1000);
+            for (Island island : islands) {
+                Coin coin = Coin.insert(island);
+                if (coin != null) {
+                    interactables.add(coin);
+                }
+                int num = rand.nextInt(5);
+                switch (num) {
+                    case 0 -> {
+                        Orc orc = Factory.createOrc("red", island);
+                        orcs.add(orc);
+                        mainAnchorPane.getChildren().add(orc.getNode());
+                    }
+                    case 1 -> {
+                        Chest chest = Factory.createChest("coin", island);
+                        chests.add(chest);
+                        mainAnchorPane.getChildren().add(chest.getNode());
+                    }
+                    case 2 -> {
+                        Orc orc = Factory.createOrc("green", island);
+                        orcs.add(orc);
+                        mainAnchorPane.getChildren().add(orc.getNode());
+                    }
+                    case 3 -> {
+                        Orc orc = Factory.createOrc("boss", island);
+                        orcs.add(orc);
+                        mainAnchorPane.getChildren().add(orc.getNode());
+                    }
+                    case 4 -> {
+                        Chest chest = Factory.createChest("weapon", island);
+                        chests.add(chest);
+                        mainAnchorPane.getChildren().add(chest.getNode());
+                    }
+                }
             }
-            int num = rand.nextInt(5);
-            switch (num) {
-                case 0 -> {
-                    Orc orc = Factory.createOrc("red", island);
-                    orcs.add(orc);
-                    mainAnchorPane.getChildren().add(orc.getNode());
-                }
-                case 1 -> {
-                    Chest chest = Factory.createChest("coin", island);
-                    chests.add(chest);
-                    mainAnchorPane.getChildren().add(chest.getNode());
-                }
-                case 2 -> {
-                    Orc orc = Factory.createOrc("green", island);
-                    orcs.add(orc);
-                    mainAnchorPane.getChildren().add(orc.getNode());
-                }
-                case 3 -> {
-                    Orc orc = Factory.createOrc("boss", island);
-                    orcs.add(orc);
-                    mainAnchorPane.getChildren().add(orc.getNode());
-                }
-                case 4 -> {
-                    Chest chest = Factory.createChest("weapon", island);
-                    chests.add(chest);
-                    mainAnchorPane.getChildren().add(chest.getNode());
-                }
+
+            Chest chest = Factory.createChest("weapon", islands.get(0));
+            chests.add(chest);
+            mainAnchorPane.getChildren().add(chest.getNode());
+
+            for (Orc orc : orcs) {
+                (new OrcJumpGravityHandler(orc, islands, id)).start();
             }
+
+            Cannon cannon = new Cannon(cannonShooter);
+
+            Timeline timeline =
+                    new Timeline(new KeyFrame(Duration.millis(500), e -> cannon.shoot()));
+            timeline.setCycleCount(Animation.INDEFINITE); // loop forever
+            timeline.play();
+
+
+            ThrowingWeaponHandler.setOrcs(orcs);
+
+            interactables.addAll(islands);
+            interactables.addAll(fallingPlatforms);
+            interactables.addAll(orcs);
+            interactables.addAll(chests);
+
+
+            CannonHandler.setHero(hero_obj);
         }
-
-        Chest chest = Factory.createChest("weapon", islands.get(0));
-        chests.add(chest);
-        mainAnchorPane.getChildren().add(chest.getNode());
-
-        for (Orc orc : orcs) {
-            (new OrcJumpGravityHandler(orc, islands, id)).start();
-        }
-
-        Cannon cannon = new Cannon(cannonShooter);
-
-        Timeline timeline =
-                new Timeline(new KeyFrame(Duration.millis(500), e -> cannon.shoot()));
-        timeline.setCycleCount(Animation.INDEFINITE); // loop forever
-        timeline.play();
-
-
-        ThrowingWeaponHandler.setOrcs(orcs);
-
-        interactables.addAll(islands);
-        interactables.addAll(fallingPlatforms);
-        interactables.addAll(orcs);
-        interactables.addAll(chests);
-
-
-        CannonHandler.setHero(hero_obj);
+        else
+            rehydrate();
 
 
         (new ScreenScroller(mainAnchorPane, 0.5, id)).start();
@@ -191,6 +195,20 @@ public class GameController implements Serializable {
 
         isReady = true;
 
+
+    }
+
+    void rehydrate() {
+        for (Interactable interactable : interactables) {
+            interactable.rehydrate(mainAnchorPane);
+        }
+        hero_obj.rehydrate(mainAnchorPane);
+//        for (Orc orc : orcs) {
+//            orc.rehydrate(mainAnchorPane);
+//        }
+//        for (Chest chest : chests) {
+//            chest.rehydrate(mainAnchorPane);
+//        }
 
     }
 
