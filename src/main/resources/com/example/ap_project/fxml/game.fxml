@@ -147,5 +147,19 @@
                </Group>
             </children>
          </AnchorPane>
+         <AnchorPane fx:id="staticAnchorPane2" layoutY="395.0" prefHeight="86.0" prefWidth="200.0">
+            <children>
+               <ImageView fx:id="weaponSlot1" fitHeight="150.0" fitWidth="80.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <image>
+                     <Image url="@../images/frame.png" />
+                  </image>
+               </ImageView>
+               <ImageView fx:id="weaponSlot2" fitHeight="150.0" fitWidth="80.0" layoutX="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <image>
+                     <Image url="@../images/frame.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </AnchorPane>
       </children></AnchorPane>
 </Scene>
