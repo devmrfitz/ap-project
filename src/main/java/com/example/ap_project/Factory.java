@@ -5,7 +5,7 @@ import javafx.scene.layout.Region;
 
 public class Factory {
 
-    public static Orc createOrc(String type, Island island) {
+    public static Orc createOrc(String type, Island island) throws IllegalArgumentException {
         Bounds bounds = island.getNode().getBoundsInParent();
         double width= (((Region)island.getNode()).getPrefWidth());
         double x=(2*bounds.getMaxX()+width)/2;
@@ -25,7 +25,7 @@ public class Factory {
         throw new IllegalArgumentException("No such type of orc");
     }
 
-    public static Chest createChest(String type, Island island) {
+    public static Chest createChest(String type, Island island) throws IllegalArgumentException {
         Bounds bounds = island.getNode().getBoundsInParent();
         double width= (((Region)island.getNode()).getPrefWidth());
         double x=(2*bounds.getMaxX()+width)/2;

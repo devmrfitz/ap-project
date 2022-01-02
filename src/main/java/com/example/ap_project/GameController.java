@@ -117,7 +117,7 @@ public class GameController {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws IllegalArgumentException {
         loadIslands();
         loadFallingPlatforms();
         interactables = new ArrayList<>();
@@ -137,6 +137,16 @@ public class GameController {
                     Chest chest = Factory.createChest("coin", island);
                     chests.add(chest);
                     mainAnchorPane.getChildren().add(chest.getNode());
+                }
+                case 2 -> {
+                    Orc orc = Factory.createOrc("green", island);
+                    orcs.add(orc);
+                    mainAnchorPane.getChildren().add(orc.getNode());
+                }
+                case 3 -> {
+                    Orc orc = Factory.createOrc("boss", island);
+                    orcs.add(orc);
+                    mainAnchorPane.getChildren().add(orc.getNode());
                 }
 
             }

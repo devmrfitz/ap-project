@@ -22,7 +22,7 @@ public class FallingPlatform extends Obstacle implements Bouncer {
                 Interpolator.EASE_BOTH);
         final KeyFrame kf = new KeyFrame(Duration.millis(3700), kv);
         timeline.getKeyFrames().add(kf);
-        timeline.setDelay(Duration.seconds(0.5));
+        timeline.setDelay(Duration.seconds(0));
         timeline.play();
     }
 
