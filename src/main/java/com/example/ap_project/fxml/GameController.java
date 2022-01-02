@@ -72,6 +72,9 @@ public class GameController implements Serializable {
     @FXML
     private transient Text distanceTextBox, coinsTextBox;
 
+    @FXML
+    private transient Rectangle victoryZone;
+
     private ArrayList<Interactable> interactables;
 
     private ArrayList<Island> islands;
@@ -194,9 +197,10 @@ public class GameController implements Serializable {
             rehydrate();
 
 
-        (new ScreenScroller(mainAnchorPane, 0.5, id)).start();
+        (new ScreenScroller(mainAnchorPane, 1, id)).start();
         (new ScreenScroller(cloudAnchorPane, 0.2, id)).start();
         (new JumpableFallChecker(hero_obj, deathZone, id)).start();
+        (new JumpableWinChecker(hero_obj, victoryZone, id)).start();
         (new HeroInteractChecker(hero_obj, interactables, id)).start();
         (new DistanceCoinsUpdater(distanceTextBox, coinsTextBox, hero_obj)).start();
 
@@ -337,5 +341,28 @@ public class GameController implements Serializable {
 
     public boolean isReady() {
         return isReady;
+    }
+
+    public void win() {
+        System.out.println("play clicked");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Objects.requireNonNull(getClass().getResource("win.fxml")));
+        GameController gameController = new GameController();
+        GameController.setInstance(gameController);
+        loader.setController(gameController);
+
+        try {
+        scene = loader.load();}
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        //Move back a little to get a good view of the sphere
+        GameController.setStage(stage);
+//        ((GameController)(loader.getController())).setStage(stage);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setMaxWidth(900);
+        stage.setMaxHeight(480);
+        stage.show();
     }
 }

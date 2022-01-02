@@ -1,14 +1,12 @@
 package com.example.ap_project.fxml;
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import com.example.ap_project.exceptions.NoSaveFoundException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,7 +56,7 @@ public class MenuPageController {
     }
 
     @FXML
-    void loadGame(ActionEvent event) throws IOException, ClassNotFoundException {
+    void loadGame(ActionEvent event) throws IOException, ClassNotFoundException, NoSaveFoundException {
         System.out.println("load clicked");
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Dialog");
@@ -85,6 +83,9 @@ public class MenuPageController {
             stage.setMaxWidth(900);
             stage.setMaxHeight(480);
             stage.show();
+        }
+        catch (FileNotFoundException e) {
+            throw new NoSaveFoundException("No save file exists");
         }
     }
 
