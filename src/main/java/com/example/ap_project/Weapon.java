@@ -3,8 +3,8 @@ package com.example.ap_project;
 public class Weapon implements Cloneable{
     private int level;
 
-    public Weapon(){
-        level = 1;
+    public Weapon(int level){
+        this.level = level;
     }
 
     public void equip(){
@@ -35,16 +35,6 @@ public class Weapon implements Cloneable{
             return clone;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
-        }
-    }
-
-    public boolean equals(Object obj){
-        if (obj instanceof Weapon){
-            Weapon a = new Weapon();
-            return a.equals(obj);
-        }
-        else{
-            return false;
         }
     }
 }
