@@ -369,6 +369,9 @@ public class GameController implements Serializable {
         assert root != null;
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setMaxWidth(900);
+        stage.setMaxHeight(480);
         stage.show();
     }
 
