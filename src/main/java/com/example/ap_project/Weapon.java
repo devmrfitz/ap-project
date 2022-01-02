@@ -43,6 +43,6 @@ public abstract class Weapon implements Cloneable{
     public abstract Image getImage();
 
     public int getDamage(){
-        return level*200;
+        return level*15;
     }
 }

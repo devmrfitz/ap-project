@@ -58,11 +58,7 @@
                            <Image url="@../images/panda.png" />
                         </image>
                      </ImageView>
-                     <ImageView fx:id="weapon" fitHeight="60.0" fitWidth="17.0" layoutX="3.0" preserveRatio="true" rotate="29.1">
-                        <image>
-                           <Image url="@../images/Sword.png" />
-                        </image>
-                     </ImageView>
+                     <ImageView fx:id="weapon" fitHeight="60.0" fitWidth="17.0" layoutX="3.0" preserveRatio="true" rotate="29.1" />
                   </children>
                </Pane>
                <Region fx:id="island2" layoutX="517.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
@@ -130,6 +126,11 @@
                <Region fx:id="island3" layoutX="969.0" layoutY="301.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
                <Rectangle fx:id="deathZone" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="480.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="2000.0" />
                <Region fx:id="island4" layoutX="1390.0" layoutY="237.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
+               <ImageView fx:id="cannonShooter" fitHeight="68.0" fitWidth="164.0" layoutX="1206.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/cannonShooter.png" />
+                  </image>
+               </ImageView>
             </children>
          </AnchorPane>
          <AnchorPane fx:id="staticAnchorPane" minHeight="-Infinity" prefHeight="87.0" prefWidth="890.0">

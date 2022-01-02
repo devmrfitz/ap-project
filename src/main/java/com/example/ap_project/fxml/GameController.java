@@ -10,10 +10,8 @@ import java.util.ResourceBundle;
 
 import com.example.ap_project.*;
 import com.example.ap_project.animation_timers.*;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.*;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -64,6 +62,9 @@ public class GameController {
 
     @FXML
     private AnchorPane cloudAnchorPane;
+
+    @FXML
+    private ImageView cannonShooter;
 
     private ArrayList<Interactable> interactables;
 
@@ -151,6 +152,14 @@ public class GameController {
             (new OrcJumpGravityHandler(orc, islands)).start();
         }
 
+        Cannon cannon = new Cannon(cannonShooter);
+
+        Timeline timeline =
+                new Timeline(new KeyFrame(Duration.millis(500), e -> cannon.shoot()));
+        timeline.setCycleCount(Animation.INDEFINITE); // loop forever
+        timeline.play();
+
+
         ThrowingWeaponHandler.setOrcs(orcs);
 
         interactables.addAll(islands);
@@ -159,6 +168,7 @@ public class GameController {
         interactables.addAll(chests);
 
         hero_obj = new Hero(this.hero);
+        CannonHandler.setHero(hero_obj);
 
 
         (new ScreenScroller(mainAnchorPane, 0.5)).start();

@@ -9,7 +9,7 @@ public class Boss extends Orc {
 
     private Boss(ImageView imageView){
         super(imageView);
-        setHitPoints(200);
+        setHitPoints(100);
     }
 
     public static Boss getInstance(double x, double y){
