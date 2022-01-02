@@ -236,7 +236,8 @@ public class GameController {
             File file = fileChooser.showOpenDialog(stage);
             //load file here
             try (ObjectInputStream in = new ObjectInputStream(
-                    new FileInputStream(file.getPath()))) {
+                    new FileInputStream(file.getAbsoluteFile()))) {
+                System.out.println(file.getPath());
                 Object a = in.readObject();
                 System.out.println("test" + a);
             }
@@ -244,13 +245,11 @@ public class GameController {
         catch (Exception e){
             System.out.println("error");
         }
-
     }
 
     public void loadGame() throws IOException, ClassNotFoundException {
         deserialize();
     }
-
 
     @FXML
     public void game_over_handler(MouseEvent event) {
