@@ -10,7 +10,6 @@ import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import javafx.util.Pair;
@@ -24,30 +23,30 @@ public class Hero implements Positionable, Jumpable, Serializable {
     private transient Pane node;
     private transient Timeline jumpTimeline;
     private int coinsCollected;
-    private Weapon currentWeapon;
-    private transient final AnchorPane weaponPane;
+
     private Pair<Double, Double> position;
 
 
     public Hero(Pane _node, AnchorPane weaponPane) {
-        activeWeapons = new ArrayList<>();
-        activeWeapons.add(null);
-        activeWeapons.add(null);
+        super(weaponPane);
+
         node = _node;
-        this.weaponPane = weaponPane;
+
         coinsCollected = 0;
         distanceTravelled = 0;
         (new PositionSaver(this)).start();
-        registerWeaponPaneHandlers();
+
         startJumping();
     }
 
-    private void registerWeaponPaneHandlers() {
-        for (int i = 0; i < weaponPane.getChildren().size(); i++) {
-            final int index = i;
-            weaponPane.getChildren().get(i).setOnMouseClicked(event -> equipWeapon(index));
+    public void equipWeapon(int type){
+        if (getActiveWeapons().get(type) != null) {
+            super.equipWeapon(type);
+            ((ImageView) node.getChildren().get(1)).setImage(getCurrentWeapon().getImage());
         }
     }
+
+
 
     private void startJumping(){
         System.out.println("Hero Jumping");
@@ -65,9 +64,6 @@ public class Hero implements Positionable, Jumpable, Serializable {
         jumpTimeline.play();
     }
 
-    public Weapon getCurrentWeapon(){
-        return currentWeapon;
-    }
 
 
     public void jump(){
@@ -97,7 +93,7 @@ public class Hero implements Positionable, Jumpable, Serializable {
         node.setLayoutX(position.getKey());
         node.setLayoutY(position.getValue());
         (new PositionSaver(this)).start();
-        registerWeaponPaneHandlers();
+        superRehydrate();
         startJumping();
     }
 
@@ -117,28 +113,7 @@ public class Hero implements Positionable, Jumpable, Serializable {
 
     }
 
-    public void addWeapon(Weapon weapon){
-        if (activeWeapons.get(weapon.getType()) == null) {
-            activeWeapons.set(weapon.getType(), weapon.clone());
-            weaponPane.getChildren().get(weapon.getType()).setVisible(true);
-        }
-        else {
-            activeWeapons.set(weapon.getType(), activeWeapons.get(weapon.getType()).getUpgradedVersion());
-        }
-        ((Text)((Pane)weaponPane.getChildren().get(weapon.getType())).getChildren().get(2)).setText(String.valueOf(
-                activeWeapons.get(weapon.getType()).getLevel()));
-        equipWeapon(weapon.getType());
-    }
 
-    public void equipWeapon(int type){
-        if (activeWeapons.get(type) != null) {
-            System.out.println("Equipping weapon: " + activeWeapons.get(type).getType());
-            currentWeapon = activeWeapons.get(type);
-            weaponPane.getChildren().get(type).setOpacity(1);
-            weaponPane.getChildren().get(1 - type).setOpacity(0.5);
-            ((ImageView) node.getChildren().get(1)).setImage(currentWeapon.getImage());
-        }
-    }
 
     public void moveForward() {
         final Timeline timeline = new Timeline();
@@ -154,10 +129,6 @@ public class Hero implements Positionable, Jumpable, Serializable {
         if (getCurrentWeapon() != null) {
             getCurrentWeapon().attack(this);
         }
-    }
-
-    public ArrayList<Weapon> listWeapons(){
-        return activeWeapons;
     }
 
     public void addCoins(int coins){
