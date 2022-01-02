@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 
 import com.example.ap_project.animation_timers.HeroInteractChecker;
 import com.example.ap_project.animation_timers.JumpableFallChecker;
-import com.example.ap_project.animation_timers.JumpGravityHandler;
 import com.example.ap_project.animation_timers.ScreenScroller;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -72,7 +71,7 @@ public class GameController {
     @FXML
     private AnchorPane cloudAnchorPane;
 
-    private ArrayList<Island> islands;
+    private ArrayList<Interactable> interactables;
 
     @FXML
     void move(KeyEvent event) {
@@ -110,29 +109,31 @@ public class GameController {
     @FXML
     void initialize() {
 
-        islands = new ArrayList<>();
-        islands.add(new Island(island1));
-        islands.add(new Island(island2));
-        islands.add(new Island(island3));
-        islands.add(new Island(island4));
+        interactables = new ArrayList<>();
+        interactables.add(new Island(island1));
+        interactables.add(new Island(island2));
+        interactables.add(new Island(island3));
+        interactables.add(new Island(island4));
 
         Hero hero_obj = new Hero(this.hero);
         fall(platform1, 0);
         fall(platform2, 0.5);
 
 
-        ArrayList<Node> islands = new ArrayList<>();
-        islands.add(island1);
-        islands.add(island2);
-        JumpGravityHandler jumpGravityHandler = new JumpGravityHandler(hero_obj, islands);
-        jumpGravityHandler.start();
+//        ArrayList<Node> islands = new ArrayList<>();
+//        islands.add(island1);
+//        islands.add(island2);
+//        JumpGravityHandler jumpGravityHandler = new JumpGravityHandler(hero_obj, islands);
+//        jumpGravityHandler.start();
 
-        FallingPlatform fallingPlatform = new FallingPlatform(platform1);
+        FallingPlatform fallingPlatform1 = new FallingPlatform(platform1), fallingPlatform2 = new FallingPlatform(platform2);
+        interactables.add(fallingPlatform1);
+        interactables.add(fallingPlatform2);
 
         (new ScreenScroller(mainAnchorPane, 0.5)).start();
         (new ScreenScroller(cloudAnchorPane, 0.2)).start();
         (new JumpableFallChecker(hero_obj, deathZone)).start();
-//        (new HeroInteractChecker(hero_obj, islands)).start();
+        (new HeroInteractChecker(hero_obj, interactables)).start();
 
 
         // create gravity

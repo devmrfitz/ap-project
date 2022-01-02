@@ -20,7 +20,7 @@ public class JumpGravityHandler extends AnimationTimer {
 
     @Override
     public void handle(long now) {
-        System.out.println("JumpGravityFallHandler"+jumpable.getNode().getLayoutY()+" "+jumpable.getNode().getLayoutX());
+//        System.out.println("JumpGravityFallHandler"+jumpable.getNode().getLayoutY()+" "+jumpable.getNode().getLayoutX());
         for (Node node : nodes) {
             if (Utility.intersects(jumpable.getNode(), node) && jumpable.getNode().getLayoutY() < node.getLayoutY()) {
                 System.out.println("intersects with " + node);

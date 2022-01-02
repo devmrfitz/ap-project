@@ -27,6 +27,7 @@ public class Hero implements Positionable, Serializable, Jumpable {
     }
 
     private void startJumping(){
+        System.out.println("Hero Jumping");
         jumpTimeline = new Timeline();
         jumpTimeline.setCycleCount(1);
         jumpTimeline.setAutoReverse(false);

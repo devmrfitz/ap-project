@@ -20,15 +20,15 @@ public class FallingPlatform extends Obstacle implements Bouncer {
         timeline.setAutoReverse(false);
         final KeyValue kv = new KeyValue(getNode().layoutYProperty(), 1000,
                 Interpolator.EASE_BOTH);
-        final KeyFrame kf = new KeyFrame(Duration.millis(4700), kv);
+        final KeyFrame kf = new KeyFrame(Duration.millis(3700), kv);
         timeline.getKeyFrames().add(kf);
-        timeline.setDelay(Duration.seconds(1));
+        timeline.setDelay(Duration.seconds(0.5));
         timeline.play();
     }
 
     @Override
     public void interact(int interaction, Hero hero) {
-        if (interaction == 1) {
+        if (Utility.checkIthBit(interaction, 2)) {
             fall();
         }
     }
