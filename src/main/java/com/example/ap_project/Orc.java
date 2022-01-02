@@ -10,7 +10,7 @@ import javafx.util.Duration;
 
 public abstract class Orc extends GameObject implements Jumpable{
     private int hitPoints;
-    private Timeline jumpTimeline;
+    private transient Timeline jumpTimeline;
 
     public Orc(ImageView _node){
         super(_node);

@@ -59,8 +59,8 @@ public class PauseController {
 
     @FXML
     void saveGame(ActionEvent event) throws IOException {
-        GameController gameController_obj = new GameController();
-        gameController_obj.saveGame();
+        GameController gameController_obj = GameController.getInstance();
+        gameController_obj.saveGame(gameController_obj.getInteractables());
     }
 
     @FXML

@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 abstract public class GameObject implements Positionable, Interactable, Serializable {
     private Pair<Integer,Integer> position;
-    private final Node node;
+    private transient final Node node;
     private boolean exists;
 
     public GameObject(Node node){

@@ -16,10 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ThrowingStars extends Weapon implements Comparable<Weapon>{
-    private static final Image image1 = new Image("file:src/main/resources/com/example/ap_project/images/ThrowingKnives1.png");
-    private static final Image image2 = new Image("file:src/main/resources/com/example/ap_project/images/ThrowingKnives2.png");
-    private static final Image image3 = new Image("file:src/main/resources/com/example/ap_project/images/ThrowingKnives3.png");
-    private static final Image[] images = {null, image1, image2, image3};
+    private static transient final Image image1 = new Image("file:src/main/resources/com/example/ap_project/images/ThrowingKnives1.png");
+    private static transient final Image image2 = new Image("file:src/main/resources/com/example/ap_project/images/ThrowingKnives2.png");
+    private static transient final Image image3 = new Image("file:src/main/resources/com/example/ap_project/images/ThrowingKnives3.png");
+    private static transient final Image[] images = {null, image1, image2, image3};
     private static final int weaponType = 1;
 
     private ThrowingStars(int level){

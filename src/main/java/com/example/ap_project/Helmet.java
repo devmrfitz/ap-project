@@ -19,7 +19,4 @@ public class Helmet {
     public void unEquip(){
 
     }
-
-
-
 }

@@ -27,8 +27,9 @@ public class MenuPageController {
 
     @FXML
     void exitGame(ActionEvent event) {
-        GameManager a = new GameManager();
-        a.exitGame(event);
+        System.out.println("exit clicked");
+        Stage stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+        stage.close();
     }
 
     @FXML

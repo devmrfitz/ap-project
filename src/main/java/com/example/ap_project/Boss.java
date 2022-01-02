@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Boss extends Orc {
-    private static final Image image = new Image("file:src/main/resources/com/example/ap_project/images/red_orc.png");
+    private static final transient Image image = new Image("file:src/main/resources/com/example/ap_project/images/red_orc.png");
     private static final double height = 100, width = 100;
 
     private Boss(ImageView imageView){

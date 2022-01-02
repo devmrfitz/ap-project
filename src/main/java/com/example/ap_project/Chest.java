@@ -9,10 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public abstract class Chest extends GameObject {
-//    private final ImageView imageView;
-
     private boolean isOpen;
-
     public Chest(ImageView imageView){
         super(imageView);
         this.isOpen = false;

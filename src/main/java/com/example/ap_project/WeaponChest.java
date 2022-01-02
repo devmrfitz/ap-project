@@ -7,9 +7,9 @@ import java.util.Random;
 
 public class WeaponChest extends Chest{
     private final Weapon weapon;
-    private static final Image closedImage = new
+    private static transient final Image closedImage = new
             Image("file:src/main/resources/com/example/ap_project/images/chestClosed.png");
-    private static final Image openedImage = new
+    private static transient final Image openedImage = new
             Image("file:src/main/resources/com/example/ap_project/images/chestOpen.png");
     private static final double height = 50, width = 65;
     private static final Random rand = new Random();

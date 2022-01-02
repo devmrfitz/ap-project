@@ -2,8 +2,10 @@ package com.example.ap_project;
 
 import javafx.scene.Node;
 
-public class Island implements Bouncer, Interactable{
-    private Node node;
+import java.io.Serializable;
+
+public class Island implements Bouncer, Interactable, Serializable {
+    private transient Node node;
 
     public Island(Node node){
         this.node = node;

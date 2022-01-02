@@ -46,37 +46,37 @@ public class GameController {
     private URL location;
 
     @FXML
-    private Pane hero;
+    private transient Pane hero;
 
     @FXML
-    private Rectangle platform1;
+    private transient Rectangle platform1;
 
     @FXML
-    private Rectangle platform2;
+    private transient Rectangle platform2;
 
     @FXML
-    private Region island1, island2, island3, island4;
+    private transient Region island1, island2, island3, island4;
 
     @FXML
-    private ImageView weapon;
+    private transient ImageView weapon;
 
     @FXML
-    private Rectangle deathZone;
+    private transient Rectangle deathZone;
 
     @FXML
-    private AnchorPane mainAnchorPane;
+    private transient AnchorPane mainAnchorPane;
 
     @FXML
-    private AnchorPane cloudAnchorPane;
+    private transient AnchorPane cloudAnchorPane;
 
     @FXML
-    private ImageView cannonShooter;
+    private transient ImageView cannonShooter;
 
     @FXML
-    private AnchorPane weaponAnchorPane;
+    private transient AnchorPane weaponAnchorPane;
 
     @FXML
-    private Text distanceTextBox, coinsTextBox;
+    private transient Text distanceTextBox, coinsTextBox;
 
     private ArrayList<Interactable> interactables;
 
@@ -222,17 +222,17 @@ public class GameController {
         stage = _stage;
     }
 
-    public void serialize() throws IOException {
+    public void serialize(ArrayList<Interactable> a) throws IOException {
         String myObj = String.valueOf(LocalTime.now());
         try (ObjectOutputStream out = new ObjectOutputStream(
                 new FileOutputStream("out" + myObj.split("\\.")[1] + ".txt"))) {
-            out.writeObject(interactables);
+            out.writeObject(a);
             System.out.println("Game saved");
         }
     }
 
-    public void saveGame() throws IOException {
-        serialize();
+    public void saveGame(ArrayList<Interactable> a) throws IOException {
+        serialize(a);
     }
 
     public void deserialize() throws IOException, ClassNotFoundException {
@@ -257,6 +257,10 @@ public class GameController {
 
     public void loadGame() throws IOException, ClassNotFoundException {
         deserialize();
+    }
+
+    public ArrayList<Interactable> getInteractables(){
+        return interactables;
     }
 
     @FXML

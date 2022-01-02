@@ -19,11 +19,11 @@ import java.util.ArrayList;
 public class Hero implements Positionable, Jumpable {
     private final ArrayList<Weapon> activeWeapons;
     private int distanceTravelled;
-    private final Pane node;
+    private final transient Pane node;
     private Timeline jumpTimeline;
     private int coinsCollected;
     private Weapon currentWeapon;
-    private final AnchorPane weaponPane;
+    private transient final AnchorPane weaponPane;
 
 
     public Hero(Pane _node, AnchorPane weaponPane) {

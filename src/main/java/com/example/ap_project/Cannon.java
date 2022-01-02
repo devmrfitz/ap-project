@@ -13,8 +13,8 @@ import javafx.util.Duration;
 import java.util.Random;
 
 public class Cannon {
-    private final ImageView cannonShooter;
-    private static final Image image = new Image("file:src/main/resources/com/example/ap_project/images/cannon.png");
+    private transient final ImageView cannonShooter;
+    private static transient final Image image = new Image("file:src/main/resources/com/example/ap_project/images/cannon.png");
     private static final Random rand = new Random();
 
     public Cannon(ImageView cannonShooter) {
