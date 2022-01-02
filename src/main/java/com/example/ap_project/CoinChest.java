@@ -14,10 +14,17 @@ public class CoinChest extends Chest{
     }
 
     public void spawn(){
-
+ 
     }
 
-    protected void open(MouseEvent event) throws FileNotFoundException {
-        super.open(event);
+    protected void open() throws FileNotFoundException {
+        super.open();
+    }
+
+    public void interact(int interaction, Hero hero) throws FileNotFoundException {
+        if (interaction>0){ // this means its on the chest
+            hero.addCoins(10);
+            open();
+        }
     }
 }

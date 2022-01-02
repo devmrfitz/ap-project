@@ -18,10 +18,9 @@ public abstract class Chest {
         imageView = _node;
     }
 
-    protected void open(MouseEvent event) throws FileNotFoundException {
+    protected void open() throws FileNotFoundException {
         InputStream stream = new FileInputStream("src/main/resources/com/example/ap_project/images/chestOpen.png");
         Image image = new Image(stream);
-        ImageView imageView = (ImageView) event.getSource();
         imageView.setImage(image);
     }
 

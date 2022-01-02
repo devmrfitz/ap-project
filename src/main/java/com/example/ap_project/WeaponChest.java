@@ -17,7 +17,7 @@ public class WeaponChest extends Chest{
     }
 
     protected void open(MouseEvent event) throws FileNotFoundException {
-        super.open(event);
+        super.open();
     }
 
 }

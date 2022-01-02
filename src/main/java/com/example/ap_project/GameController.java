@@ -86,10 +86,10 @@ public class GameController {
 
         ImageView imageView = (ImageView) event.getSource();
         Chest coins = new CoinChest(5, imageView);
-        coins.open(event);
+        coins.open();
         Weapon temp_weapon = new Sword(1);
         Chest weapon = new WeaponChest(temp_weapon,imageView);
-        weapon.open(event);
+        weapon.open();
     }
 
     @FXML
