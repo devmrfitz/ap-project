@@ -32,6 +32,12 @@ public class GameOverPageController {
     private transient Pane pane;
 
     @FXML
+    void respawn(ActionEvent event) {
+        // temp
+        
+    }
+
+    @FXML
     void getMenu(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menuPage.fxml")));
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
@@ -39,12 +45,6 @@ public class GameOverPageController {
         stage.setScene(scene);
         stage.show();
     }
-
-    @FXML
-    void saveGame(ActionEvent event) {
-
-    }
-
 
     @FXML
     void initialize() {
@@ -89,8 +89,6 @@ public class GameOverPageController {
                 Interpolator.EASE_BOTH));
         final KeyFrame kf4 = new KeyFrame(Duration.millis(700), new KeyValue(pane.layoutYProperty(), 240,
                 Interpolator.EASE_BOTH));
-
-
 
         timeline.getKeyFrames().add(kf);
         timeline.getKeyFrames().add(kf2);

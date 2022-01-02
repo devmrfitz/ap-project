@@ -18,9 +18,8 @@
          <effect>
             <DropShadow />
          </effect>
-         <Button layoutX="50.0" layoutY="149.0" mnemonicParsing="false" onAction="#getMenu" text="Respwan" />
-         <Button layoutX="269.0" layoutY="149.0" mnemonicParsing="false" onAction="#saveGame" text="Restart" />
-         <Button layoutX="144.0" layoutY="149.0" mnemonicParsing="false" onAction="#getMenu" text="Return to Menu" />
+         <Button layoutX="50.0" layoutY="149.0" mnemonicParsing="false" onAction="#respawn" text="Respwan Using 5 coins" />
+         <Button layoutX="202.0" layoutY="149.0" mnemonicParsing="false" onAction="#getMenu" text="Return to Menu" />
       </Pane>
       <Label layoutX="350.0" layoutY="153.0" prefHeight="60.0" prefWidth="161.0" text="Game Over">
          <font>

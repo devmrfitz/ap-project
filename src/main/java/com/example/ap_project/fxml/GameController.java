@@ -330,11 +330,6 @@ public class GameController implements Serializable {
         return interactables;
     }
 
-    @FXML
-    public void game_over_handler(MouseEvent event) {
-        game_over();
-    }
-
     public void game_over() {
         Parent root = null;
         try {

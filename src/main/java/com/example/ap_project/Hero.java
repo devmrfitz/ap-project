@@ -27,13 +27,10 @@ public class Hero extends Helmet implements Positionable, Jumpable, Serializable
 
     public Hero(Pane _node, AnchorPane weaponPane) {
         super(weaponPane);
-
         node = _node;
-
         coinsCollected = 0;
         distanceTravelled = 0;
         (new PositionSaver(this)).start();
-
         startJumping();
     }
 
@@ -102,21 +99,8 @@ public class Hero extends Helmet implements Positionable, Jumpable, Serializable
 
     public void die(){
         System.out.println("Hero died");
-        try {
-            Thread.sleep(500);
-        }
-        catch (InterruptedException e){
-            e.printStackTrace();
-        }
         GameController.getInstance().game_over();
-
     }
-
-    public void resurrect(){
-
-    }
-
-
 
     public void moveForward() {
         final Timeline timeline = new Timeline();

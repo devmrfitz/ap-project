@@ -47,13 +47,19 @@ public class PauseController {
 
     @FXML
     void resume(MouseEvent event) throws IOException {
-        System.out.println("Resume Clicked");
-        farewell();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game.fxml")));
+        System.out.println("Resume" +
+                " clicked");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Objects.requireNonNull(getClass().getResource("game.fxml")));
+        scene = loader.load();
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
-        scene = new Scene(root);
+        GameController.setStage(stage);
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setMaxWidth(900);
+        stage.setMaxHeight(480);
         stage.show();
+
     }
 
     @FXML
@@ -114,6 +120,4 @@ public class PauseController {
         timeline.getKeyFrames().add(kf4);
         timeline.play();
     }
-
-
 }

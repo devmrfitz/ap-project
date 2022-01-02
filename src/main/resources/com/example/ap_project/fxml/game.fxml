@@ -293,6 +293,5 @@
                </Pane>
             </children>
          </AnchorPane>
-         <Label text="Label" />
       </children></AnchorPane>
 </Scene>
