@@ -23,13 +23,13 @@ public class CannonHandler extends AnimationTimer {
 
     @Override
     public void handle(long now) {
-        if (GameController.getInstance().getId() == id) {
-
-            int interaction = Utility.intersectDirection(imageView, hero.getNode());
-            if (interaction != -1 && Utility.checkIthBit(interaction, 1) && Utility.checkIthBit(interaction, 3))
-                hero.die();
-        }
-        else
-            stop();
+//        if (GameController.getInstance().getId() == id) {
+//
+//            int interaction = Utility.intersectDirection(imageView, hero.getNode());
+//            if (interaction != -1 && Utility.checkIthBit(interaction, 1) && Utility.checkIthBit(interaction, 3))
+//                hero.die();
+//        }
+//        else
+//            stop();
     }
 }

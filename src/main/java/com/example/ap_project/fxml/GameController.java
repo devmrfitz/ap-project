@@ -49,13 +49,10 @@ public class GameController implements Serializable {
     private transient Pane hero;
 
     @FXML
-    private transient Rectangle platform1;
+    private transient Rectangle platform1 , platform2, platform3, platform4, platform5, platform6;
 
     @FXML
-    private transient Rectangle platform2;
-
-    @FXML
-    private transient Region island1, island2, island3, island4;
+    private transient Region island1, island2, island3, island4, island5, island6, island7, island8, island9, island10, island11;
 
     @FXML
     private transient ImageView weapon;
@@ -226,12 +223,23 @@ public class GameController implements Serializable {
         islands.add(new Island(island2));
         islands.add(new Island(island3));
         islands.add(new Island(island4));
+        islands.add(new Island(island5));
+        islands.add(new Island(island6));
+        islands.add(new Island(island7));
+        islands.add(new Island(island8));
+        islands.add(new Island(island9));
+        islands.add(new Island(island10));
+        islands.add(new Island(island11));
     }
 
     private void loadFallingPlatforms() {
         fallingPlatforms = new ArrayList<>();
         fallingPlatforms.add(new FallingPlatform(platform1));
         fallingPlatforms.add(new FallingPlatform(platform2));
+        fallingPlatforms.add(new FallingPlatform(platform3));
+        fallingPlatforms.add(new FallingPlatform(platform4));
+        fallingPlatforms.add(new FallingPlatform(platform5));
+        fallingPlatforms.add(new FallingPlatform(platform6));
     }
 
 

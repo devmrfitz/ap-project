@@ -3,7 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.Scene?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -50,6 +50,12 @@
          </AnchorPane>
          <AnchorPane fx:id="mainAnchorPane" maxHeight="480.0" maxWidth="900.0" minHeight="480.0" onMouseClicked="#moveForward" prefHeight="480.0">
             <children>
+               <Label layoutX="4359.0" layoutY="21.0" prefHeight="30.0" prefWidth="121.0" text="You Have Won YAYA!!" />
+               <Region layoutX="4554.0" layoutY="14.0" prefHeight="141.0" prefWidth="115.0" styleClass="tree1" stylesheets="@../styles/tree.css" />
+               <Region layoutX="3584.0" layoutY="8.0" prefHeight="166.0" prefWidth="60.0" styleClass="tree2" stylesheets="@../styles/tree.css" />
+               <Region layoutX="2896.0" layoutY="30.0" prefHeight="138.0" prefWidth="122.0" styleClass="tree2" stylesheets="@../styles/tree.css" />
+               <Region layoutX="2519.0" layoutY="39.0" prefHeight="212.0" prefWidth="121.0" styleClass="tree1" stylesheets="@../styles/tree.css" />
+               <Region layoutX="1518.0" layoutY="14.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@../styles/tree.css" />
                <Region layoutX="696.0" layoutY="-10.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree1" stylesheets="@../styles/tree.css" />
                <Region layoutX="33.0" layoutY="77.0" prefHeight="229.0" prefWidth="135.0" styleClass="tree2" stylesheets="@../styles/tree.css" />
                <Region fx:id="island1" layoutX="58.0" layoutY="301.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@../styles/islands1.css" />
@@ -64,7 +70,7 @@
                   </children>
                </Pane>
                <Region fx:id="island2" layoutX="517.0" layoutY="212.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
-               <Rectangle fx:id="platform1" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="369.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
+               <Rectangle fx:id="platform1" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="401.0" layoutY="217.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
                   <fill>
                      <LinearGradient endX="1.0" endY="1.0">
                         <stops>
@@ -87,7 +93,7 @@
                      </LinearGradient>
                   </fill>
                </Rectangle>
-               <Rectangle fx:id="platform2" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="436.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
+               <Rectangle fx:id="platform2" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="462.0" layoutY="217.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
                   <fill>
                      <LinearGradient endX="1.0" endY="1.0">
                         <stops>
@@ -118,11 +124,109 @@
                      <Image url="@../images/cannonShooter.png" />
                   </image>
                </ImageView>
+               <Region fx:id="island5" layoutX="1789.0" layoutY="191.0" prefHeight="231.0" prefWidth="201.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
+               <Region fx:id="island6" layoutX="2379.0" layoutY="251.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
+               <Region fx:id="island7" layoutX="2808.0" layoutY="167.0" prefHeight="144.0" prefWidth="244.0" styleClass="islands1" stylesheets="@../styles/islands1.css" />
+               <Region fx:id="island8" layoutX="3106.0" layoutY="216.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
+               <Region fx:id="island9" layoutX="3505.0" layoutY="168.0" prefHeight="231.0" prefWidth="201.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
+               <Region fx:id="island10" layoutX="3867.0" layoutY="230.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
+               <Region fx:id="island11" layoutX="4306.0" layoutY="155.0" prefHeight="144.0" prefWidth="384.0" styleClass="islands1" stylesheets="@../styles/islands1.css" />
+               <Rectangle fx:id="platform3" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="1991.0" layoutY="192.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
+                  <fill>
+                     <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                           <Stop>
+                              <color>
+                                 <Color red="0.41960784792900085" green="0.3176470696926117" blue="0.03921568766236305" />
+                              </color>
+                           </Stop>
+                           <Stop offset="0.42298419054769937">
+                              <color>
+                                 <Color red="0.4099999964237213" green="0.3054499924182892" blue="0.04100000113248825" />
+                              </color>
+                           </Stop>
+                           <Stop offset="1.0">
+                              <color>
+                                 <Color red="0.6000000238418579" green="0.5446666479110718" blue="0.046666666865348816" />
+                              </color>
+                           </Stop>
+                        </stops>
+                     </LinearGradient>
+                  </fill>
+               </Rectangle>
+               <Rectangle fx:id="platform4" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="2050.0" layoutY="192.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
+                  <fill>
+                     <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                           <Stop>
+                              <color>
+                                 <Color red="0.41960784792900085" green="0.3176470696926117" blue="0.03921568766236305" />
+                              </color>
+                           </Stop>
+                           <Stop offset="0.42298419054769937">
+                              <color>
+                                 <Color red="0.4099999964237213" green="0.3054499924182892" blue="0.04100000113248825" />
+                              </color>
+                           </Stop>
+                           <Stop offset="1.0">
+                              <color>
+                                 <Color red="0.6000000238418579" green="0.5446666479110718" blue="0.046666666865348816" />
+                              </color>
+                           </Stop>
+                        </stops>
+                     </LinearGradient>
+                  </fill>
+               </Rectangle>
+               <Rectangle fx:id="platform5" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="2110.0" layoutY="192.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
+                  <fill>
+                     <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                           <Stop>
+                              <color>
+                                 <Color red="0.41960784792900085" green="0.3176470696926117" blue="0.03921568766236305" />
+                              </color>
+                           </Stop>
+                           <Stop offset="0.42298419054769937">
+                              <color>
+                                 <Color red="0.4099999964237213" green="0.3054499924182892" blue="0.04100000113248825" />
+                              </color>
+                           </Stop>
+                           <Stop offset="1.0">
+                              <color>
+                                 <Color red="0.6000000238418579" green="0.5446666479110718" blue="0.046666666865348816" />
+                              </color>
+                           </Stop>
+                        </stops>
+                     </LinearGradient>
+                  </fill>
+               </Rectangle>
+               <Rectangle fx:id="platform6" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="2170.0" layoutY="192.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
+                  <fill>
+                     <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                           <Stop>
+                              <color>
+                                 <Color red="0.41960784792900085" green="0.3176470696926117" blue="0.03921568766236305" />
+                              </color>
+                           </Stop>
+                           <Stop offset="0.42298419054769937">
+                              <color>
+                                 <Color red="0.4099999964237213" green="0.3054499924182892" blue="0.04100000113248825" />
+                              </color>
+                           </Stop>
+                           <Stop offset="1.0">
+                              <color>
+                                 <Color red="0.6000000238418579" green="0.5446666479110718" blue="0.046666666865348816" />
+                              </color>
+                           </Stop>
+                        </stops>
+                     </LinearGradient>
+                  </fill>
+               </Rectangle>
             </children>
          </AnchorPane>
          <AnchorPane fx:id="staticAnchorPane" minHeight="-Infinity" prefHeight="87.0" prefWidth="890.0">
             <children>
-               <Button layoutX="812.4" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#game_over_handler" text="End Game" />
                <Group layoutX="10.0" layoutY="10.0" onMouseClicked="#pause">
                   <children>
                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#53575b" height="31.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
@@ -188,5 +292,6 @@
                </Pane>
             </children>
          </AnchorPane>
+         <Label text="Label" />
       </children></AnchorPane>
 </Scene>
