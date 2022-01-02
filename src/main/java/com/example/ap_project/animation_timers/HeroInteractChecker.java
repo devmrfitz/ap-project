@@ -25,7 +25,7 @@ public class HeroInteractChecker extends AnimationTimer {
         }
     }
 
-    public void interact(Interactable interactable, int interaction) {
+    private void interact(Interactable interactable, int interaction) {
         if (interaction != -1) {
             System.out.println("intersects with " + interactable.getNode() + " " + interaction);
             interactable.interact(interaction, hero);

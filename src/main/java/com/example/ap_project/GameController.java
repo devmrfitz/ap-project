@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import com.example.ap_project.animation_timers.HeroInteractChecker;
 import com.example.ap_project.animation_timers.JumpableFallChecker;
+import com.example.ap_project.animation_timers.OrcJumpGravityHandler;
 import com.example.ap_project.animation_timers.ScreenScroller;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -16,6 +17,7 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -24,6 +26,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -42,7 +45,7 @@ public class GameController {
     private URL location;
 
     @FXML
-    private Group hero;
+    private Pane hero;
 
     @FXML
     private Rectangle platform1;
@@ -72,6 +75,12 @@ public class GameController {
     private AnchorPane cloudAnchorPane;
 
     private ArrayList<Interactable> interactables;
+
+    private ArrayList<Island> islands;
+
+    private ArrayList<FallingPlatform> fallingPlatforms;
+
+    private ArrayList<Orc> orcs;
 
     private Hero hero_obj;
 
@@ -110,19 +119,28 @@ public class GameController {
 
     @FXML
     void initialize() {
-
+        loadIslands();
+        loadFallingPlatforms();
         interactables = new ArrayList<>();
-        interactables.add(new Island(island1));
-        interactables.add(new Island(island2));
-        interactables.add(new Island(island3));
-        interactables.add(new Island(island4));
+        orcs = new ArrayList<>();
+
+
+        for (Island island : islands) {
+            Orc orc = OrcFactory.createOrc("red", island);
+            orcs.add(orc);
+            mainAnchorPane.getChildren().add(orc.getNode());
+        }
+
+        for (Orc orc : orcs) {
+            (new OrcJumpGravityHandler(orc, islands)).start();
+        }
+
+        interactables.addAll(islands);
+        interactables.addAll(fallingPlatforms);
+        interactables.addAll(orcs);
 
         hero_obj = new Hero(this.hero);
 
-
-        FallingPlatform fallingPlatform1 = new FallingPlatform(platform1), fallingPlatform2 = new FallingPlatform(platform2);
-        interactables.add(fallingPlatform1);
-        interactables.add(fallingPlatform2);
 
         (new ScreenScroller(mainAnchorPane, 0.5)).start();
         (new ScreenScroller(cloudAnchorPane, 0.2)).start();
@@ -130,7 +148,20 @@ public class GameController {
         (new HeroInteractChecker(hero_obj, interactables)).start();
 
 
-        // create gravity
+    }
+
+    private void loadIslands() {
+        islands = new ArrayList<>();
+        islands.add(new Island(island1));
+        islands.add(new Island(island2));
+        islands.add(new Island(island3));
+        islands.add(new Island(island4));
+    }
+
+    private void loadFallingPlatforms() {
+        fallingPlatforms = new ArrayList<>();
+        fallingPlatforms.add(new FallingPlatform(platform1));
+        fallingPlatforms.add(new FallingPlatform(platform2));
     }
 
 

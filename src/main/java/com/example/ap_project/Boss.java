@@ -1,45 +1,23 @@
 package com.example.ap_project;
 
-import javafx.animation.Timeline;
-import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Region;
-import javafx.util.Duration;
 
-public class Boss extends Orc implements Runnable {
-    private ImageView boss;
-    private Region bossRegion;
-    private Timeline bossTimeline;
+public class Boss extends Orc {
+    private static final Image image = new Image("file:src/main/resources/com/example/ap_project/images/red_orc.png");
+    private static final double height = 100, width = 100;
 
-    public Boss(ImageView _node){
-        super(_node);
+    private Boss(ImageView imageView){
+        super(imageView);
     }
 
-    @Override
-    public void run() {
-        System.out.println("Boss is running");
-        while (true) {
-            try {
-                Thread.sleep(0);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println("Boss is moving");
-            System.out.println(Utility.intersects(boss, bossRegion));
-            if (Utility.intersects(boss, bossRegion)) {
-                if (bossTimeline.getCurrentTime().greaterThanOrEqualTo(Duration.millis(700))) {
-                    bossTimeline.setDelay(Duration.millis(0));
-                    bossTimeline.playFromStart();
-                }
-            }
-//            System.out.println(boss.getBoundsInLocal().intersects(bossRegion.getBoundsInLocal()));
-//            boss.setX(boss.getX() + 2);
-        }
-    }
-
-    // move boss downwards
-    public void moveDown() {
-        boss.setY(boss.getY() + 2);
+    public static Boss getInstance(double x, double y){
+        ImageView img = new ImageView(image);
+        img.setFitHeight(height);
+        img.setFitWidth(width);
+        img.setX(x+width/2);
+        img.setY(y-height);
+        return new Boss(img);
     }
 
 }

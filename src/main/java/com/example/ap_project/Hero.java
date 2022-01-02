@@ -7,6 +7,7 @@ import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 import javafx.util.Pair;
@@ -17,12 +18,12 @@ import java.util.ArrayList;
 public class Hero implements Positionable, Serializable, Jumpable {
     private ArrayList<Weapon> activeWeapons;
     private int distanceTravelled;
-    private final Group node;
+    private final Pane node;
     private Timeline jumpTimeline;
     private int coinsCollected;
 
 
-    public Hero(Group _node) {
+    public Hero(Pane _node) {
         node = _node;
         startJumping();
     }
@@ -63,6 +64,13 @@ public class Hero implements Positionable, Serializable, Jumpable {
     }
 
     public void die(){
+        try {
+            Thread.sleep(500);
+        }
+        catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        GameController.game_over();
 
     }
 

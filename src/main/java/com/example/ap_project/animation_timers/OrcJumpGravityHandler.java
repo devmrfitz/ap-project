@@ -1,5 +1,6 @@
 package com.example.ap_project.animation_timers;
 
+import com.example.ap_project.Island;
 import com.example.ap_project.Jumpable;
 import com.example.ap_project.Utility;
 import javafx.animation.AnimationTimer;
@@ -10,18 +11,19 @@ import java.util.ArrayList;
 public class OrcJumpGravityHandler extends AnimationTimer {
 
     private final Jumpable jumpable;
-    private final ArrayList<Node> nodes;
+    private final ArrayList<Island> islands;
 
-    public OrcJumpGravityHandler(Jumpable jumpable, ArrayList<Node> nodes) {
+    public OrcJumpGravityHandler(Jumpable jumpable, ArrayList<Island> nodes) {
         this.jumpable = jumpable;
-        this.nodes = nodes;
+        this.islands = nodes;
     }
 
 
     @Override
     public void handle(long now) {
 //        System.out.println("JumpGravityFallHandler"+jumpable.getNode().getLayoutY()+" "+jumpable.getNode().getLayoutX());
-        for (Node node : nodes) {
+        for (Island island : islands) {
+            Node node = island.getNode();
             if (Utility.intersects(jumpable.getNode(), node) && jumpable.getNode().getLayoutY() < node.getLayoutY()) {
                 System.out.println("intersects with " + node);
                 jumpable.jump();
