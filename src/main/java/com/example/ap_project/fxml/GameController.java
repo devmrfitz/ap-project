@@ -212,6 +212,16 @@ public class GameController implements Serializable {
         (new JumpableWinChecker(hero_obj, victoryZone, id)).start();
         (new HeroInteractChecker(hero_obj, interactables, id)).start();
         (new DistanceCoinsUpdater(distanceTextBox, coinsTextBox, hero_obj)).start();
+        Cannon cannon = new Cannon(cannonShooter);
+        Timeline timeline =
+                new Timeline(new KeyFrame(Duration.millis(500), e -> cannon.shoot()));
+        timeline.setCycleCount(Animation.INDEFINITE); // loop forever
+        timeline.play();
+
+        timeline = new Timeline(new KeyFrame(Duration.millis(2000), e -> autoSave()));
+        timeline.setCycleCount(Animation.INDEFINITE); // loop forever
+        timeline.play();
+        CannonHandler.setHero(hero_obj);
 
         isReady = true;
 
