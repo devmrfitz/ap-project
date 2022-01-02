@@ -43,7 +43,6 @@ public class ThrowingWeaponHandler extends AnimationTimer {
                 }
             }
         }
-        else
-            this.stop();
+
     }
 }

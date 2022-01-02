@@ -34,7 +34,6 @@ public class OrcJumpGravityHandler extends AnimationTimer {
                 }
             }
         }
-        else
-            this.stop();
+
     }
 }

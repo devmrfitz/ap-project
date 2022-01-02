@@ -55,9 +55,6 @@ public class GameController implements Serializable {
     private transient Region island1, island2, island3, island4, island5, island6, island7, island8, island9, island10, island11;
 
     @FXML
-    private transient ImageView weapon;
-
-    @FXML
     private transient Rectangle deathZone;
 
     @FXML
@@ -86,11 +83,18 @@ public class GameController implements Serializable {
     private ArrayList<Chest> chests;
 
     private Hero hero_obj;
+    private double anchorPaneLayoutX;
 
     private boolean isReady = false;
 
+    public void setAnchorPaneLayoutX(double anchorPaneLayoutX) {
+        System.out.println("Setting AnchorPaneLayoutX to " + anchorPaneLayoutX);
+        this.anchorPaneLayoutX = anchorPaneLayoutX;
+    }
+
     @FXML
     void pause(MouseEvent event) throws IOException {
+        id +=1;
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
 
         System.out.println("Pause");
@@ -104,9 +108,15 @@ public class GameController implements Serializable {
         stage.show();
     }
 
+    public static void setInstance(GameController gameController) {
+        GameController.gameController = gameController;
+    }
+
     @FXML
     void initialize() throws IllegalArgumentException {
         if (hero_obj == null) {
+            Random rand = new Random();
+            id = rand.nextInt(1000);
             this.gameController = this;
             hero_obj = new Hero(this.hero, weaponAnchorPane);
 
@@ -116,9 +126,9 @@ public class GameController implements Serializable {
             orcs = new ArrayList<>();
             chests = new ArrayList<>();
 
-            Random rand = new Random();
 
-            id = rand.nextInt(1000);
+
+
             for (Island island : islands) {
                 Coin coin = Coin.insert(island);
                 if (coin != null) {
@@ -196,10 +206,27 @@ public class GameController implements Serializable {
     }
 
     void rehydrate() {
+        System.out.println("Rehydrating");
+        System.out.println("Hero: " + anchorPaneLayoutX);
+//        mainAnchorPane.setLayoutX(anchorPaneLayoutX);
+        System.out.println("Hero2: " + anchorPaneLayoutX);
+//        new Timeline(new KeyFrame(Duration.millis(1000), e -> hero_obj.getNode().setLayoutX(anchorPaneLayoutX)));
+        Random rand = new Random();
+        id = rand.nextInt(1000);
         for (Interactable interactable : interactables) {
             interactable.rehydrate(mainAnchorPane);
         }
+        islands.get(0).setNode(island1);
+        islands.get(1).setNode(island2);
+        islands.get(2).setNode(island3);
+        islands.get(3).setNode(island4);
+        fallingPlatforms.get(0).setNode(platform1);
+        fallingPlatforms.get(1).setNode(platform2);
+        hero_obj.setWeaponPane(weaponAnchorPane);
+        hero_obj.setNode(hero);
         hero_obj.rehydrate(mainAnchorPane);
+        ThrowingWeaponHandler.setOrcs(orcs);
+
 //        for (Orc orc : orcs) {
 //            orc.rehydrate(mainAnchorPane);
 //        }
@@ -270,7 +297,6 @@ public class GameController implements Serializable {
         fileChooser = new FileChooser();
         fileChooser.setTitle("Save Dialog");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("text file","*.txt"));
-        try{
             File file = fileChooser.showOpenDialog(stage);
             //load file here
             try (ObjectInputStream in = new ObjectInputStream(
@@ -279,10 +305,6 @@ public class GameController implements Serializable {
                 Object a = in.readObject();
                 System.out.println("test" + a);
             }
-        }
-        catch (Exception e){
-            System.out.println("error");
-        }
     }
 
     public void loadGame() throws IOException, ClassNotFoundException {

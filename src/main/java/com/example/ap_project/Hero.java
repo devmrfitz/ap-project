@@ -15,7 +15,6 @@ import javafx.util.Duration;
 import javafx.util.Pair;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Hero extends Helmet implements Positionable, Jumpable, Serializable {
     private int distanceTravelled;
@@ -36,6 +35,10 @@ public class Hero extends Helmet implements Positionable, Jumpable, Serializable
         (new PositionSaver(this)).start();
 
         startJumping();
+    }
+
+    public Hero() {
+        super(null);
     }
 
     public void equipWeapon(int type){
@@ -92,6 +95,7 @@ public class Hero extends Helmet implements Positionable, Jumpable, Serializable
         node.setLayoutX(position.getKey());
         node.setLayoutY(position.getValue());
         (new PositionSaver(this)).start();
+
         superRehydrate();
         startJumping();
     }
@@ -142,6 +146,7 @@ public class Hero extends Helmet implements Positionable, Jumpable, Serializable
     @Override
     public void setPosition(Pair<Double, Double> position) {
         this.position = position;
+//        System.out.println("Hero position set to " + position.getKey() + " " + position.getValue());
     }
 
     @Override

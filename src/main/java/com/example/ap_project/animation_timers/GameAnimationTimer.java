@@ -15,8 +15,10 @@ public abstract class GameAnimationTimer extends AnimationTimer {
         if (GameController.getInstance().getId() == id) {
             work(now);
         }
-        else
-            stop();
+        else {
+//            System.out.println("GameAnimationTimer: handle: id changed from " + id + " to " + GameController.getInstance().getId());
+//            stop();
+        }
     }
 
     public abstract void work(long now);

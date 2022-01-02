@@ -5,12 +5,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-abstract public class Helmet {
+abstract public class Helmet implements Serializable {
     private final ArrayList<Weapon> activeWeapons;
     private Weapon currentWeapon;
-    private transient final AnchorPane weaponPane;
+    private transient AnchorPane weaponPane;
 
 
     protected Helmet(AnchorPane weaponPane) {
@@ -19,6 +20,10 @@ abstract public class Helmet {
         activeWeapons.add(null);
         activeWeapons.add(null);
         registerWeaponPaneHandlers();
+    }
+
+    public void setWeaponPane(AnchorPane weaponPane) {
+        this.weaponPane = weaponPane;
     }
 
     private void registerWeaponPaneHandlers() {
@@ -48,6 +53,13 @@ abstract public class Helmet {
 
     void superRehydrate() {
         registerWeaponPaneHandlers();
+        for (int i = 0; i < weaponPane.getChildren().size(); i++) {
+            if (activeWeapons.get(i) != null) {
+                Weapon weapon = activeWeapons.get(i);
+                activeWeapons.set(i, null);
+                addWeapon(weapon);
+            }
+        }
     }
 
     public void addWeapon(Weapon weapon){

@@ -15,5 +15,7 @@ public class PositionSaver extends GameAnimationTimer{
     public void work(long now) {
         if (GameController.getInstance().isReady())
             positionable.savePosition();
+        else
+            System.out.println("PositionSaver: not ready");
     }
 }

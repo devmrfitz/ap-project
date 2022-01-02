@@ -16,14 +16,17 @@ public class ScreenScroller extends AnimationTimer {
     }
 
     private void scroll(double offset) {
-        node.setTranslateX(node.getTranslateX() + offset);
+        if (offset==-0.5)
+            System.out.println("offset"+node.getLayoutX());
+        node.setLayoutX(node.getLayoutX() + offset);
+        if (offset==-0.5)
+            GameController.getInstance().setAnchorPaneLayoutX(node.getLayoutX());
     }
 
     @Override
     public void handle(long now) {
         if (GameController.getInstance().getId() == id)
             scroll(speed);
-        else
-            stop();
+
     }
 }

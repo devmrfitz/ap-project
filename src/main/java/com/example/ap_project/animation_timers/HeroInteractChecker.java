@@ -4,14 +4,13 @@ import com.example.ap_project.Bouncer;
 import com.example.ap_project.Hero;
 import com.example.ap_project.Interactable;
 import com.example.ap_project.Utility;
-import com.example.ap_project.fxml.GameController;
-import javafx.animation.AnimationTimer;
 
 import java.util.ArrayList;
 
 public class HeroInteractChecker extends GameAnimationTimer {
     private final Hero hero;
     private final ArrayList<Interactable> interactables;
+
 
     public HeroInteractChecker(Hero hero, ArrayList<Interactable> interactables, int id) {
         this.hero = hero;
@@ -22,6 +21,7 @@ public class HeroInteractChecker extends GameAnimationTimer {
     public void work(long now) {
             for (Interactable interactable : interactables) {
                 if (interactable.exists()) {
+//                    System.out.println("interactable exists "+interactable);
                     int interaction = Utility.intersectDirection(hero.getNode(), interactable.getNode());
                     interact(interactable, interaction);
                 }

@@ -62,8 +62,8 @@ public class Coin extends GameObject {
             img.setFitWidth(width);
             img.setLayoutX(getPosition().getKey());
             img.setLayoutY(getPosition().getValue());
-            Coin coin = new Coin(img);
-            mainAnchorPane.getChildren().add(coin.getNode());
+            setNode(img);
+            mainAnchorPane.getChildren().add(getNode());
         }
     }
 }

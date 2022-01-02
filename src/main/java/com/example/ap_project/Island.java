@@ -18,7 +18,7 @@ public class Island implements Bouncer, Interactable, Serializable {
 
     @Override
     public void setNode(Node node) {
-
+        this.node = node;
     }
 
     @Override
