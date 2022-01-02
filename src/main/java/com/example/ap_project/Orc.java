@@ -5,7 +5,10 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+
+import java.nio.file.AtomicMoveNotSupportedException;
 
 public abstract class Orc extends GameObject implements Jumpable{
     private int hitPoints;
@@ -24,6 +27,9 @@ public abstract class Orc extends GameObject implements Jumpable{
 
     public void deSpawn(){
         getNode().setVisible(false);
+        getNode().setLayoutY(10000);
+        if (getNode().getParent() != null)
+            ((AnchorPane)getNode().getParent()).getChildren().remove(getNode());
     }
 
     public void decreaseHitPoints(int decrement){

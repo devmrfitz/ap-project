@@ -9,10 +9,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 import com.example.ap_project.*;
-import com.example.ap_project.animation_timers.HeroInteractChecker;
-import com.example.ap_project.animation_timers.JumpableFallChecker;
-import com.example.ap_project.animation_timers.OrcJumpGravityHandler;
-import com.example.ap_project.animation_timers.ScreenScroller;
+import com.example.ap_project.animation_timers.*;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -153,6 +150,8 @@ public class GameController {
         for (Orc orc : orcs) {
             (new OrcJumpGravityHandler(orc, islands)).start();
         }
+
+        ThrowingWeaponHandler.setOrcs(orcs);
 
         interactables.addAll(islands);
         interactables.addAll(fallingPlatforms);
