@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import com.example.ap_project.animation_timers.HeroInteractChecker;
@@ -17,8 +18,6 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -82,6 +81,8 @@ public class GameController {
 
     private ArrayList<Orc> orcs;
 
+    private ArrayList<Chest> chests;
+
     private Hero hero_obj;
 
     @FXML
@@ -91,15 +92,13 @@ public class GameController {
     }
 
     @FXML
-    void openChest(MouseEvent event) throws FileNotFoundException {
+    void openChest(MouseEvent event) {
         stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
 
         ImageView imageView = (ImageView) event.getSource();
-        Chest coins = new CoinChest(5, imageView);
-        coins.open();
         Weapon temp_weapon = new Sword(1);
         Chest weapon = new WeaponChest(temp_weapon,imageView);
-        weapon.open();
+//        weapon.open();
     }
 
     @FXML
@@ -123,12 +122,24 @@ public class GameController {
         loadFallingPlatforms();
         interactables = new ArrayList<>();
         orcs = new ArrayList<>();
+        chests = new ArrayList<>();
 
-
+        Random rand = new Random();
         for (Island island : islands) {
-            Orc orc = OrcFactory.createOrc("red", island);
-            orcs.add(orc);
-            mainAnchorPane.getChildren().add(orc.getNode());
+            int num = rand.nextInt(2);
+            switch (num) {
+                case 0 -> {
+                    Orc orc = Factory.createOrc("red", island);
+                    orcs.add(orc);
+                    mainAnchorPane.getChildren().add(orc.getNode());
+                }
+                case 1 -> {
+                    Chest chest = Factory.createChest("coin", island);
+                    chests.add(chest);
+                    mainAnchorPane.getChildren().add(chest.getNode());
+                }
+
+            }
         }
 
         for (Orc orc : orcs) {
@@ -138,6 +149,7 @@ public class GameController {
         interactables.addAll(islands);
         interactables.addAll(fallingPlatforms);
         interactables.addAll(orcs);
+        interactables.addAll(chests);
 
         hero_obj = new Hero(this.hero);
 

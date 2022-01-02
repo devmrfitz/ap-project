@@ -8,21 +8,21 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public abstract class Chest {
-    private final ImageView imageView;
+public abstract class Chest extends GameObject {
+//    private final ImageView imageView;
 
     private boolean isOpen;
 
-    public Chest(ImageView _node){
-//        super(_node);
-        imageView = _node;
+    public Chest(ImageView imageView){
+        super(imageView);
     }
 
-    protected void open() throws FileNotFoundException {
-        InputStream stream = new FileInputStream("src/main/resources/com/example/ap_project/images/chestOpen.png");
-        Image image = new Image(stream);
-        imageView.setImage(image);
-    }
+
+//    protected void open() throws FileNotFoundException {
+//        InputStream stream = new FileInputStream("file:src/main/resources/com/example/ap_project/images/chestOpen.png");
+//        Image image = new Image(stream);
+//        imageView.setImage(image);
+//    }
 
     public void spawn(){
 
