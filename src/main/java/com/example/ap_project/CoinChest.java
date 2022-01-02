@@ -23,7 +23,8 @@ public class CoinChest extends Chest{
 
     public void interact(int interaction, Hero hero) throws FileNotFoundException {
         if (interaction>0){ // this means its on the chest
-            hero.addCoins(10);
+            Coin a = new Coin();
+            hero.addCoins(a.getValue());
             open();
         }
     }
