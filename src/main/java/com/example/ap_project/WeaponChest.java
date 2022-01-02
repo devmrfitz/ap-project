@@ -20,7 +20,8 @@ public class WeaponChest extends Chest{
         super.open(event);
     }
 
-    public void interact(){
+    @Override
+    public void interact(int interaction) {
 
     }
 }
