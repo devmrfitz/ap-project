@@ -1,6 +1,7 @@
 package com.example.ap_project;
 
 import com.example.ap_project.animation_timers.ThrowingWeaponHandler;
+import com.example.ap_project.fxml.GameController;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;

@@ -74,7 +74,7 @@ public class Hero implements Positionable, Jumpable {
     public void deathByFall() {
         System.out.println("Hero died by falling");
         node.setVisible(false);
-        GameController.game_over();
+        GameController.getInstance().game_over();
     }
 
     @Override
@@ -83,13 +83,14 @@ public class Hero implements Positionable, Jumpable {
     }
 
     public void die(){
+        System.out.println("Hero died");
         try {
             Thread.sleep(500);
         }
         catch (InterruptedException e){
             e.printStackTrace();
         }
-        GameController.game_over();
+        GameController.getInstance().game_over();
 
     }
 

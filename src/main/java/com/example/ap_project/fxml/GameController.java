@@ -32,6 +32,10 @@ public class GameController {
     private static Stage stage;
     private FileChooser fileChooser;
 
+    private static GameController gameController;
+
+    private int id;
+
     @FXML
     private Scene scene;
 
@@ -100,6 +104,7 @@ public class GameController {
 
     @FXML
     void initialize() throws IllegalArgumentException {
+        this.gameController = this;
         hero_obj = new Hero(this.hero, weaponAnchorPane);
 
         loadIslands();
@@ -109,6 +114,8 @@ public class GameController {
         chests = new ArrayList<>();
 
         Random rand = new Random();
+
+        id = rand.nextInt(1000);
         for (Island island : islands) {
             int num = rand.nextInt(5);
             switch (num) {
@@ -144,12 +151,8 @@ public class GameController {
         chests.add(chest);
         mainAnchorPane.getChildren().add(chest.getNode());
 
-        chest = Factory.createChest("weapon", islands.get(0));
-        chests.add(chest);
-        mainAnchorPane.getChildren().add(chest.getNode());
-
         for (Orc orc : orcs) {
-            (new OrcJumpGravityHandler(orc, islands)).start();
+            (new OrcJumpGravityHandler(orc, islands, id)).start();
         }
 
         Cannon cannon = new Cannon(cannonShooter);
@@ -171,12 +174,20 @@ public class GameController {
         CannonHandler.setHero(hero_obj);
 
 
-        (new ScreenScroller(mainAnchorPane, 0.5)).start();
-        (new ScreenScroller(cloudAnchorPane, 0.2)).start();
-        (new JumpableFallChecker(hero_obj, deathZone)).start();
-        (new HeroInteractChecker(hero_obj, interactables)).start();
+        (new ScreenScroller(mainAnchorPane, 0.5, id)).start();
+        (new ScreenScroller(cloudAnchorPane, 0.2, id)).start();
+        (new JumpableFallChecker(hero_obj, deathZone, id)).start();
+        (new HeroInteractChecker(hero_obj, interactables, id)).start();
 
 
+    }
+
+    public static GameController getInstance() {
+        return gameController;
+    }
+
+    public int getId() {
+        return id;
     }
 
     private void loadIslands() {
@@ -246,13 +257,14 @@ public class GameController {
         game_over();
     }
 
-    public static void game_over() {
+    public void game_over() {
         Parent root = null;
         try {
             root = FXMLLoader.load(Objects.requireNonNull(GameController.class.getResource("gameOverPage.fxml")));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        id=-1;
 
         assert root != null;
         Scene scene = new Scene(root);

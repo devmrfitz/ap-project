@@ -13,10 +13,12 @@ public class OrcJumpGravityHandler extends AnimationTimer {
 
     private final Orc jumpable;
     private final ArrayList<Island> islands;
+    private final int id;
 
-    public OrcJumpGravityHandler(Orc jumpable, ArrayList<Island> nodes) {
+    public OrcJumpGravityHandler(Orc jumpable, ArrayList<Island> nodes, int id) {
         this.jumpable = jumpable;
         this.islands = nodes;
+        this.id = id;
     }
 
 
