@@ -64,21 +64,6 @@
                   </children>
                </Pane>
                <Region fx:id="island2" layoutX="517.0" layoutY="212.0" prefHeight="189.0" prefWidth="330.0" styleClass="islands2" stylesheets="@../styles/islands1.css" />
-               <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="421.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/Coin.png" />
-                  </image>
-               </ImageView>
-               <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="381.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/Coin.png" />
-                  </image>
-               </ImageView>
-               <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="343.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/Coin.png" />
-                  </image>
-               </ImageView>
                <Rectangle fx:id="platform1" arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="369.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="57.0">
                   <fill>
                      <LinearGradient endX="1.0" endY="1.0">

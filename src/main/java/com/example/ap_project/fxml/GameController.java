@@ -120,6 +120,10 @@ public class GameController {
 
         id = rand.nextInt(1000);
         for (Island island : islands) {
+            Coin coin = Coin.insert(island);
+            if (coin != null) {
+                interactables.add(coin);
+            }
             int num = rand.nextInt(5);
             switch (num) {
                 case 0 -> {
