@@ -38,7 +38,6 @@ public class Coin extends GameObject {
             return null;
         }
     }
-
     @Override
     public void interact(int interaction, Hero hero) {
         hero.addCoins(1);
